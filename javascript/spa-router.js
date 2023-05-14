@@ -1,11 +1,10 @@
 function singlePageRouter() {
-  window.addEventListener("haschange", togglePageView);
-  togglePageView();
+  window.addEventListener("haschange", viewChange);
+  viewChange();
 }
 
-function togglePageView() {
+function viewChange() {
   let hashLink = "#velkommen-side";
-  console.log(hashLink);
 
   if (location.hash) {
     hashLink = location.hash;
@@ -13,27 +12,32 @@ function togglePageView() {
 
   hideAllViews();
 
-  document.querySelector("#hashLink").classList.add("active");
+  document.querySelector(hashLink).classList.add("active");
   setActiveLink(hashLink);
 }
 
 function setActiveLink(view) {
   const link = document.querySelector(`a.view-link[href="${view}"]`);
+
+  console.log(link);
+
   if (link) {
     link.classList.add("active");
   }
 }
 
 function hideAllViews() {
+  //   console.log(link);
+
   document
-    .querySelector(".view-content")
+    .querySelectorAll(".view-content")
     .forEach((link) => link.classList.remove("active"));
 
   document
-    .querySelector(".view-link")
+    .querySelectorAll(".view-link")
     .forEach((link) => link.classList.remove("active"));
 
-  // remove .active for all .view-content elements (all views) and .view-link elements (all links)
+  //   remove .active for all .view-content elements (all views) and .view-link elements (all links)
 }
 
 export { singlePageRouter };
