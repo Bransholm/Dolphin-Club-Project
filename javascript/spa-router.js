@@ -1,5 +1,5 @@
 function singlePageRouter() {
-  window.addEventListener("haschange", viewChange);
+  window.addEventListener("hashchange", viewChange);
   viewChange();
 }
 
