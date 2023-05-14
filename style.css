@@ -1,10 +1,11 @@
-.hidden{
-    display: none;
+body {
+  background-color: antiquewhite;
 }
 
-.hidden.active{
-
+.view-content {
+  display: none;
 }
 
-
-
+.view-content.active {
+  display: block;
+}
