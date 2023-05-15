@@ -1,0 +1,30 @@
+{
+  "medlemmer": {
+    "00": {
+      "navn": "Sara",
+      "efternavn": "Petersen",
+      "tlf": "34562373",
+      "adresse": "Blåmajsevej 34 tv.",
+      "postnummer": "6600",
+      "fødselsdato": "1000252800000",
+      "køn": "kvinde",
+      "aktiv": "true",
+      "katergori": "elite",
+      "crawl": false,
+      "rygcrawl": true,
+      "bryst": true,
+      "butterfly": false,
+      "betalt": true
+    }
+  },
+  "tider": {
+    "00": {
+      "svømmerID": "00",
+      "deciplin": "bryst",
+      "tid": "2-43-31-19",
+      "dato": "1619827200000",
+      "stævne": "Fynsmesterskabet 2009",
+      "plads": "4"
+    }
+  }
+}
