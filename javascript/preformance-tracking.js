@@ -1,5 +1,5 @@
 const endpoint =
-  "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app/tider";
+  "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
 function showPreformanceForm() {
   console.log("preformance form is active");
@@ -74,8 +74,10 @@ function submitNewPreformance(event) {
 }
 
 async function postNewResult(data) {
-  const resultPromise = await fetch(`${endpoint}/tider.js`);
-  const resultData = await JSON.resultPromise.stringify();
+  console.log(data);
+  const url = `${endpoint}/tider.json`;
+  const resultJson = await JSON.stringify(data);
+  const resultPost = await fetch(url, { method: "POST", body: resultJson });
 }
 
 export { showPreformanceForm };
