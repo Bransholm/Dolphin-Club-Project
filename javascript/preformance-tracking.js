@@ -63,13 +63,17 @@ function submitNewPreformance(event) {
 
   const resultData = {
     deciplin: form.svomme_decilpin.value,
-    
+    svømmerID: form.svomme_id.value,
+    tid: form.svomme_resultat.value,
+    dato: form.svomme_dato.value,
+    stævne: form.staevne_navn.value,
+    pladsering: form.staevne_resultat.value,
   };
 
-  postNewResult();
+  postNewResult(resultData);
 }
 
-async function postNewResult() {
+async function postNewResult(data) {
   const resultPromise = await fetch(`${endpoint}/tider.js`);
   const resultData = await JSON.resultPromise.stringify();
 }
