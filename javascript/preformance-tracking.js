@@ -14,11 +14,12 @@ function showPreformanceForm() {
 }
 
 // Jeg vil gerne have en data-list så man kan vælge stævner eller tilføje et...
+//spørg maskinen...
 function visualizePreformanceDialog() {
   const dialogHTML =
     /*html*/
     `
-  <form id="time-result-form">
+  <form id="time-result-form" onsubmit="return validateFormsDate()" method="post">
   <legend>Svømmetid</legend>
   <lable for="svomme_decilpin">Deciplin</lable>
   <select id="svomme_decilpin" name="svomme_decilpin">
@@ -32,15 +33,14 @@ function visualizePreformanceDialog() {
   <lable for="svomme-resultat">Tid-Resultat</lable>
   <input type="text" id="svomme_resultat" name="svomme_resultat" required placeholder="Min-Sek-TiSek-HunSek">
   <lable for="svomme_dato">Dato</lable>
-  <input type="text" id="svomme_dato" name="svomme_dato" onsubmit=return validateFormsDate() method="post" required placeholder="ÅÅÅÅ-MM-DD">
+  <input type="text" id="svomme_dato" name="svomme_dato" placeholder="ÅÅÅÅ-MM-DD" required>
   <legend>Stævne</legend>
   <lable for="staevne_navn">Stævnets Navn</lable>
   <input type="text" id="staevne_navn" name="staevne_navn" placeholder="stævnetsNavn-årstal">
   <lable for="staevne_resultat">Pladsering</lable>
   <input type="text" id="staevne_resultat" name="staevne_resultat" placeholder="No.">
 
-    
-  <button id="btn-submit-result-time">opret</button>
+  <button type="submit" id="btn-submit-result-time">opret</button>
   </form>
   `;
 
@@ -52,7 +52,6 @@ function visualizePreformanceDialog() {
 //------------ Validering af forms--------------
 function validateFormsDate() {
   console.log("hey");
-  alert("validated");
 }
 
 //Når submit-trykkes
