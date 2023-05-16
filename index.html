@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <title>Delfinen</title>
+    <title>The Dolphin Club</title>
   </head>
   <body>
+
+    <!-- header -->
     <div class="page-view-grid">
       <header class="header">Header</header>
-
+      
+      <!-- Menu -->
       <nav class="nav-bar">
         <button onclick="showSection('section1')" id="button1">
           Velkommen
@@ -26,30 +29,60 @@
           Admin login
         </button>
       </nav>
-
+      
+      <!-- Main -->
       <main class="main">
-        <section class="show-hide-section" id="section1" style="display: block">
+
+        <!-- Velkommen -->
+        <section class="show-hide-section velkommen" id="section1" style="display: block">
           Velkommen
         </section>
-        <section class="show-hide-section" id="section2">Åbningstider</section>
-        <section class="show-hide-section" id="section3">Indmeld</section>
-        <section class="show-hide-section" id="section4">Priser</section>
-        <section class="show-hide-section" id="section5">Kontakt</section>
+        
+        <!-- Åbningstider -->
+        <section class="show-hide-section aabningstider" id="section2">
+            Åbningstider
+        </section>
 
-        <section class="show-hide-section" id="section6">
+        <!-- Indmeld -->
+        <section class="show-hide-section indmeld" id="section3">
+            Indmeld
+        </section>
+
+        <!-- Priser -->
+        <section class="show-hide-section priser" id="section4">
+            Priser
+        </section>
+
+        <!-- Kontakt -->
+        <section class="show-hide-section kontakt" id="section5">
+            Kontakt
+        </section>
+        
+        <!-- Login -->
+        <section class="show-hide-section login" id="section6">
           Login:<br />
-          <button onclick="showSection('section7')" id="button7">
-            Formand
-          </button>
+          <button onclick="showSection('section7')" id="button7">Formand</button>
           <button onclick="showSection('section8')" id="button8">Kassér</button>
           <button onclick="showSection('section9')" id="button9">Træner</button>
         </section>
+        
+        <!-- Formand -->
+        <section class="show-hide-section formand" id="section7">
+            Formand
+        </section>
 
-        <section class="show-hide-section" id="section7">Formand</section>
-        <section class="show-hide-section" id="section8">Kassér</section>
-        <section class="show-hide-section" id="section9">Træner</section>
+        <!-- Kassér -->
+        <section class="show-hide-section kasser" id="section8">
+            Kassér
+        </section>
+        
+        <!-- Træner -->
+        <section class="show-hide-section traener" id="section9">
+            Træner
+        </section>
       </main>
 
+      <!-- Footer -->
       <footer class="footer">Footer</footer>
     </div>
 

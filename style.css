@@ -23,6 +23,7 @@ body {
 .main {
   background-color: blueviolet;
   grid-column: 2/-1;
+  min-height: 450px;
 }
 
 .footer {
