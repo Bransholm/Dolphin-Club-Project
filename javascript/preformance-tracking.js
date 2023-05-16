@@ -36,7 +36,7 @@ function visualizePreformanceDialog() {
   <lable for="svomme_dato">Dato</lable>
   <input type="text" id="svomme_dato" name="svomme_dato" placeholder="ÅÅÅÅ-MM-DD" required>
   
-  <lable for="resultat-aar">år</lable>
+  <lable for="resultat-aar">År</lable>
   <input type="text" id="resultat-aar" name="resultat-aar">
   <lable for="resultat-maaned" ></lable>
   <select id="resultat-maaned" name="resultat-maaned">
@@ -51,7 +51,12 @@ function visualizePreformanceDialog() {
   <option value="09">Oktober</option>
   <option value="10">September</option>
   <option value="11">November</option>
-  <option value="12">December</option>  
+  <option value="12">December</option>
+  
+  <lable></lable>
+
+
+
 </select>
 
 
