@@ -1,18 +1,3 @@
-"use strict";
-
-console.log("Javascript is running");
-
-import { singlePageRouter } from "./spa-router.js";
-import { showPreformanceForm } from "./preformance-tracking.js";
-import { showSection } from "./router.js";
-
-window.addEventListener("load", start);
-
-function start() {
-  singlePageRouter();
-  showPreformanceForm();
-}
-
 function showSection(sectionId) {
   // Hide all sections
   var sections = document.getElementsByClassName("show-hide-section");
@@ -24,3 +9,5 @@ function showSection(sectionId) {
   var section = document.getElementById(sectionId);
   section.style.display = "block";
 }
+
+export { showSection };
