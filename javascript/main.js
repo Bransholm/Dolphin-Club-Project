@@ -10,6 +10,16 @@ window.addEventListener("load", start);
 function start() {
   // singlePageRouter();
   showPreformanceForm();
+  addEs();
+}
+
+function addEs() {
+  document
+    .querySelector("button1")
+    .addEventListener("click", showSection("section1"));
+  document
+    .querySelector("button2")
+    .addEventListener("click", showSection("section2"));
 }
 
 function showSection(sectionId) {
