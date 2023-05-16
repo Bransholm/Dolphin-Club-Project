@@ -9,83 +9,83 @@
     <title>The Dolphin Club</title>
   </head>
   <body>
-
-    <!-- header -->
     <div class="page-view-grid">
+      <!-- Header -->
       <header class="header">Header</header>
-      
+
       <!-- Menu -->
       <nav class="nav-bar">
-        <button onclick="showSection('section1')" id="button1">
-          Velkommen
-        </button>
-        <button onclick="showSection('section2')" id="button2">
-          Åbningstider
-        </button>
-        <button id="button3">Indmeld</button>
-        <button id="button4">Priser</button>
-        <button id="button5">Kontakt</button>
-        <button id="button6">
-          Admin login
-        </button>
+        Menu
+        <a class="view-link" href="#velkommen-side">Velkommen</a>
+        <a class="view-link" href="#aabningstider-side">Åbningstider</a>
+        <a class="view-link" href="#indmeling-side">Indmeling</a>
+        <a class="view-link" href="#priser-side">Priser</a>
+        <a class="view-link" href="#kontakt-side">Kontakt</a>
+        <a class="view-link" href="#admin-side">Admin</a>
       </nav>
-      
+
       <!-- Main -->
       <main class="main">
-
         <!-- Velkommen -->
-        <section class="show-hide-section velkommen" id="section1" style="display: block">
-          Velkommen
-        </section>
-        
+        <section id="velkommen-side" class="view-content">Velkommen</section>
+
         <!-- Åbningstider -->
-        <section class="show-hide-section aabningstider" id="section2">
-            Åbningstider
+        <section id="aabningstider-side" class="view-content">
+          Åbningstider
         </section>
 
-        <!-- Indmeld -->
-        <section class="show-hide-section indmeld" id="section3">
-            Indmeld
+        <!-- Indmelding -->
+        <section id="indmeling-side" class="view-content">
+          <!-- Indmeldingsform -->
+          <!-- Indmeldeldelse - Indmeld -->
+          <article>Indmeldeldelse - Indmeld</article>
+          <!-- Indmeldeldelse - Confirm -->
+          <article>Indmeldeldelse - Confirm</article>
+          <!-- Indmeldeldelse - succes -->
+          <article>Indmeldeldelse - succes</article>
         </section>
 
         <!-- Priser -->
-        <section class="show-hide-section priser" id="section4">
-            Priser
-        </section>
+        <section id="priser-side" class="view-content">Priser</section>
 
         <!-- Kontakt -->
-        <section class="show-hide-section kontakt" id="section5">
-            Kontakt
-        </section>
-        
-        <!-- Login -->
-        <section class="show-hide-section login" id="section6">
-          Login:<br />
-          <button id="button7">Formand</button>
-          <button id="button8">Kassér</button>
-          <button id="button9">Træner</button>
-        </section>
-        
-        <!-- Formand -->
-        <section class="show-hide-section formand" id="section7">
-            Formand
+        <section id="kontakt-side" class="view-content">Kontakt</section>
+
+        <!-- Admin -->
+        <section id="admin-side" class="view-content">
+          <!-- Rolle - Vælg Rolle -->
+          <article>
+            Vælg Rolle
+            <a class="view-link" href="#formand-side">Formand</a>
+            <a class="view-link" href="#kasser-side">Kassér</a>
+            <a class="view-link" href="#traener-side">Træner</a>
+          </article>
+
+          <!-- Rolle - Login -->
+          <article>Rolle login</article>
         </section>
 
-        <!-- Kassér -->
-        <section class="show-hide-section kasser" id="section8">
-            Kassér
+        <!-- Admin - Formand -->
+        <section id="formand-side" class="view-content">
+          <!-- Admin - Formand - Forside -->
+          <article>Admin - Formand - Forside</article>
         </section>
-        
-        <!-- Træner -->
-        <section class="show-hide-section traener" id="section9">
-            Træner
+
+        <!-- Admin - Kassér -->
+        <section id="kasser-side" class="view-content">
+          <!-- Admin - Kassér - Forside -->
+          <article>Admin - Kassér - Forside</article>
+        </section>
+        <!-- Admin - Træner -->
+        <section id="traener-side" class="view-content">
+          <!-- Admin - Formand - Træner -->
+          <div>View TOP5 + Oprette tider</div>
         </section>
       </main>
 
-      <!-- Footer -->
       <footer class="footer">Footer</footer>
     </div>
 
-    <script src="javascript/main.js" type="module"></script>
+    <script src="./javascript/main.js" type="module"></script>
   </body>
 </html>

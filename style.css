@@ -31,6 +31,10 @@ body {
   background-color: blueviolet;
 }
 
-.show-hide-section {
+.view-content {
   display: none;
+}
+
+.view-content.active {
+  display: block;
 }
