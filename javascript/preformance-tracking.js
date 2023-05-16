@@ -32,8 +32,29 @@ function visualizePreformanceDialog() {
   <input type="text" id="svomme_id" name="svomme_id" required placeholder="angiv korrekt id"> 
   <lable for="svomme-resultat">Tid-Resultat</lable>
   <input type="text" id="svomme_resultat" name="svomme_resultat" required placeholder="Min-Sek-TiSek-HunSek">
+  
   <lable for="svomme_dato">Dato</lable>
   <input type="text" id="svomme_dato" name="svomme_dato" placeholder="ÅÅÅÅ-MM-DD" required>
+  
+  <lable for="resultat-aar">år</lable>
+  <input type="text" id="resultat-aar" name="resultat-aar">
+  <lable for="resultat-maaned" ></lable>
+  <select id="resultat-maaned" name="resultat-maaned">
+  <option value="01">Januar</option>
+  <option value="02">Februar</option>
+  <option value="03">Marts</option>
+  <option value="04">April</option>
+  <option value="05">Maj</option>
+  <option value="06">Juni</option>
+  <option value="07">Juli</option>
+  <option value="08">August</option>
+  <option value="09">Oktober</option>
+  <option value="10">September</option>
+  <option value="11">November</option>
+  <option value="12">December</option>  
+</select>
+
+
   <legend>Stævne</legend>
   <lable for="staevne_navn">Stævnets Navn</lable>
   <input type="text" id="staevne_navn" name="staevne_navn" placeholder="stævnetsNavn-årstal">
@@ -53,7 +74,7 @@ const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //------------ Validering af forms--------------
 function validateFormsDate(formsDate) {
-  // const line1 = 
+  // const line1 =
   // const line2
   // const line3
   console.log("hey");
