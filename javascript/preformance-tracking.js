@@ -33,13 +33,11 @@ function visualizePreformanceDialog() {
   <lable for="svomme-resultat">Tid-Resultat</lable>
   <input type="text" id="svomme_resultat" name="svomme_resultat" required placeholder="Min-Sek-TiSek-HunSek">
   
-  <lable for="svomme_dato">Dato</lable>
-  <input type="text" id="svomme_dato" name="svomme_dato" placeholder="ÅÅÅÅ-MM-DD" required>
+  <lable for="resultat_aar">År</lable>
+  <input type="text" id="resultat_aar" name="resultat_aar">
   
-  <lable for="resultat-aar">År</lable>
-  <input type="text" id="resultat-aar" name="resultat-aar">
-  <lable for="resultat-maaned" ></lable>
-  <select id="resultat-maaned" name="resultat-maaned">
+  <lable for="resultat_maaned" >Måned</lable>
+  <select id="resultat_maaned" name="resultat_maaned">
   <option value="01">Januar</option>
   <option value="02">Februar</option>
   <option value="03">Marts</option>
@@ -52,9 +50,9 @@ function visualizePreformanceDialog() {
   <option value="10">September</option>
   <option value="11">November</option>
   <option value="12">December</option>
-  
-  <lable></lable>
 
+ <lable for="resultat_dag">dag</lable>
+ <input type="text" id="resultat_dag" name="resultat_dag" value="1" min="1" max="31">
 
 
 </select>
@@ -71,18 +69,16 @@ function visualizePreformanceDialog() {
   `;
 
   document
-    .querySelector("#section9")
+    .querySelector(".traener")
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
 const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //------------ Validering af forms--------------
-function validateFormsDate(formsDate) {
-  // const line1 =
-  // const line2
-  // const line3
-  console.log("hey");
+function validateFormsDate(year, month, day) {
+  const resultDate = `${year}-${month}-${day}`;
+  return resultDate;
 }
 
 //Når submit-trykkes
@@ -90,11 +86,14 @@ function submitNewPreformance(event) {
   event.preventDefault();
 
   const form = event.target;
+  const dateYear = form.resultat_aar.value;
+  const dateMonth = form.resultat_maaned.value;
+  const dateDay = form.resultat_dag.value;
 
   const resultData = {
     deciplin: form.svomme_decilpin.value,
     svømmerID: form.svomme_id.value,
-    tid: validateFormsDate(form.svomme_resultat.value),
+    tid: validateFormsDate(dateYear, dateMonth, dateDay),
     dato: form.svomme_dato.value,
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,

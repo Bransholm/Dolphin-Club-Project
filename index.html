@@ -9,11 +9,10 @@
     <title>The Dolphin Club</title>
   </head>
   <body>
-
     <!-- header -->
     <div class="page-view-grid">
       <header class="header">Header</header>
-      
+
       <!-- Menu -->
       <nav class="nav-bar">
         <button onclick="showSection('section1')" id="button1">
@@ -29,56 +28,57 @@
           Admin login
         </button>
       </nav>
-      
+
       <!-- Main -->
       <main class="main">
-
         <!-- Velkommen -->
-        <section class="show-hide-section velkommen" id="section1" style="display: block">
+        <section
+          class="show-hide-section velkommen"
+          id="section1"
+          style="display: block"
+        >
           Velkommen
         </section>
-        
+
         <!-- Åbningstider -->
         <section class="show-hide-section aabningstider" id="section2">
-            Åbningstider
+          Åbningstider
         </section>
 
         <!-- Indmeld -->
         <section class="show-hide-section indmeld" id="section3">
-            Indmeld
+          Indmeld
         </section>
 
         <!-- Priser -->
-        <section class="show-hide-section priser" id="section4">
-            Priser
-        </section>
+        <section class="show-hide-section priser" id="section4">Priser</section>
 
         <!-- Kontakt -->
         <section class="show-hide-section kontakt" id="section5">
-            Kontakt
+          Kontakt
         </section>
-        
+
         <!-- Login -->
         <section class="show-hide-section login" id="section6">
           Login:<br />
-          <button onclick="showSection('section7')" id="button7">Formand</button>
+          <button onclick="showSection('section7')" id="button7">
+            Formand
+          </button>
           <button onclick="showSection('section8')" id="button8">Kassér</button>
           <button onclick="showSection('section9')" id="button9">Træner</button>
         </section>
-        
+
         <!-- Formand -->
         <section class="show-hide-section formand" id="section7">
-            Formand
+          Formand
         </section>
 
         <!-- Kassér -->
-        <section class="show-hide-section kasser" id="section8">
-            Kassér
-        </section>
-        
+        <section class="show-hide-section kasser" id="section8">Kassér</section>
+
         <!-- Træner -->
         <section class="show-hide-section traener" id="section9">
-            Træner
+          Træner
         </section>
       </main>
 
@@ -86,6 +86,6 @@
       <footer class="footer">Footer</footer>
     </div>
 
-    <script src="javascript/main.js"></script>
+    <script src="javascript/main.js" type="module"></script>
   </body>
 </html>

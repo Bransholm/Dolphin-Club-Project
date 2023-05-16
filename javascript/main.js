@@ -3,14 +3,13 @@
 console.log("Javascript is running");
 
 // import { singlePageRouter } from "./spa-router.js";
-// import { showPreformanceForm } from "./preformance-tracking.js";
+import { showPreformanceForm } from "./preformance-tracking.js";
 
 window.addEventListener("load", start);
 
 function start() {
-  console.log("hey");
   // singlePageRouter();
-  // showPreformanceForm();
+  showPreformanceForm();
 }
 
 function showSection(sectionId) {
