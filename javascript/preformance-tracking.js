@@ -114,6 +114,7 @@ function validateFormsDate(year, month, day) {
   return dateInSeconds;
 }
 
+//valider lige om det er den - 30, 31, 28 (ligemeget med skud år???)
 function validateDay(day) {
   if (day.length() < 3) {
   }
