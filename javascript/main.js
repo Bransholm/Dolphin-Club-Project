@@ -2,6 +2,7 @@
 
 console.log("Javascript is running");
 
+
 function showSection(sectionId) {
   // Hide all sections
   var sections = document.getElementsByClassName("show-hide-section");
