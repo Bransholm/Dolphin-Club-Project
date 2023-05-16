@@ -45,7 +45,7 @@ function visualizePreformanceDialog() {
   `;
 
   document
-    .querySelector("#traener-side")
+    .querySelector("#section9")
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
@@ -53,6 +53,9 @@ const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //------------ Validering af forms--------------
 function validateFormsDate(formsDate) {
+  // const line1 = 
+  // const line2
+  // const line3
   console.log("hey");
 }
 
