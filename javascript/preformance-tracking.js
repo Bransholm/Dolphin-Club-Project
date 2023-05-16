@@ -69,7 +69,7 @@ function visualizePreformanceDialog() {
   `;
 
   document
-    .querySelector(".traener")
+    .querySelector("#traener-side")
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
@@ -93,8 +93,8 @@ function submitNewPreformance(event) {
   const resultData = {
     deciplin: form.svomme_decilpin.value,
     svømmerID: form.svomme_id.value,
-    tid: validateFormsDate(dateYear, dateMonth, dateDay),
-    dato: form.svomme_dato.value,
+    tid: form.svomme_resultat.value,
+    dato: validateFormsDate(dateYear, dateMonth, dateDay),
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,
   };
