@@ -19,7 +19,7 @@ function visualizePreformanceDialog() {
   const dialogHTML =
     /*html*/
     `
-  <form id="time-result-form" onsubmit="return validateFormsDate()" method="post">
+  <form id="time-result-form">
   <legend>Svømmetid</legend>
   <lable for="svomme_decilpin">Deciplin</lable>
   <select id="svomme_decilpin" name="svomme_decilpin">
@@ -49,8 +49,10 @@ function visualizePreformanceDialog() {
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
+const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 //------------ Validering af forms--------------
-function validateFormsDate() {
+function validateFormsDate(formsDate) {
   console.log("hey");
 }
 
@@ -63,7 +65,7 @@ function submitNewPreformance(event) {
   const resultData = {
     deciplin: form.svomme_decilpin.value,
     svømmerID: form.svomme_id.value,
-    tid: form.svomme_resultat.value,
+    tid: validateFormsDate(form.svomme_resultat.value),
     dato: form.svomme_dato.value,
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,
