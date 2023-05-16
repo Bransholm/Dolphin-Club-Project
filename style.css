@@ -38,3 +38,7 @@ body {
 .view-content.active {
   display: block;
 }
+
+input :invalid :required {
+  border: 2px solid red;
+}
