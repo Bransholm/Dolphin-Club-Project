@@ -1,3 +1,35 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
 
+.page-view-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-gap: 6px;
+}
 
+.header {
+  grid-column: 1/-1;
+  background-color: blueviolet;
+}
 
+.nav-bar {
+  background-color: blueviolet;
+}
+
+.main {
+  background-color: blueviolet;
+  grid-column: 2/-1;
+}
+
+.footer {
+  grid-column: 1/-1;
+  background-color: blueviolet;
+}
+
+.show-hide-section {
+  display: none;
+}

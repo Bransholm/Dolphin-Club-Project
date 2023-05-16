@@ -1,87 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>The Dolphin Club</title>
-</head>
-<body>
-<div class="site-grid">
-    <!-- Header -->
-    <header>Header</header>
-    
-    <!-- Menu -->
-    <nav>Menu</nav>
-    
-    <!-- Main -->
-    <Main>
-        
-        <!-- Velkommen -->
-        <section>Velkommen</section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Delfinen</title>
+  </head>
+  <body>
+    <div class="page-view-grid">
+      <header class="header">Header</header>
 
-        <!-- Åbningstider -->
-        <section>Åbningstider</section>
+      <nav class="nav-bar">
+        <button onclick="showSection('section1')" id="button1">
+          Velkommen
+        </button>
+        <button onclick="showSection('section2')" id="button2">
+          Åbningstider
+        </button>
+        <button onclick="showSection('section3')" id="button3">Indmeld</button>
+        <button onclick="showSection('section4')" id="button4">Priser</button>
+        <button onclick="showSection('section5')" id="button5">Kontakt</button>
+        <button onclick="showSection('section6')" id="button6">
+          Admin login
+        </button>
+      </nav>
 
-        <!-- Indmelding -->
-        <section>
-            <!-- Indmeldingsform -->
-            <!-- Indmeldeldelse - Indmeld -->
-            <article>Indmeldeldelse - Indmeld</article>
-                        <!-- Indmeldeldelse - Confirm -->
-            <article>Indmeldeldelse - Confirm</article>
-                        <!-- Indmeldeldelse - succes -->
-            <article>Indmeldeldelse - succes</article>
+      <main class="main">
+        <section class="show-hide-section" id="section1" style="display: block">
+          Velkommen
         </section>
-
-        <!-- Priser -->
-        <section>Priser</section>
-
-        <!-- Kontakt -->
-        <section>Kontakt</section>
-
-        <!-- Admin -->
-        <section>
-            <!-- Rolle - Vælg Rolle -->
-            <article>Vælg Rolle</article>
-
-            <!-- Rolle - Login -->
-            <article>Rolle login</article>
+        <section class="show-hide-section" id="section2">Åbningstider</section>
+        <section class="show-hide-section" id="section3">Indmeld</section>
+        <section class="show-hide-section" id="section4">Priser</section>
+        <section class="show-hide-section" id="section5">Kontakt</section>
+        <section class="show-hide-section" id="section6">
+          Login:<br />
+          <button onclick="showSection('section7')" id="button7">
+            Formand
+          </button>
+          <button onclick="showSection('section8')" id="button8">Kassér</button>
+          <button onclick="showSection('section9')" id="button9">Træner</button>
         </section>
+        <section class="show-hide-section" id="section7">Formand</section>
+        <section class="show-hide-section" id="section8">Kassér</section>
+        <section class="show-hide-section" id="section9">Træner</section>
+      </main>
 
-        <!-- Admin - Formand -->
-        <section>
-            <!-- Admin - Formand - Forside -->
-            <article>Admin - Formand - Forside</article>
+      <footer class="footer">Footer</footer>
+    </div>
 
-        <!-- Admin - Kassér -->
-        <section>
-            <!-- Admin - Kassér - Forside -->
-            <article>Admin - Kassér - Forside</article>
-
-            <!-- Admin - Træner -->
-        <section>
-            <!-- Admin - Formand - Træner -->
-            <article>Admin - Formand - Træner
-                <section>View TOP5 + Oprette tider</section>
-            </article>
-
-
-        </section>
-
-    </Main>
-
-    <footer>Footer</footer>
-
-</div>
-
-
-
-
-
-
-    <script src="./javascript/main.js" type="module"></script>
-</body>
+    <script src="javascript/main.js"></script>
+  </body>
 </html>
