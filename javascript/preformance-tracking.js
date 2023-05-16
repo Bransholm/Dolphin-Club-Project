@@ -77,8 +77,10 @@ const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //------------ Validering af forms--------------
 function validateFormsDate(year, month, day) {
-  const resultDate = `${year}-${month}-${day}`;
-  return resultDate;
+  const resultDate = new Date(`${year}-${month}-${day}`);
+  const dateInSeconds = resultDate.valueOf();
+  console.log(dateInSeconds);
+  return dateInSeconds;
 }
 
 //Når submit-trykkes
