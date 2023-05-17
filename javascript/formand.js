@@ -7,7 +7,8 @@ let medlemmer;
 
 //window.addEventListener("load", start);
 
-function startIndmelding() {
+async function startIndmelding() {
+  runUpdate();
   // const memberlist = updateMemberGrid();
   // console.log(memberlist);
   // showMembers(memberlist);
@@ -22,6 +23,12 @@ function startIndmelding() {
 }
 
 //===========REST============//
+
+//bedre navne ASAP!
+async function runUpdate() {
+  medlemmer = await updateMemberGrid();
+  showMembers(medlemmer);
+}
 
 function showMembers(listOfMembers) {
   console.log("Show the members");
@@ -122,7 +129,8 @@ async function createMember(
   });
   if (response.ok) {
     console.log("Nyt medlem er blevet oprettet i Firebase");
-    updateMemberGrid();
+    runUpdate();
+    // updateMemberGrid();
   }
 }
 

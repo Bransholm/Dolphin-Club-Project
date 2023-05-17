@@ -1,12 +1,14 @@
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
-// let medlemmer;
+let medlemmer;
 
 async function updateMemberGrid() {
-  const medlemmer = await getMembers();
+  console.log("update grid");
+  medlemmer = await getMembers();
   return medlemmer;
 }
+
 async function getMembers() {
   console.log("HentData");
   const response = await fetch(`${endpoint}/medlemmer.json`);
