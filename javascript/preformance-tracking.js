@@ -11,6 +11,11 @@ function showPreformanceForm() {
   document
     .querySelector("#time-result-form")
     .addEventListener("submit", submitNewPreformance);
+
+  //Holder øje med den måned der er valgt
+  document
+    .querySelector("#resultat_maaned")
+    .addEventListener("change", modifyDaySelector);
 }
 
 // Jeg vil gerne have en data-list så man kan vælge stævner eller tilføje et...
@@ -82,9 +87,9 @@ function visualizePreformanceDialog() {
  <option value="26">26</option>
  <option value="27">27</option>
  <option value="28">28</option>
- <option value="29">29</option>
- <option value="30">30</option>
- <option value="31">31</option>
+ <option id="skudaar" value="29">29</option>
+ <option id="kortMaaned" value="30">30</option>
+ <option id="langMaaned" value="31">31</option>
  </select>
 
 
@@ -107,19 +112,30 @@ function visualizePreformanceDialog() {
 const numericals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 //------------ Validering af forms--------------
-function validateFormsDate(year, month, day) {
-  const resultDate = new Date(`${year}-${month}-${validateDay(day)}`);
+function dateToSeconds(year, month, day) {
+  // const correctDay = validateDay(month, day);
+  const resultDate = new Date(`${year}-${month}-${day}`);
   const dateInSeconds = resultDate.valueOf();
   console.log(dateInSeconds);
   return dateInSeconds;
 }
 
-//valider lige om det er den - 30, 31, 28 (ligemeget med skud år???)
-function validateDay(day) {
-  if (day.length() < 3) {
+function modifyDaySelector(event) {
+  console.log(event.target.value);
+  document.querySelector("#skudaar").classList.remove("view-content");
+  document.querySelector("#kortMaaned").classList.remove("view-content");
+  document.querySelector("#langMaaned").classList.remove("view-content");
+
+  const month = event.target.value;
+  if (month == "02") {
+    document.querySelector("#skudaar").classList.add("view-content");
+    document.querySelector("#kortMaaned").classList.add("view-content");
+    document.querySelector("#langMaaned").classList.add("view-content");
+  } else if (month == "04" || month == "06" || month == "09" || month == "11") {
+    document.querySelector("#langMaaned").classList.add("view-content");
   }
 }
-
+// --------------------------------------------------------------------
 //Når submit-trykkes
 function submitNewPreformance(event) {
   event.preventDefault();
@@ -133,7 +149,7 @@ function submitNewPreformance(event) {
     deciplin: form.svomme_decilpin.value,
     svømmerID: form.svomme_id.value,
     tid: form.svomme_resultat.value,
-    dato: validateFormsDate(dateYear, dateMonth, dateDay),
+    dato: dateToSeconds(dateYear, dateMonth, dateDay),
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,
   };
@@ -147,5 +163,12 @@ async function postNewResult(data) {
   const resultJson = await JSON.stringify(data);
   const resultPost = await fetch(url, { method: "POST", body: resultJson });
 }
+
+
+//--- DATALISTE AF MEDLEMMER?
+
+
+
+
 
 export { showPreformanceForm };
