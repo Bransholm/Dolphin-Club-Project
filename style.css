@@ -42,3 +42,8 @@ body {
 input :invalid :required {
   border: 2px solid red;
 }
+
+.time-result-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
