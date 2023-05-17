@@ -4,13 +4,11 @@ const endpoint =
 let medlemmer;
 
 async function updateMemberGrid() {
-  console.log("update grid");
   medlemmer = await getMembers();
   return medlemmer;
 }
 
 async function getMembers() {
-  console.log("HentData");
   const response = await fetch(`${endpoint}/medlemmer.json`);
   const data = await response.json();
   const members = prepareData(data);
@@ -19,7 +17,6 @@ async function getMembers() {
 }
 
 function prepareData(dataObject) {
-  console.log("lav et array");
   const array = [];
   for (const key in dataObject) {
     const object = dataObject[key];

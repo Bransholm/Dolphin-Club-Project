@@ -31,7 +31,6 @@ async function runUpdate() {
 }
 
 function showMembers(listOfMembers) {
-  console.log("Show the members");
   console.log(listOfMembers);
   document.querySelector("#medlemmer").innerHTML = "";
 
@@ -205,4 +204,4 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { startIndmelding, showMembers };
+export { startIndmelding };

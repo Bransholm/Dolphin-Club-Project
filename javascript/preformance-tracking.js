@@ -1,3 +1,7 @@
+import { updateMemberGrid } from "./getMembers.js";
+
+let medlemmer;
+
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
@@ -6,6 +10,7 @@ function showPreformanceForm() {
 
   //Funktion som skaber forms via DOM.
   visualizePreformanceDialog();
+  memberDatalistGetData();
 
   //Event der aktiveres når sbumit klikkes.
   document
@@ -199,6 +204,9 @@ async function postNewResult(data) {
 }
 
 //--- DATALISTE AF MEDLEMMER?
-
+async function memberDatalistGetData() {
+  medlemmer = await updateMemberGrid();
+  console.log(medlemmer);
+}
 
 export { showPreformanceForm };
