@@ -13,22 +13,30 @@ body {
 
 .header {
   grid-column: 1/-1;
-  background-color: blueviolet;
+  background-color: rgb(0, 118, 139);
+  border-radius: 10px;
 }
 
 .nav-bar {
-  background-color: blueviolet;
+  background-color: darkblue;
+  border-radius: 10px;
 }
 
 .main {
-  background-color: blueviolet;
+  background-color: darkblue;
   grid-column: 2/-1;
   min-height: 450px;
+  border-radius: 10px;
 }
 
 .footer {
   grid-column: 1/-1;
-  background-color: blueviolet;
+  background-color: rgb(0, 118, 139);
+  border-radius: 10px;
+}
+
+.text-link {
+  color: white;
 }
 
 .view-content {
