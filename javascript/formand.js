@@ -1,12 +1,16 @@
+import { updateMemberGrid } from "./getMembers.js";
+
 const endpoint =
-  "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app/";
+  "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
 let medlemmer;
 
 //window.addEventListener("load", start);
 
 function startIndmelding() {
-  updateMemberGrid();
+  // const memberlist = updateMemberGrid();
+  // console.log(memberlist);
+  // showMembers(memberlist);
 
   document
     .querySelector("#btn-create-member")
@@ -19,31 +23,9 @@ function startIndmelding() {
 
 //===========REST============//
 
-async function getMembers() {
-  const response = await fetch(`${endpoint}/medlemmer.json`);
-  const data = await response.json();
-  const members = prepareData(data);
-  console.log(data);
-
-  return members;
-}
-
-async function updateMemberGrid() {
-  medlemmer = await getMembers();
-  showMembers(medlemmer);
-}
-
-function prepareData(dataObject) {
-  const array = [];
-  for (const key in dataObject) {
-    const object = dataObject[key];
-    object.id = key;
-    array.push(object);
-  }
-  return array;
-}
-
 function showMembers(listOfMembers) {
+  console.log("Show the members");
+  console.log(listOfMembers);
   document.querySelector("#medlemmer").innerHTML = "";
 
   for (const member of listOfMembers) {
@@ -215,4 +197,4 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { startIndmelding };
+export { startIndmelding, showMembers };
