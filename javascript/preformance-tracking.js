@@ -25,7 +25,8 @@ function visualizePreformanceDialog() {
     /*html*/
     `
   <form id="time-result-form">
-  <legend>Svømmetid</legend>
+    <legend>Svømmetid</legend>
+ <div class="result-form-element">
   <lable for="svomme_decilpin">Deciplin</lable>
   <select id="svomme_decilpin" name="svomme_decilpin">
   <option value="crawl" selected>Crawl</option>
@@ -33,20 +34,26 @@ function visualizePreformanceDialog() {
   <option value="bryst">Brystsvømning</option>
   <option value="rygcrawl">Rygcrawl</option>
   </select>
+
   <lable for="svomme_id">SvømmerID</lable>
   <input type="text" id="svomme_id" name="svomme_id" required placeholder="angiv korrekt id"> 
+ 
  <div id=medlemsListe></div>
-  <legen>Resultat</legen>
+  </div> 
+ <legen>Resultat</legen>
+  <div class="result-form-element">
+
   <lable for="resultat_min">Minutter</lable>
   <input type="text" id="resultat_min" name="resultat_min" pattern="[0-9]{2}"  placeholder="MM" required>
   <lable for ="resultat_sek">Sekunder</lable>
 <input type="text" id="resultat_sek" name="resultat_sek" pattern="[0-9]{2}" placeholder="SS" required>
 <lable for="resultat_hsek">Hundredele Sekunder</lable>
 <input type="text" id="resultat_hsek" name="resultat_hsek" pattern="[0-9]{2}" placeholder="HH" require> 
-
+</div>
 
 
   <legend>Dato</legend>
+ <div class="result-form-element">
   <lable for="resultat_aar">År</lable>
   <input type="text" id="resultat_aar" name="resultat_aar" pattern="[0-9]{4}" placeholder="ÅÅÅÅ" required >
   
@@ -100,14 +107,16 @@ function visualizePreformanceDialog() {
  <option id="kortMaaned" value="30">30</option>
  <option id="langMaaned" value="31">31</option>
  </select>
-
+</div>
 
 
   <legend>Stævne</legend>
+    <div class="result-form-element">
   <lable for="staevne_navn">Stævnets Navn</lable>
   <input type="text" id="staevne_navn" name="staevne_navn" placeholder="stævnetsNavn-årstal">
   <lable for="staevne_resultat">Pladsering</lable>
   <input type="text" id="staevne_resultat" name="staevne_resultat" placeholder="No.">
+</div>
 
   <button type="submit" id="btn-submit-result-time">opret</button>
   </form>
@@ -190,7 +199,6 @@ async function postNewResult(data) {
 }
 
 //--- DATALISTE AF MEDLEMMER?
-
 
 
 export { showPreformanceForm };

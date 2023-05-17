@@ -51,7 +51,7 @@ input :invalid :required {
   border: 2px solid red;
 }
 
-.time-result-form {
+.result-form-element {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
