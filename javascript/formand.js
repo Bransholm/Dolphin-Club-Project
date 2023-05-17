@@ -3,9 +3,9 @@ const endpoint =
 
 let medlemmer;
 
-window.addEventListener("load", start);
+//window.addEventListener("load", start);
 
-function start() {
+function startIndmelding() {
   updateMemberGrid();
 
   document
@@ -214,3 +214,5 @@ function showNewMember() {
   console.log("En user har clicket på indmeld!");
   document.querySelector("#dialogMemberCreate").showModal();
 }
+
+export { startIndmelding };
