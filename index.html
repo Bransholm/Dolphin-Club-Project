@@ -34,7 +34,11 @@
         </section>
 
         <!-- Indmelding -->
-        <section id="indmeling-side" class="view-content">Indmelding</section>
+        <section id="indmeling-side" class="view-content">
+          Indmelding
+
+          <button id="btn-create-member">Indmeld</button>
+        </section>
 
         <!-- Priser -->
         <section id="priser-side" class="view-content">Priser</section>
@@ -67,7 +71,13 @@
       <article>
         <form id="form-create-member">
           <label for="name">Fornavn</label>
-          <input type="text" id="navn" name="navn" placeholder="Fornavn" />
+          <input
+            type="text"
+            id="navn"
+            name="navn"
+            placeholder="Fornavn"
+            required
+          />
 
           <label for="efternavn">Efternavn</label>
           <input
@@ -75,6 +85,7 @@
             id="efternavn"
             name="efternavn"
             placeholder="Efternavn"
+            required
           /><br />
 
           <label for="adresse">Adresse</label>
@@ -83,6 +94,7 @@
             id="adresse"
             name="adresse"
             placeholder="Adresse"
+            required
           />
 
           <label for="postnummer">Postnummer</label>
@@ -91,12 +103,19 @@
             id="postnummer"
             name="postnummer"
             placeholder="Postnummer"
-            <label
             for="køn"
+            pattern="[0-9]{4}"
+            required
           /><br />
 
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="E-mail" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            required
+          />
 
           <label for="tlf">Telefon Nr</label>
           <input
@@ -105,29 +124,30 @@
             name="tlf"
             pattern="\d{8}"
             placeholder="12345678"
+            required
           />
           <br />
 
           <label for="fødselsdato">Fødselsdato</label>
-          <input type="date" name="fødselsdato" id="fødselsdato" />
+          <input type="date" name="fødselsdato" id="fødselsdato" required />
           <p id="demo">Din alder:</p>
 
           <p>Dit køn</p>
-          <input type="radio" id="mand" name="køn" value="mand" />
+          <input type="radio" id="mand" name="køn" value="mand" required />
           <label for="mand">Mand</label> <br />
-          <input type="radio" id="kvinde" name="køn" value="kvinde" />
+          <input type="radio" id="kvinde" name="køn" value="kvinde" required />
           <label for="kvinde">Kvinde</label>
 
           <p>Vælg om du er aktiv eller passiv</p>
-          <input type="radio" id="aktiv" name="aktiv" value="true" />
+          <input type="radio" id="aktiv" name="aktiv" value="true" required />
           <label for="aktiv">Aktiv</label>
           <br />
-          <input type="radio" id="passiv" name="aktiv" value="false" />
+          <input type="radio" id="passiv" name="aktiv" value="false" required />
           <label for="passiv">Passiv</label>
           <br />
 
           <p>Accepter at du betaler din kontingent ved bruger oprettelse</p>
-          <input type="radio" id="betalt" name="betalt" value="true" />
+          <input type="radio" id="betalt" name="betalt" value="Validate" />
           <label for="betalt">Jeg accepterer</label>
           <br />
           <p>Er du motionssvømmer eller elitesvømmer?</p>
@@ -136,10 +156,17 @@
             id="motionist"
             name="kategori"
             value="motionist"
+            required
           />
           <label for="motionist">Motionist</label>
           <br />
-          <input type="radio" id="elite" name="kategori" value="elite" />
+          <input
+            type="radio"
+            id="elite"
+            name="kategori"
+            value="elite"
+            required
+          />
           <label for="elite">Elite</label>
           <p>
             Hvis du er elitesvømmer så skal vi vide hvilke dicipliner du er
