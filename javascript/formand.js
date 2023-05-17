@@ -8,7 +8,13 @@ window.addEventListener("load", start);
 function start() {
   updateMemberGrid();
 
-  document.querySelector("#btn-create-member");
+  document
+    .querySelector("#btn-create-member")
+    .addEventListener("click", showNewMember);
+
+  document
+    .querySelector("#form-create-member")
+    .addEventListener("submit", createMemberClicked);
 }
 
 //===========REST============//
@@ -147,18 +153,25 @@ function createMemberClicked(event) {
   const adresse = form.adresse.value;
   const aktiv = form.aktiv.value;
   const betalt = form.betalt.value;
-  const bryst = form.bryst.value;
-  const butterfly = form.butterfly.value;
-  const crawl = form.crawl.value;
-  const efternavn = form.crawl.value;
-  const fødselsdato = form.crawl.value;
+  const bryst = form.bryst.checked;
+  const butterfly = form.butterfly.checked;
+  const crawl = form.crawl.checked;
+  const efternavn = form.efternavn.value;
+  const fødselsdato = form.fødselsdato.value;
   const kategori = form.kategori.value;
   const køn = form.køn.value;
   const navn = form.navn.value;
   const postnummer = form.postnummer.value;
-  const rygcrawl = form.rygcrawl.value;
+  const rygcrawl = form.rygcrawl.checked;
   const tlf = form.tlf.value;
-  const age = form.age.value;
+  const dob = new Date(fødselsdato);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+
+  const monthDiff = today.getMonth() - dob.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
 
   console.log(adresse);
   console.log(aktiv);
