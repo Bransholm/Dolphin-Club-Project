@@ -73,8 +73,8 @@ function displayMember(memberObject) {
                 <li>Butterfly: ${memberObject.butterfly}</li>
             </ul>
         <div class="btns">
-            <button class="btn-delete">Slet</button>
-            <button class="btn-update">Edit</button>
+            <button class="btn-delete other-btn">Slet</button>
+            <button class="btn-update other-btn">Edit</button>
         </div>
 
         </article>
@@ -107,7 +107,7 @@ function displayMember(memberObject) {
     document.querySelector("#member-age").textContent = memberObject.age;
 
     document
-      .querySelector("#dialog-delete-member")
+      .querySelector("#form-delete-member")
       .setAttribute("data-id", memberObject.id);
 
     document.querySelector("#dialog-delete-member").showModal();
