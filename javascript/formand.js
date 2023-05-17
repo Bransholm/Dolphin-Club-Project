@@ -189,5 +189,28 @@ function createMemberClicked(event) {
   console.log(tlf);
   console.log(age);
 
-  createMember();
+  createMember(
+    adresse,
+    aktiv,
+    betalt,
+    bryst,
+    butterfly,
+    crawl,
+    efternavn,
+    fødselsdato,
+    kategori,
+    køn,
+    navn,
+    postnummer,
+    rygcrawl,
+    tlf,
+    age
+  );
+  form.reset();
+  document.querySelector("#dialogMemberCreate").close();
+}
+
+function showNewMember() {
+  console.log("En user har clicket på indmeld!");
+  document.querySelector("#dialogMemberCreate").showModal();
 }
