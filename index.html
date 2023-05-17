@@ -50,10 +50,10 @@
 
         <!-- Login -->
         <section id="login-side" class="view-content">
-            Login:
-            <a class="view-link text-link" href="#formand-side">Formand</a>
-            <a class="view-link text-link" href="#kasser-side">Kassér</a>
-            <a class="view-link text-link" href="#traener-side">Træner</a>
+          Login:
+          <a class="view-link text-link" href="#formand-side">Formand</a>
+          <a class="view-link text-link" href="#kasser-side">Kassér</a>
+          <a class="view-link text-link" href="#traener-side">Træner</a>
         </section>
 
         <!-- Formand -->
@@ -69,7 +69,9 @@
         <section id="traener-side" class="view-content">Træner</section>
       </main>
 
-      <footer class="footer"><h2>Created by Thomas, Lukas & Kenneth</h2></footer>
+      <footer class="footer">
+        <h2>Created by Thomas, Lukas & Kenneth</h2>
+      </footer>
     </div>
 
     <dialog id="dialogMemberCreate">
@@ -135,7 +137,7 @@
 
           <label for="fødselsdato">Fødselsdato</label>
           <input type="date" name="fødselsdato" id="fødselsdato" required />
-          <p id="demo">Din alder:</p>
+          <!--<p id="demo">Din alder:</p>-->
 
           <p>Dit køn</p>
           <input type="radio" id="mand" name="køn" value="mand" required />
@@ -152,7 +154,7 @@
           <br />
 
           <p>Accepter at du betaler din kontingent ved bruger oprettelse</p>
-          <input type="radio" id="betalt" name="betalt" value="Validate" />
+          <input type="checkbox" id="betalt" name="betalt" value="true" />
           <label for="betalt">Jeg accepterer</label>
           <br />
           <p>Er du motionssvømmer eller elitesvømmer?</p>
@@ -192,6 +194,20 @@
         </form>
         <form method="dialog"><button>Close</button></form>
       </article>
+    </dialog>
+
+    <dialog id="dialog-delete-member" class="dialog-window">
+      <h2>Vil du gerne slette dette medlem?</h2>
+      <p id="member-id">Medlemmets ID:</p>
+      <p id="member-name">Medlemmets navn:</p>
+      <p id="member-lastname">Medlemmets efternavn:</p>
+      <p id="member-kategori">Medlemmets kategori:</p>
+      <p id="member-køn">Medlemmets køn:</p>
+      <p id="member-age">Medlemmets alder</p>
+      <form method="dialog" id="form-delete-member">
+        <button type="button" id="btn-cancel" class="other-btn">Nej</button>
+        <button type="submit" class="other-btn">Ja</button>
+      </form>
     </dialog>
 
     <script src="./javascript/main.js" type="module"></script>
