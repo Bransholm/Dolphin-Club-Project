@@ -76,6 +76,24 @@ body {
   text-decoration: none;
 }
 
+.aabningstider-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 185px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aabningstider-inner-div-first {
+  text-align: left;
+  width: 100px;
+}
+
+.aabningstider-inner-div-last {
+  text-align: left;
+  width: 150px;
+}
+
 .view-content {
   display: none;
 }
