@@ -1,5 +1,6 @@
 import { updateMemberGrid } from "./getMembers.js";
 import { showNewMember, createMemberClicked } from "./createMember.js";
+import { updateMemberClicked } from "./updateMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
@@ -25,6 +26,10 @@ async function startIndmelding() {
   document
     .querySelector("#form-delete-member")
     .addEventListener("submit", deleteMemberClicked);
+
+  document
+    .querySelector("#form-update-member")
+    .addEventListener("submit", updateMemberClicked);
 }
 
 //===========REST============//
@@ -58,6 +63,7 @@ function displayMember(memberObject) {
                 <li>Adresse: ${memberObject.adresse} ${memberObject.postnummer}</li>
                 <li>Fødselsdato: ${memberObject.fødselsdato}</li>
                 <li>Tlf-Nr: ${memberObject.tlf}</li>
+                <li>Email: ${memberObject.email}</li>
                 <li>Køn: ${memberObject.køn}</li>
                 <li>Aktiv medlem: ${memberObject.aktiv}</li>
                 <li>Kategori: ${memberObject.kategori}</li>
@@ -74,7 +80,7 @@ function displayMember(memberObject) {
             </ul>
         <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
-            <button class="btn-update other-btn">Edit</button>
+            <button class="btn-update other-btn">Rediger</button>
         </div>
 
         </article>
@@ -86,6 +92,10 @@ function displayMember(memberObject) {
   document
     .querySelector("#medlemmer section:last-child .btn-delete")
     .addEventListener("click", deleteButtonClicked);
+
+  document
+    .querySelector("#medlemmer section:last-child .btn-update")
+    .addEventListener("click", updateButtonClicked);
 
   // Nested funktion fordi det er det som jeg er vandt til, hvordan seperer jeg dem?
 
@@ -116,6 +126,38 @@ function displayMember(memberObject) {
       .querySelector("#btn-cancel")
       .addEventListener("click", closeDialog);
   }
+  function updateButtonClicked() {
+    console.log("Rediger medlem er blevet trykket på");
+    const updateForm = document.querySelector("#form-update-member");
+
+    updateForm.navn.value = memberObject.navn;
+    updateForm.efternavn.value = memberObject.efternavn;
+    updateForm.email.value = memberObject.email;
+    updateForm.adresse.value = memberObject.adresse;
+    updateForm.postnummer.value = memberObject.postnummer;
+    updateForm.fødselsdato.value = memberObject.fødselsdato;
+    updateForm.tlf.value = memberObject.tlf;
+    updateForm.køn.value = memberObject.køn;
+    updateForm.aktiv.value = memberObject.aktiv;
+    updateForm.kategori.value = memberObject.kategori;
+    updateForm.betalt.value = memberObject.betalt;
+    //updateForm.age.value = memberObject.age;
+    updateForm.crawl.value = memberObject.crawl;
+    updateForm.rygcrawl.value = memberObject.rygcrawl;
+    updateForm.bryst.value = memberObject.bryst;
+    updateForm.butterfly.value = memberObject.butterfly;
+    updateForm.setAttribute("data-id", memberObject.id);
+
+    document.querySelector("#dialog-update-member").showModal();
+
+    document
+      .querySelector("#form-update-member")
+      .addEventListener("submit", updateMemberClicked);
+
+    document
+      .querySelector("#btn-cancel-update")
+      .addEventListener("click", closeUpdateDialog);
+  }
 }
 
 function deleteMemberClicked(event) {
@@ -138,6 +180,11 @@ async function deleteMember(id) {
 
 function closeDialog() {
   document.querySelector("#dialog-delete-member").close();
+}
+
+function closeUpdateDialog() {
+  document.querySelector("#dialog-update-member").close();
+  console.log("Opdatering annulleret");
 }
 
 export { startIndmelding, runUpdate };
