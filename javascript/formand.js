@@ -63,6 +63,7 @@ function displayMember(memberObject) {
                 <li>Adresse: ${memberObject.adresse} ${memberObject.postnummer}</li>
                 <li>Fødselsdato: ${memberObject.fødselsdato}</li>
                 <li>Tlf-Nr: ${memberObject.tlf}</li>
+                <li>Email: ${memberObject.email}</li>
                 <li>Køn: ${memberObject.køn}</li>
                 <li>Aktiv medlem: ${memberObject.aktiv}</li>
                 <li>Kategori: ${memberObject.kategori}</li>
