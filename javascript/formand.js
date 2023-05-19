@@ -1,5 +1,6 @@
 import { updateMemberGrid } from "./getMembers.js";
 import { showNewMember, createMemberClicked } from "./createMember.js";
+import { updateMemberClicked } from "./updateMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
