@@ -25,6 +25,10 @@ async function startIndmelding() {
   document
     .querySelector("#form-delete-member")
     .addEventListener("submit", deleteMemberClicked);
+
+  document
+    .querySelector("#form-update-member")
+    .addEventListener("submit", updateMemberClicked);
 }
 
 //===========REST============//
@@ -87,6 +91,10 @@ function displayMember(memberObject) {
     .querySelector("#medlemmer section:last-child .btn-delete")
     .addEventListener("click", deleteButtonClicked);
 
+  document
+    .querySelector("#medlemmer section:last-child .btn-update")
+    .addEventListener("click", updateButtonClicked);
+
   // Nested funktion fordi det er det som jeg er vandt til, hvordan seperer jeg dem?
 
   function deleteButtonClicked() {
@@ -115,6 +123,29 @@ function displayMember(memberObject) {
     document
       .querySelector("#btn-cancel")
       .addEventListener("click", closeDialog);
+  }
+  function updateButtonClicked() {
+    console.log("Rediger medlem er blevet trykket på");
+    const updateForm = document.querySelector("#form-update-member");
+
+    updateForm.navn.value = memberObject.navn;
+    updateForm.efternavn.value = memberObject.efternavn;
+    updateForm.adresse.value = memberObject.adresse;
+    updateForm.postnummer.value = memberObject.postnummer;
+    updateForm.fødselsdato.value = memberObject.fødselsdato;
+    updateForm.tlf.value = memberObject.tlf;
+    updateForm.køn.value = memberObject.køn;
+    updateForm.aktiv.value = memberObject.aktiv;
+    updateForm.kategori.value = memberObject.kategori;
+    updateForm.betalt.value = memberObject.betalt;
+    updateForm.age.value = memberObject.age;
+    updateForm.crawl.value = memberObject.crawl;
+    updateForm.rygcrawl.value = memberObject.rygcrawl;
+    updateForm.bryst.value = memberObject.bryst;
+    updateForm.butterfly.value = memberObject.butterfly;
+    updateForm.setAttribute("data-id", memberObject.id);
+
+    document.querySelector("#dialog");
   }
 }
 
