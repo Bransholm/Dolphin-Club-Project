@@ -21,7 +21,7 @@ async function updateMember(
   tlf,
   age
 ) {
-  console.log("yippie alt det der....");
+  console.log("Update test log");
 
   const memberUpdate = {
     adresse,
@@ -45,14 +45,15 @@ async function updateMember(
   console.log(memberUpdate);
 
   const json = JSON.stringify(memberUpdate);
-  const response = await fetch(`${endpoint}/members/${id}.json`, {
+  const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
     method: "PUT",
     body: json,
   });
   console.log(response.id);
   if (response.ok) {
-    console.log("En ordre er blevet opdateret");
-    document.querySelector("#successfull-update-dialog").showModal();
+    console.log("Et medlem er blevet opdateret");
+    //Lige nedenfor her er der en manglende implementerring af et bekræftelses vindue
+    //document.querySelector("#successfull-update-dialog").showModal();
 
     runUpdate();
   }
@@ -70,6 +71,7 @@ function updateMemberClicked(event) {
   const bryst = form.bryst.checked;
   const butterfly = form.butterfly.checked;
   const crawl = form.crawl.checked;
+  const email = form.email.value;
   const efternavn = form.efternavn.value;
   const fødselsdato = form.fødselsdato.value;
   const kategori = form.kategori.value;
@@ -78,8 +80,12 @@ function updateMemberClicked(event) {
   const postnummer = form.postnummer.value;
   const rygcrawl = form.rygcrawl.checked;
   const tlf = form.tlf.value;
+
   const dob = new Date(fødselsdato);
   const today = new Date();
+
+  const id = form.getAttribute("data-id");
+
   let age = today.getFullYear() - dob.getFullYear();
 
   const monthDiff = today.getMonth() - dob.getMonth();
@@ -95,6 +101,7 @@ function updateMemberClicked(event) {
     bryst,
     butterfly,
     crawl,
+    email,
     efternavn,
     fødselsdato,
     kategori,
@@ -106,7 +113,7 @@ function updateMemberClicked(event) {
     age
   );
 
-  document.querySelector("#dialog-update-member");
+  document.querySelector("#dialog-update-member").close();
 }
 
 export { updateMemberClicked };

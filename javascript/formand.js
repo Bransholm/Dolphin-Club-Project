@@ -131,6 +131,7 @@ function displayMember(memberObject) {
 
     updateForm.navn.value = memberObject.navn;
     updateForm.efternavn.value = memberObject.efternavn;
+    updateForm.email.value = memberObject.email;
     updateForm.adresse.value = memberObject.adresse;
     updateForm.postnummer.value = memberObject.postnummer;
     updateForm.fødselsdato.value = memberObject.fødselsdato;
@@ -139,12 +140,14 @@ function displayMember(memberObject) {
     updateForm.aktiv.value = memberObject.aktiv;
     updateForm.kategori.value = memberObject.kategori;
     updateForm.betalt.value = memberObject.betalt;
-    updateForm.age.value = memberObject.age;
+    //updateForm.age.value = memberObject.age;
     updateForm.crawl.value = memberObject.crawl;
     updateForm.rygcrawl.value = memberObject.rygcrawl;
     updateForm.bryst.value = memberObject.bryst;
     updateForm.butterfly.value = memberObject.butterfly;
     updateForm.setAttribute("data-id", memberObject.id);
+
+    document.querySelector("#dialog-update-member").showModal();
 
     document
       .querySelector("#form-update-member")
