@@ -88,6 +88,7 @@ input :invalid :required {
   border: 2px solid red;
 }
 
+/* fomatere formen under tilføj ny tid */
 .result-form-element {
   display: grid;
   grid-template-columns: 1fr 1fr;

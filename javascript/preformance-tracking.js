@@ -41,10 +41,12 @@ function visualizePreformanceDialog() {
   </select>
 
   <lable for="svomme_id">SvømmerID</lable>
-  <input type="text" id="svomme_id" name="svomme_id" required placeholder="angiv korrekt id"> 
+  <input type="text" id="svomme_id" name="svomme_id" list="medlems-liste" required placeholder="angiv korrekt id"> 
  
- <div id=medlemsListe></div>
-  </div> 
+ <datalist id=medlems-liste>
+ </datalist>
+ 
+ </div> 
  <legen>Resultat</legen>
   <div class="result-form-element">
 
@@ -206,7 +208,18 @@ async function postNewResult(data) {
 //--- DATALISTE AF MEDLEMMER?
 async function memberDatalistGetData() {
   medlemmer = await updateMemberGrid();
-  console.log(medlemmer);
+  formDataList(medlemmer);
+}
+
+function formDataList(medlemmer) {
+  for (let medlem of medlemmer) {
+    const medlemDatalistHTML = /*html*/ `<option value=${medlem.navn}>${medlem.navn} ${medlem.efternavn}</option>`;
+    document
+      .querySelector("#medlems-liste")
+      .insertAdjacentHTML("beforeend", medlemDatalistHTML);
+    console.log(medlemDatalistHTML);
+  }
+  // const y = `<option value=${medlem.navn}></option>`;
 }
 
 export { showPreformanceForm };
