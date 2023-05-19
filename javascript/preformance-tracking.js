@@ -5,15 +5,17 @@ let medlemmer;
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
-function showPreformanceForm() {
+function showPerformanceForm() {
   console.log("preformance form is active");
 
   //Funktion som skaber forms via DOM.
   visualizePreformanceDialog();
-
+  addInputFunctionalities();
   // Datalisten skal kunne give ID som value. Det ved jeg ikke hvordan jeg får på stående fod.
   // memberDatalistGetData();
+}
 
+function addInputFunctionalities() {
   //Event der aktiveres når sbumit klikkes.
   document
     .querySelector("#time-result-form")
@@ -261,4 +263,4 @@ function formDataList(medlemmer) {
   // const y = `<option value=${medlem.navn}></option>`;
 }
 
-export { showPreformanceForm };
+export { showPerformanceForm as showPerformanceForm };
