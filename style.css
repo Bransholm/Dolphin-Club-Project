@@ -28,6 +28,7 @@ body {
   border: 2px;
   border-color: white;
   border-style: solid;
+  min-height: 91.5vh;
 }
 
 .main {
@@ -54,6 +55,12 @@ body {
   grid-template-columns: 1fr;
   grid-gap: 10px;
   padding: 10px;
+}
+
+.flex-menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .div-text-link {
