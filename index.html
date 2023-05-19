@@ -287,14 +287,14 @@
       <p id="member-køn">Medlemmets køn:</p>
       <p id="member-age">Medlemmets alder</p>
       <form method="dialog" id="form-delete-member">
-        <button type="button" id="btn-cancel" class="other-btn">Nej</button>
         <button type="submit" class="other-btn">Ja</button>
+        <button type="button" id="btn-cancel" class="other-btn">Nej</button>
       </form>
     </dialog>
 
     <dialog id="dialog-update-member">
       <article>
-        <form id="form-update-member">
+        <form method="dialog" id="form-update-member">
           <label for="name">Fornavn</label>
           <input
             type="text"
@@ -448,8 +448,10 @@
           <label for="crawl">Butterfly</label><br />
 
           <button type="submit" class="other-btn">Opdater</button>
+          <button type="button" id="btn-cancel-update" class="other-btn">
+            Annuller
+          </button>
         </form>
-        <form method="dialog"><button>Fortryd</button></form>
       </article>
     </dialog>
 

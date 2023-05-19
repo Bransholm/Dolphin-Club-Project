@@ -80,7 +80,7 @@ function displayMember(memberObject) {
             </ul>
         <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
-            <button class="btn-update other-btn">Edit</button>
+            <button class="btn-update other-btn">Rediger</button>
         </div>
 
         </article>
@@ -153,6 +153,10 @@ function displayMember(memberObject) {
     document
       .querySelector("#form-update-member")
       .addEventListener("submit", updateMemberClicked);
+
+    document
+      .querySelector("#btn-cancel-update")
+      .addEventListener("click", closeUpdateDialog);
   }
 }
 
@@ -176,6 +180,11 @@ async function deleteMember(id) {
 
 function closeDialog() {
   document.querySelector("#dialog-delete-member").close();
+}
+
+function closeUpdateDialog() {
+  document.querySelector("#dialog-update-member").close();
+  console.log("Opdatering annulleret");
 }
 
 export { startIndmelding, runUpdate };
