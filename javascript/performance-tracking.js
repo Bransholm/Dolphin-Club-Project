@@ -137,8 +137,9 @@ function visualizePreformanceDialog() {
   </form>
   `;
 
+  //Hvor prestation formen vises
   document
-    .querySelector("#traener-side")
+    .querySelector("#nyt-resultat")
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
@@ -197,7 +198,11 @@ function submitNewPreformance(event) {
     deciplin: form.svomme_decilpin.value,
     svømmerID: form.svomme_id.value,
     tid: getResultTime(minuttes, seconds, centiseconds),
-    tidSekunder: calculateTimeCentiseconds(minuttes, seconds, centiseconds),
+    tidCentisekunder: calculateTimeCentiseconds(
+      minuttes,
+      seconds,
+      centiseconds
+    ),
     dato: dateToSeconds(dateYear, dateMonth, dateDay),
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,

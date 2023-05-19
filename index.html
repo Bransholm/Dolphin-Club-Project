@@ -16,12 +16,36 @@
       <!-- Menu -->
       <nav class="nav-bar">
         <div class="menu1">
-          <div class="flex-menu-container"><a class="view-link text-link" href="#velkommen-side"><div class="div-text-link">Velkommen</div></a></div>
-          <div class="flex-menu-container"><a class="view-link text-link" href="#aabningstider-side"><div class="div-text-link">Åbningstider</div></a></div>
-          <div class="flex-menu-container"><a class="view-link text-link" href="#indmeling-side"><div class="div-text-link">Indmeling</div></a></div>
-          <div class="flex-menu-container"><a class="view-link text-link" href="#priser-side"><div class="div-text-link">Priser</div></a></div>
-          <div class="flex-menu-container"><a class="view-link text-link" href="#kontakt-side"><div class="div-text-link">Kontakt</div></a></div>
-          <div class="flex-menu-container"><a class="view-link text-link" href="#login-side"><div class="div-text-link">Admin</div></a></div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#velkommen-side"
+              ><div class="div-text-link">Velkommen</div></a
+            >
+          </div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#aabningstider-side"
+              ><div class="div-text-link">Åbningstider</div></a
+            >
+          </div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#indmeling-side"
+              ><div class="div-text-link">Indmeling</div></a
+            >
+          </div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#priser-side"
+              ><div class="div-text-link">Priser</div></a
+            >
+          </div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#kontakt-side"
+              ><div class="div-text-link">Kontakt</div></a
+            >
+          </div>
+          <div class="flex-menu-container">
+            <a class="view-link text-link" href="#login-side"
+              ><div class="div-text-link">Admin</div></a
+            >
+          </div>
         </div>
       </nav>
 
@@ -137,17 +161,28 @@
         <section id="traener-side" class="view-content">
           <h1>Træner</h1>
 
+          <div id="nyt-resultat">Opret ny tid</div>
 
-<dialog id="nyt-resultat-dialog">
-  <h2>Nyt resultat er oprettet</h2>
-  <h3 id="resultates-svommer"></h3>
-  <p id="resultates-tid"></p>
-  <p id="resultates-dato"></p>
-  <p id="resultates-lokation"></p>
-  <p id="svommers-pladsering"></p>
-  <button id="btn-close-dialog">ok</button>
-</dialog>
+          <table>
+            <tr>
+              <th>Tid</th>
+              <th>Navn</th>
+              <th>Deciplin</th>
+              <th>Stævne</th>
+              <th>Dato</th>
+            </tr>
+            <div id="resultat-overblik"></div>
+          </table>
 
+          <dialog id="nyt-resultat-dialog">
+            <h2>Nyt resultat er oprettet</h2>
+            <h3 id="resultates-svommer"></h3>
+            <p id="resultates-tid"></p>
+            <p id="resultates-dato"></p>
+            <p id="resultates-lokation"></p>
+            <p id="svommers-pladsering"></p>
+            <button id="btn-close-dialog">ok</button>
+          </dialog>
         </section>
       </main>
 
