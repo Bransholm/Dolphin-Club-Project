@@ -132,8 +132,9 @@ body {
   display: block;
 }
 
-input :invalid :required {
-  border: 2px solid red;
+/* skaber en rød farve når input er invalid */
+input:invalid:required {
+  background-color: rgb(255, 255, 158);
 }
 
 /* fomatere formen under tilføj ny tid */
