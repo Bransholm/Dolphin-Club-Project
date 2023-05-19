@@ -23,6 +23,10 @@ function showPreformanceForm() {
   document
     .querySelector("#resultat_maaned")
     .addEventListener("change", modifyDaySelector);
+
+  document
+    .querySelector("#btn-close-dialog")
+    .addEventListener("click", closeDialog);
 }
 
 // Jeg vil gerne have en data-list så man kan vælge stævner eller tilføje et...
@@ -197,6 +201,26 @@ function submitNewPreformance(event) {
     pladsering: form.staevne_resultat.value,
   };
 
+  function setResultPostDialogContent(result) {
+    const successDialog = document.querySelector("#nyt-resultat-dialog");
+    document.querySelector(
+      "#resultates-svommer"
+    ).textContent = `Svømmer: ${result.svømmerID}`;
+    document.querySelector(
+      "#resultates-tid"
+    ).textContent = `tid: ${minuttes}-${seconds}-${centiseconds}`;
+    document.querySelector(
+      "#resultates-dato"
+    ).textContent = `dato: ${dateYear}-${dateMonth}-${dateDay}`;
+    document.querySelector(
+      "#resultates-lokation"
+    ).textContent = `sted: ${result.stævne}`;
+    document.querySelector(
+      "#svommers-pladsering"
+    ).textContent = `pladsering: ${result.pladsering}`;
+  }
+
+  setResultPostDialogContent(resultData);
   postNewResult(resultData);
 }
 
@@ -205,6 +229,18 @@ async function postNewResult(data) {
   const url = `${endpoint}/tider.json`;
   const resultJson = await JSON.stringify(data);
   const resultPost = await fetch(url, { method: "POST", body: resultJson });
+  if (resultPost.ok) {
+    showResultPostDialog();
+    console.log("ny tid optrettet");
+  }
+}
+
+function showResultPostDialog() {
+  document.querySelector("#nyt-resultat-dialog").showModal();
+}
+
+function closeDialog() {
+  document.querySelector("#nyt-resultat-dialog").close();
 }
 
 //--- DATALISTE AF MEDLEMMER?

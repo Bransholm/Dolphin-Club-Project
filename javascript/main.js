@@ -12,5 +12,5 @@ window.addEventListener("load", start);
 function start() {
   singlePageRouter();
   showPreformanceForm();
-  startIndmelding();
+  // startIndmelding();
 }
