@@ -19,7 +19,7 @@ function createMemberPrefromanceTable(performanceList) {
     </tr>`;
 
     document
-      .querySelector("#resultat-overblik")
+      .querySelector("#resultater")
       .insertAdjacentHTML("beforeend", individualPerformanceHTML);
   }
 }
