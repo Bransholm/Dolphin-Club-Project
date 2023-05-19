@@ -10,6 +10,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto auto;
   grid-gap: 10px;
+  height: 100%;
 }
 
 .header {

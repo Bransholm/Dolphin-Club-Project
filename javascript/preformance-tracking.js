@@ -10,7 +10,9 @@ function showPreformanceForm() {
 
   //Funktion som skaber forms via DOM.
   visualizePreformanceDialog();
-  memberDatalistGetData();
+
+  // Datalisten skal kunne give ID som value. Det ved jeg ikke hvordan jeg får på stående fod.
+  // memberDatalistGetData();
 
   //Event der aktiveres når sbumit klikkes.
   document
@@ -213,7 +215,8 @@ async function memberDatalistGetData() {
 
 function formDataList(medlemmer) {
   for (let medlem of medlemmer) {
-    const medlemDatalistHTML = /*html*/ `<option value=${medlem.navn}>${medlem.navn} ${medlem.efternavn}</option>`;
+    // const id = medlem.target.getAttribute("data-id");
+    const medlemDatalistHTML = /*html*/ `<option value=${medlem}>${medlem.navn} ${medlem.efternavn}</option>`;
     document
       .querySelector("#medlems-liste")
       .insertAdjacentHTML("beforeend", medlemDatalistHTML);
