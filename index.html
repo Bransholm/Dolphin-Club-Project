@@ -342,9 +342,172 @@
       <p id="member-køn">Medlemmets køn:</p>
       <p id="member-age">Medlemmets alder</p>
       <form method="dialog" id="form-delete-member">
-        <button type="button" id="btn-cancel" class="other-btn">Nej</button>
         <button type="submit" class="other-btn">Ja</button>
+        <button type="button" id="btn-cancel" class="other-btn">Nej</button>
       </form>
+    </dialog>
+
+    <dialog id="dialog-update-member">
+      <article>
+        <form method="dialog" id="form-update-member">
+          <label for="name">Fornavn</label>
+          <input
+            type="text"
+            id="navnUpdate"
+            name="navn"
+            placeholder="Fornavn"
+            required
+          />
+
+          <label for="efternavn">Efternavn</label>
+          <input
+            type="text"
+            id="efternavnUpdate"
+            name="efternavn"
+            placeholder="Efternavn"
+            required
+          /><br />
+
+          <label for="adresse">Adresse</label>
+          <input
+            type="text"
+            id="adresseUpdate"
+            name="adresse"
+            placeholder="Adresse"
+            required
+          />
+
+          <label for="postnummer">Postnummer</label>
+          <input
+            type="text"
+            id="postnummerUpdate"
+            name="postnummer"
+            placeholder="Postnummer"
+            for="køn"
+            pattern="[0-9]{4}"
+            required
+          /><br />
+
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="emailUpdate"
+            name="email"
+            placeholder="E-mail"
+            required
+          />
+
+          <label for="tlf">Telefon Nr</label>
+          <input
+            type="tel"
+            id="tlfUpdate"
+            name="tlf"
+            pattern="\d{8}"
+            placeholder="12345678"
+            required
+          />
+          <br />
+
+          <label for="fødselsdato">Fødselsdato</label>
+          <input
+            type="date"
+            name="fødselsdato"
+            id="fødselsdatoUpdate"
+            required
+          />
+          <!--<p id="demo">Din alder:</p>-->
+
+          <p>Dit køn</p>
+          <input
+            type="radio"
+            id="mandUpdate"
+            name="køn"
+            value="mand"
+            required
+          />
+          <label for="mand">Mand</label> <br />
+          <input
+            type="radio"
+            id="kvindeUpdate"
+            name="køn"
+            value="kvinde"
+            required
+          />
+          <label for="kvinde">Kvinde</label>
+
+          <p>Vælg om du er aktiv eller passiv</p>
+          <input
+            type="radio"
+            id="aktivUpdate"
+            name="aktiv"
+            value="true"
+            required
+          />
+          <label for="aktiv">Aktiv</label>
+          <br />
+          <input
+            type="radio"
+            id="passivUpdate"
+            name="aktiv"
+            value="false"
+            required
+          />
+          <label for="passiv">Passiv</label>
+          <br />
+
+          <p>Accepter at du betaler din kontingent ved bruger oprettelse</p>
+          <input type="checkbox" id="betalt" name="betalt" value="true" />
+          <label for="betalt">Jeg accepterer</label>
+          <br />
+          <p>Er du motionssvømmer eller elitesvømmer?</p>
+          <input
+            type="radio"
+            id="motionistUpdate"
+            name="kategori"
+            value="motionist"
+            required
+          />
+          <label for="motionist">Motionist</label>
+          <br />
+          <input
+            type="radio"
+            id="eliteUpdate"
+            name="kategori"
+            value="elite"
+            required
+          />
+          <label for="elite">Elite</label>
+          <p>
+            Hvis du er elitesvømmer så skal vi vide hvilke dicipliner du er
+            aktiv i.
+          </p>
+          <p>Du skal mindst vælge en, men man må gerne vælge flere!</p>
+
+          <input type="checkbox" id="crawlUpdate" name="crawl" value="true" />
+          <label for="crawl">Crawl</label><br />
+          <input
+            type="checkbox"
+            id="rygcrawlUpdate"
+            name="rygcrawl"
+            value="true"
+          />
+          <label for="rygcrawl">Rygcrawl</label><br />
+          <input type="checkbox" id="brystUpdate" name="bryst" value="true" />
+          <label for="bryst">Bryst</label><br />
+          <input
+            type="checkbox"
+            id="butterflyUpdate"
+            name="butterfly"
+            value="true"
+          />
+          <label for="crawl">Butterfly</label><br />
+
+          <button type="submit" class="other-btn">Opdater</button>
+          <button type="button" id="btn-cancel-update" class="other-btn">
+            Annuller
+          </button>
+        </form>
+      </article>
     </dialog>
 
     <script src="./javascript/main.js" type="module"></script>

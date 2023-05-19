@@ -11,6 +11,7 @@ async function createMember(
   butterfly,
   crawl,
   efternavn,
+  email,
   fødselsdato,
   kategori,
   køn,
@@ -29,12 +30,13 @@ async function createMember(
   }
 
   const newMember = {
-    addresse: adresse,
+    adresse: adresse,
     aktiv: aktiv,
     betalt: betalt,
     bryst: bryst,
     butterfly: butterfly,
     crawl: crawl,
+    email: email,
     efternavn: efternavn,
     fødselsdato: fødselsdato,
     kategori: kategori,
@@ -70,6 +72,7 @@ function createMemberClicked(event) {
   const butterfly = form.butterfly.checked;
   const crawl = form.crawl.checked;
   const efternavn = form.efternavn.value;
+  const email = form.email.value;
   const fødselsdato = form.fødselsdato.value;
   const kategori = form.kategori.value;
   const køn = form.køn.value;
@@ -93,6 +96,7 @@ function createMemberClicked(event) {
   console.log(butterfly);
   console.log(crawl);
   console.log(efternavn);
+  console.log(email);
   console.log(fødselsdato);
   console.log(kategori);
   console.log(køn);
@@ -110,6 +114,7 @@ function createMemberClicked(event) {
     butterfly,
     crawl,
     efternavn,
+    email,
     fødselsdato,
     kategori,
     køn,
