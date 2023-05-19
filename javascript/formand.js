@@ -145,7 +145,9 @@ function displayMember(memberObject) {
     updateForm.butterfly.value = memberObject.butterfly;
     updateForm.setAttribute("data-id", memberObject.id);
 
-    document.querySelector("#dialog");
+    document
+      .querySelector("#form-update-member")
+      .addEventListener("submit", updateMemberClicked);
   }
 }
 
