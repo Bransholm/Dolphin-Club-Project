@@ -6,6 +6,15 @@ async function showMemberPerformances() {
   createMemberPrefromanceTable(performanceList);
 }
 
+let membersList
+
+//bedre navne ASAP!
+async function runUpdate() {
+  membersList = await updateMemberGrid();
+}
+
+
+
 function createMemberPrefromanceTable(performanceList) {
   for (const performance of performanceList) {
     const individualPerformanceHTML =
