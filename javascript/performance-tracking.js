@@ -1,5 +1,9 @@
 import { updateMemberGrid } from "./getMembers.js";
 
+
+//MANGLER EN UPDATE FUNKTION!!!!!
+
+
 let medlemmer;
 
 const endpoint =
