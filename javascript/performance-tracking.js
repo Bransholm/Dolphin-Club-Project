@@ -1,8 +1,6 @@
 import { updateMemberGrid } from "./getMembers.js";
 
-
 //MANGLER EN UPDATE FUNKTION!!!!!
-
 
 let medlemmer;
 
@@ -16,7 +14,7 @@ function showPerformanceForm() {
   visualizePreformanceDialog();
   addInputFunctionalities();
   // Datalisten skal kunne give ID som value. Det ved jeg ikke hvordan jeg får på stående fod.
-  // memberDatalistGetData();
+  memberDatalistGetData();
 }
 
 function addInputFunctionalities() {
@@ -263,7 +261,7 @@ async function memberDatalistGetData() {
 function formDataList(medlemmer) {
   for (let medlem of medlemmer) {
     // const id = medlem.target.getAttribute("data-id");
-    const medlemDatalistHTML = /*html*/ `<option value=${medlem}>${medlem.navn} ${medlem.efternavn}</option>`;
+    const medlemDatalistHTML = /*html*/ `<option value=${medlem.id}>${medlem.navn} ${medlem.efternavn}</option>`;
     document
       .querySelector("#medlems-liste")
       .insertAdjacentHTML("beforeend", medlemDatalistHTML);
