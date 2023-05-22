@@ -47,20 +47,23 @@ async function updateMember(
   console.log(memberUpdate);
 
   const json = JSON.stringify(memberUpdate);
-  const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
-    method: "PUT",
-    body: json,
-  });
-  console.log(response.id);
-  if (response.ok) {
-    console.log("Et medlem er blevet opdateret");
-    document.querySelector("#successfull-updateMember").showModal();
-    //Lige nedenfor her er der en manglende implementerring af et bekræftelses vindue
-    //document.querySelector("#successfull-update-dialog").showModal();
-    runUpdate();
+  try {
+    const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
+      method: "PUT",
+      body: json,
+    });
+
+    if (response.ok) {
+      console.log("Et medlem er blevet opdateret");
+      document.querySelector("#successfull-updateMember").showModal();
+      runUpdate();
+    } else {
+      console.error("Failed to update member:", response.status);
+    }
+  } catch (error) {
+    console.error("An error occurred during the update:", error);
   }
 }
-
 function updateMemberClicked(event) {
   event.preventDefault();
   console.log("Updatering af medlem igang!");
@@ -119,7 +122,6 @@ function updateMemberClicked(event) {
 }
 
 function closeUpdateSuccessWindow() {
-  // document.querySelector("#order-form").reset();
   document.querySelector("#successfull-updateMember").close();
 }
 

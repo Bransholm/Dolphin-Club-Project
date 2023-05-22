@@ -48,19 +48,22 @@ async function createMember(
     age: age,
   };
   const json = JSON.stringify(newMember);
-  const response = await fetch(`${endpoint}/medlemmer.json`, {
-    method: "POST",
-    body: json,
-  });
-  if (response.ok) {
-    console.log("Nyt medlem er blevet oprettet i Firebase");
-    document.querySelector("#successfull-createMember").showModal();
-    runUpdate();
-  } else {
-    document.querySelector("#response-error").showModal();
+  try {
+    const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
+      method: "POST",
+      body: json,
+    });
+
+    if (response.ok) {
+      console.log("Nyt medlem er blevet oprettet i Firebase");
+      document.querySelector("#successfull-createMember").showModal();
+      runUpdate();
+    } else {
+      console.error("Failed to create member:", response.status);
+    }
+  } catch (error) {
+    console.error("An error occurred during create:", error);
   }
-  runUpdate();
-  // updateMemberGrid();
 }
 
 function createMemberClicked(event) {
