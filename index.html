@@ -352,11 +352,29 @@
         <!-- Login -->
         <section id="login-side" class="view-content">
           <h1>Admin login</h1>
-          Brugernavn:<br />
-          Kodeord:<br />
-          <a class="view-link text-link" href="#formand-side">Formand</a>
-          <a class="view-link text-link" href="#kasser-side">Kassér</a>
-          <a class="view-link text-link" href="#traener-side">Træner</a>
+          <div class="login-form-flexbox">
+          <form action="">
+            <div class="login-form-grid">
+            <label for="username" class="login-grab-form-element">Brugernavn:</label>
+            <input type="text" id="username" name="username" required value="admin-rop">
+            <label for="password"  class="login-grab-form-element">Kodeord:</label>
+            <input type="password" id="password" name="password" value="mypassword">
+            <label for="rememberlogin"  class="login-grab-form-element">Husk login:</label>
+            <div><input type="checkbox" id="rememberlogin" name="rememberlogin" checked  class="login-grab-form-element-checkbox"></div>
+            </div>
+          </form>
+          </div>
+          <div class="grab-button"><a class="view-link text-link" href="#logged-in"><div class="div-text-link-single">Login</div></a></div>
+        </section>
+
+        <!-- Logged in - Vælg rolle -->
+        <section id="logged-in" class="view-content">
+          <h1>Vælg din rolle</h1>
+          <div class="logged-in-buttons">
+          <div class="grab-button"><a class="view-link text-link" href="#formand-side"><div class="div-text-link-single div-text-link-single-buttons">Formand</div></a></div>
+          <div class="grab-button"><a class="view-link text-link" href="#kasser-side"><div class="div-text-link-single div-text-link-single-buttons">Kassér</div></a></div>
+          <div class="grab-button"><a class="view-link text-link" href="#traener-side"><div class="div-text-link-single">Træner</div></a></div>
+          </div>
         </section>
 
         <!-- Formand -->
