@@ -11,11 +11,11 @@ function sortResultTable(value) {
 
   //   const value = event.target.value;
   if (value === "hurtigst") {
-    performances.sort(sortByFastest);
+  return performances.sort(sortByFastest);
   } else if (value === "nyeste") {
-    performances.sort(sortByMostRecent);
+  return performances.sort(sortByMostRecent);
   }
-  createMemberPerfromanceTable(performances);
+//   createMemberPerfromanceTable(performances);
 }
 
 function sortByFastest(a, b) {

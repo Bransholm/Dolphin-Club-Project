@@ -28,8 +28,8 @@ function addSortRelatedEvents() {
 }
 
 function runSortResultTable(event) {
-  sortResultTable(event.target.value);
-  // createMemberPerfromanceTable(performanceList);
+  performanceList = sortResultTable(event.target.value);
+  createMemberPerfromanceTable(performanceList);
 }
 
 function createMemberPerfromanceTable(performanceList) {
