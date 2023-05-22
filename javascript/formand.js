@@ -1,6 +1,8 @@
 import { updateMemberGrid } from "./getMembers.js";
 import { showNewMember, createMemberClicked } from "./createMember.js";
 import { updateMemberClicked } from "./updateMember.js";
+import { deleteMember } from "./deleteMember.js";
+import { deleteMemberClicked } from "./deleteMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
@@ -15,9 +17,9 @@ async function startIndmelding() {
   // console.log(memberlist);
   // showMembers(memberlist);
 
-  document
-    .querySelector("#btn-create-member")
-    .addEventListener("click", showNewMember);
+  //document
+  //  .querySelector("#btn-create-member")
+  //  .addEventListener("click", showNewMember);
 
   document
     .querySelector("#form-create-member")
@@ -41,7 +43,7 @@ async function runUpdate() {
 }
 
 function showMembers(listOfMembers) {
-  console.log(listOfMembers);
+  //console.log(listOfMembers);
   document.querySelector("#medlemmer").innerHTML = "";
 
   for (const member of listOfMembers) {
@@ -157,24 +159,6 @@ function displayMember(memberObject) {
     document
       .querySelector("#btn-cancel-update")
       .addEventListener("click", closeUpdateDialog);
-  }
-}
-
-function deleteMemberClicked(event) {
-  const id = event.target.getAttribute("data-id");
-  deleteMember(id);
-
-  console.log(deleteMember);
-}
-
-async function deleteMember(id) {
-  const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
-    method: "DELETE",
-  });
-
-  if (response.ok) {
-    console.log("Et medlem er blevet slettet fra databasen!");
-    runUpdate();
   }
 }
 
