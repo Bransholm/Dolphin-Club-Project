@@ -10,6 +10,7 @@ async function deleteMember(id) {
 
   if (response.ok) {
     console.log("Et medlem er blevet slettet fra databasen!");
+    document.querySelector("#successfull-deleteMember").showModal();
     runUpdate();
   }
 }

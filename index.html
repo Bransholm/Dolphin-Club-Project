@@ -125,7 +125,7 @@
 
           <div id="dialogMemberCreate">
             <article>
-              <form id="form-create-member">
+              <form id="form-create-member" method="dialog">
                 <label for="name">Fornavn</label>
                 <input
                   type="text"
@@ -274,9 +274,10 @@
                 />
                 <label for="crawl">Butterfly</label><br />
 
-                <button>Create Post</button>
+                <button type="submit" id="createButton">Opret Nyt Medlem</button>
+                <button type="button" id="resetButton">Start Forfra</button>
               </form>
-              <form method="dialog"><button>Close</button></form>
+              
             </article>
           </div>
 
@@ -570,6 +571,34 @@
         </form>
       </article>
     </dialog>
+
+    <dialog id="successfull-createMember" class="dialoge-window">
+        <h2>Du er nu oprettet som bruger!</h2>
+        <p>
+          Du kan nu bruge svømmeklubbens facalitet<br />
+          Husk at få tjekket vores åbningstider
+          <br /><br />
+          Vi glæder os til at se dig!
+        </p>
+        <button id="btn-closeMemberDialog" class="other-btn">
+          Luk vindue
+        </button>
+      </dialog>
+
+      <dialog id="#response-error" class="dialoge-window">
+        <p>Hmmmm... Det ser ud til at der gik noget galt, og din medlems oprettelse gik ikke igennem</p>
+        <button id="btn-closeErrorDialog" class="other-btn">Luk vindue</button>
+      </dialog>
+
+      <dialog id="successfull-updateMember" class="dialoge-window">
+        <h2>Et medlemskab er blevet opdateret</h2>
+        <button id="btn-closeUpdateDialog" class="other-btn">Luk vindue</button>
+      </dialog>
+
+      <dialog id="successfull-deleteMember" class="dialoge-window">
+        <h2>Et medlem er blevet slettet fra databasen</h2>
+        <button id="btn-closeDeleteDialog" class="other-btn">Luk vindue</button>
+      </dialog>
 
     <script src="./javascript/main.js" type="module"></script>
    

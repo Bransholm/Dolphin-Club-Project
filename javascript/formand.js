@@ -1,5 +1,9 @@
 import { updateMemberGrid } from "./getMembers.js";
-import { showNewMember, createMemberClicked } from "./createMember.js";
+import {
+  showNewMember,
+  createMemberClicked,
+  resetForm,
+} from "./createMember.js";
 import { updateMemberClicked } from "./updateMember.js";
 import { deleteMember } from "./deleteMember.js";
 import { deleteMemberClicked } from "./deleteMember.js";
@@ -25,6 +29,8 @@ async function startIndmelding() {
     .querySelector("#form-create-member")
     .addEventListener("submit", createMemberClicked);
 
+  document.getElementById("resetButton").addEventListener("click", resetForm);
+
   document
     .querySelector("#form-delete-member")
     .addEventListener("submit", deleteMemberClicked);
@@ -32,6 +38,21 @@ async function startIndmelding() {
   document
     .querySelector("#form-update-member")
     .addEventListener("submit", updateMemberClicked);
+
+  //luk bekræftelses vinduer
+  document
+    .querySelector("#btn-closeMemberDialog")
+    .addEventListener("click", closeMemberSuccessWindow);
+
+  document
+    .querySelector("#btn-closeUpdateDialog")
+    .addEventListener("click", closeUpdateSuccessWindow);
+
+  document
+    .querySelector("#btn-closeDeleteDialog")
+    .addEventListener("click", closeDeleteSuccessWindow);
+
+  document.querySelector("#btn-closeErrorDialog", closeErrorWindow);
 }
 
 //===========REST============//
@@ -169,6 +190,25 @@ function closeDialog() {
 function closeUpdateDialog() {
   document.querySelector("#dialog-update-member").close();
   console.log("Opdatering annulleret");
+}
+
+function closeMemberSuccessWindow() {
+  //document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-createMember").close();
+}
+
+function closeUpdateSuccessWindow() {
+  // document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-updateMember").close();
+}
+
+function closeDeleteSuccessWindow() {
+  // document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-deleteMember").close();
+}
+
+function closeErrorWindow() {
+  document.querySelector("#response-error").close();
 }
 
 export { startIndmelding, runUpdate };

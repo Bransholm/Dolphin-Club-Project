@@ -54,9 +54,9 @@ async function updateMember(
   console.log(response.id);
   if (response.ok) {
     console.log("Et medlem er blevet opdateret");
+    document.querySelector("#successfull-updateMember").showModal();
     //Lige nedenfor her er der en manglende implementerring af et bekræftelses vindue
     //document.querySelector("#successfull-update-dialog").showModal();
-
     runUpdate();
   }
 }

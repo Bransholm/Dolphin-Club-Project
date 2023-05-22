@@ -54,14 +54,19 @@ async function createMember(
   });
   if (response.ok) {
     console.log("Nyt medlem er blevet oprettet i Firebase");
+    document.querySelector("#successfull-createMember").showModal();
     runUpdate();
-    // updateMemberGrid();
+  } else {
+    document.querySelector("#response-error").showModal();
   }
+  runUpdate();
+  // updateMemberGrid();
 }
 
 function createMemberClicked(event) {
   console.log(event);
   event.preventDefault();
+  //const reset = document.getElementById("dialogMemberCreate");
 
   const form = event.target;
 
@@ -125,7 +130,15 @@ function createMemberClicked(event) {
     age
   );
   form.reset();
-  document.querySelector("#dialogMemberCreate").close();
+  document
+    .getElementById("createButton")
+    .addEventListener("click", createMemberClicked);
+
+  document.getElementById("resetButton").addEventListener("click", resetForm);
+}
+
+function resetForm() {
+  document.getElementById("form-create-member").reset();
 }
 
 function showNewMember() {
@@ -133,4 +146,4 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { showNewMember, createMemberClicked };
+export { showNewMember, createMemberClicked, resetForm };
