@@ -49,7 +49,10 @@ function filterResultDeciplines(decipline) {
 //Jeg vil ikke se folk der er motionister - skal jeg slet ikke kunne vælge deres ID-er?
 // Hvordan med om DE er aktive i en deciplin eller ej... hot daym.
 // Jeg vil have et filter så jeg kan se ditten og datten
-// jeg ville kunne filtrer så jeg kan se én tid pr. svømmeID og filtrer på deciplin - flere filtre aktive på engang?
+
 // Jeg skal også have styr på deres alder...
+// ALDER - loop på tider; Loop på Members og crosscheck ID -> Hvis ID passer få så alderen.
+/// Få dags dato og udregn om den pågælende alder er over 18? - filtrer til eller fra --> Hvis ny liste!
+//// Kommer refresh af DECIPLIN og ALDER til at støde sammen?
 
 export { sortResultTable, filterResultDeciplines };
