@@ -20,6 +20,7 @@ body {
   border: 2px;
   border-color: #5d0067a1;
   border-style: solid;
+  height: 100px;
 }
 
 .nav-bar {
@@ -78,8 +79,8 @@ body {
 
 .div-text-link:hover {
   background: rgb(0, 118, 139);
-  transition: background 2s;
-  -webkit-transition: background 2s;
+  transition: background 1.5s;
+  -webkit-transition: background 1.5s;
   color: white;
   font-weight: bold;
 }
