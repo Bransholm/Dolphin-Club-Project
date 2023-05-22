@@ -4,7 +4,7 @@ const endpoint =
 let medlemmer;
 
 async function updateMemberGrid() {
-  console.log("update grid");
+  //console.log("update grid");
   medlemmer = await getMembers();
   return medlemmer;
 }
