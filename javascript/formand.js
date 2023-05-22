@@ -1,12 +1,17 @@
 import { updateMemberGrid } from "./getMembers.js";
 import {
-  showNewMember,
   createMemberClicked,
+  closeMemberSuccessWindow,
   resetForm,
 } from "./createMember.js";
-import { updateMemberClicked } from "./updateMember.js";
-import { deleteMember } from "./deleteMember.js";
-import { deleteMemberClicked } from "./deleteMember.js";
+import {
+  updateMemberClicked,
+  closeUpdateSuccessWindow,
+} from "./updateMember.js";
+import {
+  deleteMemberClicked,
+  closeDeleteSuccessWindow,
+} from "./deleteMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
@@ -190,21 +195,6 @@ function closeDialog() {
 function closeUpdateDialog() {
   document.querySelector("#dialog-update-member").close();
   console.log("Opdatering annulleret");
-}
-
-function closeMemberSuccessWindow() {
-  //document.querySelector("#order-form").reset();
-  document.querySelector("#successfull-createMember").close();
-}
-
-function closeUpdateSuccessWindow() {
-  // document.querySelector("#order-form").reset();
-  document.querySelector("#successfull-updateMember").close();
-}
-
-function closeDeleteSuccessWindow() {
-  // document.querySelector("#order-form").reset();
-  document.querySelector("#successfull-deleteMember").close();
 }
 
 function closeErrorWindow() {

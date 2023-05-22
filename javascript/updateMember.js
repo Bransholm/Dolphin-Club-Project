@@ -118,4 +118,9 @@ function updateMemberClicked(event) {
   document.querySelector("#dialog-update-member").close();
 }
 
-export { updateMemberClicked };
+function closeUpdateSuccessWindow() {
+  // document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-updateMember").close();
+}
+
+export { updateMemberClicked, closeUpdateSuccessWindow };

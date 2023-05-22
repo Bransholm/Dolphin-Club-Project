@@ -146,4 +146,14 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { showNewMember, createMemberClicked, resetForm };
+function closeMemberSuccessWindow() {
+  //document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-createMember").close();
+}
+
+export {
+  showNewMember,
+  createMemberClicked,
+  resetForm,
+  closeMemberSuccessWindow,
+};

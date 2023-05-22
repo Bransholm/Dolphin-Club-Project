@@ -22,4 +22,9 @@ function deleteMemberClicked(event) {
   console.log(deleteMember);
 }
 
-export { deleteMember, deleteMemberClicked };
+function closeDeleteSuccessWindow() {
+  // document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-deleteMember").close();
+}
+
+export { deleteMember, deleteMemberClicked, closeDeleteSuccessWindow };
