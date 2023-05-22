@@ -66,8 +66,8 @@ function createMemberClicked(event) {
   const form = event.target;
 
   const adresse = form.adresse.value;
-  const aktiv = form.aktiv.value;
-  const betalt = form.betalt.value;
+  const aktiv = form.aktiv.checked;
+  const betalt = form.betalt.checked;
   const bryst = form.bryst.checked;
   const butterfly = form.butterfly.checked;
   const crawl = form.crawl.checked;

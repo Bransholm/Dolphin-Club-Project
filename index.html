@@ -134,6 +134,7 @@
                   placeholder="Fornavn"
                   required
                 />
+                <br />
 
                 <label for="efternavn">Efternavn</label>
                 <input
@@ -152,6 +153,7 @@
                   placeholder="Adresse"
                   required
                 />
+                <br />
 
                 <label for="postnummer">Postnummer</label>
                 <input
@@ -172,6 +174,7 @@
                   placeholder="E-mail"
                   required
                 />
+                <br />
 
                 <label for="tlf">Telefon Nr</label>
                 <input
@@ -191,6 +194,7 @@
                   id="fødselsdato"
                   required
                 />
+                <br />
                 <!--<p id="demo">Din alder:</p>-->
 
                 <p>Dit køn</p>
@@ -201,7 +205,7 @@
                   value="mand"
                   required
                 />
-                <label for="mand">Mand</label> <br />
+                <label for="mand">Mand</label>
                 <input
                   type="radio"
                   id="kvinde"
@@ -211,9 +215,9 @@
                 />
                 <label for="kvinde">Kvinde</label>
 
-                <p>Vælg om du er aktiv eller passiv</p>
-                <input
-                  type="radio"
+                <p>Bekræft at du vil oprettes som et aktiv medlem</p>
+                 <input
+                  type="checkbox"
                   id="aktiv"
                   name="aktiv"
                   value="true"
@@ -221,20 +225,11 @@
                 />
                 <label for="aktiv">Aktiv</label>
                 <br />
-                <input
-                  type="radio"
-                  id="passiv"
-                  name="aktiv"
-                  value="false"
-                  required
-                />
-                <label for="passiv">Passiv</label>
-                <br />
 
                 <p>
                   Accepter at du betaler din kontingent ved bruger oprettelse
                 </p>
-                <input type="checkbox" id="betalt" name="betalt" value="true" />
+                <input type="checkbox" id="betalt" name="betalt" />
                 <label for="betalt">Jeg accepterer</label>
                 <br />
                 <p>Er du motionssvømmer eller elitesvømmer?</p>
@@ -246,7 +241,7 @@
                   required
                 />
                 <label for="motionist">Motionist</label>
-                <br />
+
                 <input
                   type="radio"
                   id="elite"
@@ -334,11 +329,23 @@
         <!-- Kontakt -->
         <section id="kontakt-side" class="view-content">
           <h1>Kontakt</h1>
-          <p>Du er altid velkommen til at kontakte os, hvis du har noget på hjertet:</p>
+          <p>
+            Du er altid velkommen til at kontakte os, hvis du har noget på
+            hjertet:
+          </p>
           <div class="kontakt-grid">
-            <div><h3>Formand<br />Peter Lind</h3><img class="kontakt-billede" src="billeder/peter.jpg" alt=""></div>
-            <div><h3>Kassér<br />Oskar Tuska</h3><img class="kontakt-billede" src="billeder/oskar.jpg" alt=""></div>
-            <div><h3>Cheftræner<br />Rasmus Cederdorff</h3><img class="kontakt-billede" src="billeder/rasmus.jpg" alt=""></div>
+            <div>
+              <h3>Formand<br />Peter Lind</h3>
+              <img class="kontakt-billede" src="billeder/peter.jpg" alt="" />
+            </div>
+            <div>
+              <h3>Kassér<br />Oskar Tuska</h3>
+              <img class="kontakt-billede" src="billeder/oskar.jpg" alt="" />
+            </div>
+            <div>
+              <h3>Cheftræner<br />Rasmus Cederdorff</h3>
+              <img class="kontakt-billede" src="billeder/rasmus.jpg" alt="" />
+            </div>
           </div>
         </section>
 
@@ -501,9 +508,9 @@
           />
           <label for="kvinde">Kvinde</label>
 
-          <p>Vælg om du er aktiv eller passiv</p>
+          <p>Bekræft at dette med er aktiv</p>
           <input
-            type="radio"
+            type="checkbox"
             id="aktivUpdate"
             name="aktiv"
             value="true"
@@ -511,18 +518,9 @@
           />
           <label for="aktiv">Aktiv</label>
           <br />
-          <input
-            type="radio"
-            id="passivUpdate"
-            name="aktiv"
-            value="false"
-            required
-          />
-          <label for="passiv">Passiv</label>
-          <br />
-
+         
           <p>Accepter at du betaler din kontingent ved bruger oprettelse</p>
-          <input type="checkbox" id="betalt" name="betalt" value="true" />
+          <input type="checkbox" id="betalt" name="betalt" />
           <label for="betalt">Jeg accepterer</label>
           <br />
           <p>Er du motionssvømmer eller elitesvømmer?</p>
@@ -577,5 +575,7 @@
     </dialog>
 
     <script src="./javascript/main.js" type="module"></script>
+   
+    </script>
   </body>
 </html>
