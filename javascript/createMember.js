@@ -49,7 +49,7 @@ async function createMember(
   };
   const json = JSON.stringify(newMember);
   try {
-    const response = await fetch(`${endpoint}/medlemmer/${id}.json`, {
+    const response = await fetch(`${endpoint}/medlemmer.json`, {
       method: "POST",
       body: json,
     });
