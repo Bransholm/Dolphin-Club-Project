@@ -135,11 +135,42 @@ body {
 
 .kontakt-grid {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
 }
 
 .kontakt-billede {
-  height: 200px;
+  height: 250px;
+}
+
+.email-link {
+  color: white;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  color: rgb(0, 255, 98);
+  text-decoration: none;
+}
+
+.email-link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#kontakt-vores-adresse {
+  padding-top: 20px;
+  padding-bottom: 4px;
+  margin-bottom: 0px;
+}
+
+#kontakt-p-adresse {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+#kontak-image-delfinen-map {
+  height: 400px;
 }
 
 .view-content {
