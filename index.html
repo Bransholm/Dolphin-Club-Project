@@ -334,11 +334,23 @@
         <!-- Kontakt -->
         <section id="kontakt-side" class="view-content">
           <h1>Kontakt</h1>
-          <p>Du er altid velkommen til at kontakte os, hvis du har noget på hjertet:</p>
+          <p>
+            Du er altid velkommen til at kontakte os, hvis du har noget på
+            hjertet:
+          </p>
           <div class="kontakt-grid">
-            <div><h3>Formand<br />Peter Lind</h3><img class="kontakt-billede" src="billeder/peter.jpg" alt=""></div>
-            <div><h3>Kassér<br />Oskar Tuska</h3><img class="kontakt-billede" src="billeder/oskar.jpg" alt=""></div>
-            <div><h3>Cheftræner<br />Rasmus Cederdorff</h3><img class="kontakt-billede" src="billeder/rasmus.jpg" alt=""></div>
+            <div>
+              <h3>Formand<br />Peter Lind</h3>
+              <img class="kontakt-billede" src="billeder/peter.jpg" alt="" />
+            </div>
+            <div>
+              <h3>Kassér<br />Oskar Tuska</h3>
+              <img class="kontakt-billede" src="billeder/oskar.jpg" alt="" />
+            </div>
+            <div>
+              <h3>Cheftræner<br />Rasmus Cederdorff</h3>
+              <img class="kontakt-billede" src="billeder/rasmus.jpg" alt="" />
+            </div>
           </div>
         </section>
 
@@ -381,6 +393,24 @@
             </thead>
             <tbody id="resultater"></tbody>
           </table>
+
+          <div>
+            <!-- sorting selectors -->
+            <lable for="resultat-sortering">Sorter Efter:</lable>
+            <select id="resultat-sortering" name="resultat-sortering">
+              <option value="hurtigst">Hurtigst-Sidst</option>
+              <option value="nyeste">Nyeste-Ældste</option>
+            </select>
+            <!-- filter Deciplin -->
+            <label for="filter-deciplin"></label>
+            <select id="filter-deciplin" name="filter-deciplin">
+              <option value="alle">Alle</option>
+              <option value="crawl">Crawl</option>
+              <option value="bryst">Bryst</option>
+              <option value="butterfly">Butterfly</option>
+              <option value="rygcrawl">Rygcrawl</option>
+            </select>
+          </div>
 
           <dialog id="nyt-resultat-dialog">
             <h2>Nyt resultat er oprettet</h2>

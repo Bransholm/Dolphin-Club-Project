@@ -1,17 +1,40 @@
 import { getMemberPerformances } from "./getPerformances.js";
 import { updateMemberGrid } from "./getMembers.js";
+import { sortResultTable, filterResultDeciplines } from "./helperFunctions.js";
 
 let membersList;
 let performanceList;
+
+function bridgePerformanceList() {
+  return performanceList;
+}
 
 //hvordan pokke får jeg ID?
 async function showMemberPerformances() {
   performanceList = await getMemberPerformances();
   membersList = await updateMemberGrid();
-  createMemberPrefromanceTable();
+  createMemberPerfromanceTable(performanceList);
+  addSortRelatedEvents();
 }
 
-function createMemberPrefromanceTable() {
+function addSortRelatedEvents() {
+  document
+    .querySelector("#resultat-sortering")
+    .addEventListener("change", runSortResultTable);
+
+  document
+    .querySelector("#filter-deciplin")
+    .addEventListener("change", filterResultDeciplines);
+}
+
+function runSortResultTable(event) {
+  sortResultTable(event.target.value);
+  // createMemberPerfromanceTable(performanceList);
+}
+
+function createMemberPerfromanceTable(performanceList) {
+  document.querySelector("#resultater").textContent = "";
+
   let keyMember;
   for (const performance of performanceList) {
     keyMember = "Unkown";
@@ -46,5 +69,8 @@ function createMemberPrefromanceTable() {
 //---- Jeg skal have sort og filter...
 
 //jeg vil have tider OG svømmere, jeg vil filtrere inden.
-
-export { showMemberPerformances };
+export {
+  bridgePerformanceList,
+  showMemberPerformances,
+  createMemberPerfromanceTable,
+};
