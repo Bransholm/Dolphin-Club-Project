@@ -132,6 +132,15 @@ body {
   width: 150px;
 }
 
+.kontakt-grid {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.kontakt-billede {
+  height: 200px;
+}
+
 .view-content {
   display: none;
 }
