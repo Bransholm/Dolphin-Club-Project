@@ -24,11 +24,16 @@ function addSortRelatedEvents() {
 
   document
     .querySelector("#filter-deciplin")
-    .addEventListener("change", filterResultDeciplines);
+    .addEventListener("change", runFilterResultDeciplines);
 }
 
 function runSortResultTable(event) {
   performanceList = sortResultTable(event.target.value);
+  createMemberPerfromanceTable(performanceList);
+}
+async function runFilterResultDeciplines(event) {
+  await showMemberPerformances();
+  performanceList = filterResultDeciplines(event.target.value);
   createMemberPerfromanceTable(performanceList);
 }
 

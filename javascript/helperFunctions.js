@@ -11,11 +11,10 @@ function sortResultTable(value) {
 
   //   const value = event.target.value;
   if (value === "hurtigst") {
-  return performances.sort(sortByFastest);
+    return performances.sort(sortByFastest);
   } else if (value === "nyeste") {
-  return performances.sort(sortByMostRecent);
+    return performances.sort(sortByMostRecent);
   }
-//   createMemberPerfromanceTable(performances);
 }
 
 function sortByFastest(a, b) {
@@ -29,14 +28,16 @@ function sortByMostRecent(a, b) {
 
 //Jeg vil filter/loope - hvis decipline.value = true! skal de med.
 
-function filterResultDeciplines(event) {
+//jeg BLIVER NØD TIL AT REFRESHE HELE LISTE ON CHANGE!
+// ALLE - bliver også nød til at køre for sig selv.
+function filterResultDeciplines(decipline) {
   const performances = bridgePerformanceList();
-  const decipline = event.target.value;
+
   if (decipline == "alle") {
-    createMemberPerfromanceTable(performances);
+    return performances;
   } else {
-    const filteredList = performances.filter(filterByDecipline);
-    createMemberPerfromanceTable(filteredList);
+    const result = performances.filter(filterByDecipline);
+    return result;
   }
 
   function filterByDecipline(performance) {
