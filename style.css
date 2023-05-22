@@ -93,12 +93,13 @@ body {
   height: 50px;
   width: 100px;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 .div-text-link-single:hover {
   background: #b08802;
-  transition: background 2s;
-  -webkit-transition: background 2s;
+  transition: background 1.5s;
+  -webkit-transition: background 1.5s;
   font-weight: bold;
 }
 
