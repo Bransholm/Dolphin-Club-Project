@@ -166,14 +166,14 @@ function displayMember(memberObject) {
     updateForm.fødselsdato.value = memberObject.fødselsdato;
     updateForm.tlf.value = memberObject.tlf;
     updateForm.køn.value = memberObject.køn;
-    updateForm.aktiv.value = memberObject.aktiv;
+    updateForm.aktiv.checked = memberObject.aktiv;
     updateForm.kategori.value = memberObject.kategori;
-    updateForm.betalt.value = memberObject.betalt;
+    updateForm.betalt.checked = memberObject.betalt;
     //updateForm.age.value = memberObject.age;
-    updateForm.crawl.value = memberObject.crawl;
-    updateForm.rygcrawl.value = memberObject.rygcrawl;
-    updateForm.bryst.value = memberObject.bryst;
-    updateForm.butterfly.value = memberObject.butterfly;
+    updateForm.crawl.checked = memberObject.crawl;
+    updateForm.rygcrawl.checked = memberObject.rygcrawl;
+    updateForm.bryst.checked = memberObject.bryst;
+    updateForm.butterfly.checked = memberObject.butterfly;
     updateForm.setAttribute("data-id", memberObject.id);
 
     document.querySelector("#dialog-update-member").showModal();

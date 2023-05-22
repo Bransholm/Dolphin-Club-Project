@@ -63,23 +63,23 @@ function updateMemberClicked(event) {
   event.preventDefault();
   console.log("Updatering af medlem igang!");
 
-  const form = event.target;
+  const form = document.getElementById("form-update-member"); // Get the form element by ID
 
-  const adresse = form.adresse.value;
-  const aktiv = form.aktiv.checked;
-  const betalt = form.betalt.checked;
-  const bryst = form.bryst.checked;
-  const butterfly = form.butterfly.checked;
-  const crawl = form.crawl.checked;
-  const email = form.email.value;
-  const efternavn = form.efternavn.value;
-  const fødselsdato = form.fødselsdato.value;
-  const kategori = form.kategori.value;
-  const køn = form.køn.value;
-  const navn = form.navn.value;
-  const postnummer = form.postnummer.value;
-  const rygcrawl = form.rygcrawl.checked;
-  const tlf = form.tlf.value;
+  const adresse = form.elements.adresse.value;
+  const aktiv = form.elements.aktiv.checked;
+  const betalt = form.elements.betalt.checked;
+  const bryst = form.elements.bryst.checked;
+  const butterfly = form.elements.butterfly.checked;
+  const crawl = form.elements.crawl.checked;
+  const email = form.elements.email.value;
+  const efternavn = form.elements.efternavn.value;
+  const fødselsdato = form.elements.fødselsdato.value;
+  const kategori = form.elements.kategori.value;
+  const køn = form.elements.køn.value;
+  const navn = form.elements.navn.value;
+  const postnummer = form.elements.postnummer.value;
+  const rygcrawl = form.elements.rygcrawl.checked;
+  const tlf = form.elements.tlf.value;
 
   const dob = new Date(fødselsdato);
   const today = new Date();
@@ -112,7 +112,7 @@ function updateMemberClicked(event) {
     tlf,
     age
   );
-
+  form.reset();
   document.querySelector("#dialog-update-member").close();
 }
 
