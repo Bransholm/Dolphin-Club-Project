@@ -15,38 +15,39 @@ body {
 
 .header {
   grid-column: 1/-1;
-  background-color: rgb(0, 118, 139);
+  background-color: #faf0cf;
   border-radius: 10px;
   border: 2px;
-  border-color: white;
+  border-color: #5d0067a1;
   border-style: solid;
 }
 
 .nav-bar {
-  background-color: rgba(0, 118, 139, 0.397);
+  background-color: #b08802;
   border-radius: 10px;
   border: 2px;
-  border-color: white;
+  border-color: rgba(0, 119, 140, 0.667);
   border-style: solid;
   min-height: 91.5vh;
 }
 
 .main {
-  background-color: rgba(0, 118, 139, 0.397);
+  /* background-color: rgba(0, 119, 140, 0.667); */
+  background-image: radial-gradient(circle, #5d0067a1 0%, #00d5ff97 100%);
   grid-column: 2/-1;
   min-height: 450px;
   border-radius: 10px;
   border: 2px;
-  border-color: white;
+  border-color: #b08802;
   border-style: solid;
 }
 
 .footer {
   grid-column: 1/-1;
-  background-color: rgb(0, 118, 139);
+  background-color: #faf0cf;
   border-radius: 10px;
   border: 2px;
-  border-color: white;
+  border-color: #5d0067a1;
   border-style: solid;
 }
 
@@ -67,21 +68,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 118, 139);
+  background-color: #faf0cf;
+  color: rgb(0, 118, 139);
+  font-weight: bold;
   height: 50px;
   width: 100px;
   border-radius: 10px;
 }
 
 .div-text-link:hover {
-  background: rgb(0, 255, 98);
+  background: rgb(0, 118, 139);
   transition: background 2s;
   -webkit-transition: background 2s;
+  color: white;
   font-weight: bold;
-}
-
-.div-text-link-single {
-  
 }
 
 .div-text-link-single {
@@ -95,7 +95,7 @@ body {
 }
 
 .div-text-link-single:hover {
-  background: rgb(0, 255, 98);
+  background: #b08802;
   transition: background 2s;
   -webkit-transition: background 2s;
   font-weight: bold;
@@ -178,7 +178,7 @@ body {
 }
 
 .email-link:hover {
-  color: rgb(0, 255, 98);
+  color: #b08802;
   text-decoration: none;
 }
 
@@ -237,6 +237,10 @@ body {
   margin-right: 15px;
 }
 
+.footer-text {
+  color: #5d0067a1;
+}
+
 .view-content {
   display: none;
 }
@@ -255,3 +259,13 @@ input:invalid:required {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+
+
+/* .nav-bar {
+  background-color: rgba(0, 118, 139, 0.397); } */
+
+  /* button color     background-color: rgb(0, 118, 139); */
+
+
+  /* main bgcolor rgba(0, 119, 140, 0.667) */
