@@ -1,5 +1,6 @@
 import {
   bridgePerformanceList,
+  bridgeMembersList,
   createMemberPerfromanceTable,
 } from "./performance-overview.js";
 
@@ -46,7 +47,7 @@ function filterResultDeciplines(decipline) {
 }
 
 function filterResultTeamJunior() {
-  console.log("Hul");
+  const members = bridgePerformanceList();
 }
 
 // MINIMUM VIABLE PRODUCT...

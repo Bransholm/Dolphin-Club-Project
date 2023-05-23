@@ -12,6 +12,9 @@ let performanceList;
 function bridgePerformanceList() {
   return performanceList;
 }
+function bridgeMembersList() {
+  return membersList;
+}
 
 //hvordan pokke får jeg ID?
 async function showMemberPerformances() {
@@ -53,7 +56,7 @@ async function runFilterResultDeciplines(event) {
 }
 
 function runFilterResultTeamJunior() {
-  filterResultTeamJunior;
+  filterResultTeamJunior();
   console.log("sort junior");
 }
 
@@ -100,6 +103,7 @@ function createMemberPerfromanceTable(performanceList) {
 //jeg vil have tider OG svømmere, jeg vil filtrere inden.
 export {
   bridgePerformanceList,
+  bridgeMembersList,
   showMemberPerformances,
   createMemberPerfromanceTable,
 };
