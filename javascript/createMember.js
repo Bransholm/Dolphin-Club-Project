@@ -59,6 +59,24 @@ async function createMember(
   }
 }
 
+//https:
+//stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd?fbclid=IwAR3SjJ2ozyxXnc_JnssjQeVzKMB_7j99TEz65Fno1cUo5GazZ0GBExjJlpk
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  const newFormate = [year, month, day].join("-");
+  const newBirthday = new Date(`${newFormate}`);
+  console.log(newFormate);
+  const birthdayInSeconds = newBirthday.valueOf();
+  return birthdayInSeconds;
+}
+
 function createMemberClicked(event) {
   console.log(event);
   event.preventDefault();
@@ -73,7 +91,7 @@ function createMemberClicked(event) {
   const crawl = form.crawl.checked;
   const efternavn = form.efternavn.value;
   const email = form.email.value;
-  const fødselsdato = form.fødselsdato.value;
+  const fødselsdato = formatDate(form.fødselsdato.value);
   const kategori = form.kategori.value;
   const køn = form.køn.value;
   const navn = form.navn.value;

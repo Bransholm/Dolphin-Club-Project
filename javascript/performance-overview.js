@@ -18,13 +18,24 @@ async function showMemberPerformances() {
 }
 
 function addSortRelatedEvents() {
+  // Sorting Selector
   document
     .querySelector("#resultat-sortering")
     .addEventListener("change", runSortResultTable);
 
+  // Deciplin filter selector
   document
     .querySelector("#filter-deciplin")
     .addEventListener("change", runFilterResultDeciplines);
+
+  //Radio Buttons - filter by team
+  document
+    .querySelector("#junior-hold-radio")
+    .addEventListener("change", runFilterResultTeamJunior);
+
+  document
+    .querySelector("#senior-hold-radio")
+    .addEventListener("change", runFilterResultTeamSenior);
 }
 
 function runSortResultTable(event) {
@@ -35,6 +46,15 @@ async function runFilterResultDeciplines(event) {
   await showMemberPerformances();
   performanceList = filterResultDeciplines(event.target.value);
   createMemberPerfromanceTable(performanceList);
+}
+
+function runFilterResultTeamJunior() {
+  filterResultTeamJunior
+  console.log("sort junior");
+}
+
+function runFilterResultTeamSenior() {
+  console.log("sort senior");
 }
 
 function createMemberPerfromanceTable(performanceList) {

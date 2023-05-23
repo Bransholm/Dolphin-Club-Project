@@ -45,6 +45,9 @@ function filterResultDeciplines(decipline) {
   }
 }
 
+// function filterResultTeamJunior(){};
+
+
 // MINIMUM VIABLE PRODUCT...
 //Jeg vil ikke se folk der er motionister - skal jeg slet ikke kunne vælge deres ID-er?
 // Hvordan med om DE er aktive i en deciplin eller ej... hot daym.
@@ -54,5 +57,7 @@ function filterResultDeciplines(decipline) {
 // ALDER - loop på tider; Loop på Members og crosscheck ID -> Hvis ID passer få så alderen.
 /// Få dags dato og udregn om den pågælende alder er over 18? - filtrer til eller fra --> Hvis ny liste!
 //// Kommer refresh af DECIPLIN og ALDER til at støde sammen?
+// Lav en counter der viser hvad nummer en fyr er - avoid doubbles?
+// Når vi laver et fetch - hav en... 
 
 export { sortResultTable, filterResultDeciplines };
