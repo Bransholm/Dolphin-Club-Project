@@ -99,7 +99,8 @@ function createMemberClicked(event) {
   const crawl = form.crawl.checked;
   const efternavn = form.efternavn.value;
   const email = form.email.value;
-  const fødselsdato = formatDate(form.fødselsdato.value);
+  const fødselsdato = form.fødselsdato.value;
+  // const fødselsdatoSekunder = formatDate(form.fødselsdato.value);
   const kategori = form.kategori.value;
   const køn = form.køn.value;
   const navn = form.navn.value;
