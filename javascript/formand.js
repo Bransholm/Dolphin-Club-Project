@@ -1,8 +1,17 @@
 import { updateMemberGrid } from "./getMembers.js";
-import { showNewMember, createMemberClicked } from "./createMember.js";
-import { updateMemberClicked } from "./updateMember.js";
-import { deleteMember } from "./deleteMember.js";
-import { deleteMemberClicked } from "./deleteMember.js";
+import {
+  createMemberClicked,
+  closeMemberSuccessWindow,
+  resetForm,
+} from "./createMember.js";
+import {
+  updateMemberClicked,
+  closeUpdateSuccessWindow,
+} from "./updateMember.js";
+import {
+  deleteMemberClicked,
+  closeDeleteSuccessWindow,
+} from "./deleteMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
@@ -25,6 +34,8 @@ async function startIndmelding() {
     .querySelector("#form-create-member")
     .addEventListener("submit", createMemberClicked);
 
+  document.getElementById("resetButton").addEventListener("click", resetForm);
+
   document
     .querySelector("#form-delete-member")
     .addEventListener("submit", deleteMemberClicked);
@@ -32,6 +43,21 @@ async function startIndmelding() {
   document
     .querySelector("#form-update-member")
     .addEventListener("submit", updateMemberClicked);
+
+  //luk bekræftelses vinduer
+  document
+    .querySelector("#btn-closeMemberDialog")
+    .addEventListener("click", closeMemberSuccessWindow);
+
+  document
+    .querySelector("#btn-closeUpdateDialog")
+    .addEventListener("click", closeUpdateSuccessWindow);
+
+  document
+    .querySelector("#btn-closeDeleteDialog")
+    .addEventListener("click", closeDeleteSuccessWindow);
+
+  document.querySelector("#btn-closeErrorDialog", closeErrorWindow);
 }
 
 //===========REST============//
@@ -140,14 +166,14 @@ function displayMember(memberObject) {
     updateForm.fødselsdato.value = memberObject.fødselsdato;
     updateForm.tlf.value = memberObject.tlf;
     updateForm.køn.value = memberObject.køn;
-    updateForm.aktiv.value = memberObject.aktiv;
+    updateForm.aktiv.checked = memberObject.aktiv;
     updateForm.kategori.value = memberObject.kategori;
-    updateForm.betalt.value = memberObject.betalt;
+    updateForm.betalt.checked = memberObject.betalt;
     //updateForm.age.value = memberObject.age;
-    updateForm.crawl.value = memberObject.crawl;
-    updateForm.rygcrawl.value = memberObject.rygcrawl;
-    updateForm.bryst.value = memberObject.bryst;
-    updateForm.butterfly.value = memberObject.butterfly;
+    updateForm.crawl.checked = memberObject.crawl;
+    updateForm.rygcrawl.checked = memberObject.rygcrawl;
+    updateForm.bryst.checked = memberObject.bryst;
+    updateForm.butterfly.checked = memberObject.butterfly;
     updateForm.setAttribute("data-id", memberObject.id);
 
     document.querySelector("#dialog-update-member").showModal();
@@ -169,6 +195,10 @@ function closeDialog() {
 function closeUpdateDialog() {
   document.querySelector("#dialog-update-member").close();
   console.log("Opdatering annulleret");
+}
+
+function closeErrorWindow() {
+  document.querySelector("#response-error").close();
 }
 
 export { startIndmelding, runUpdate };

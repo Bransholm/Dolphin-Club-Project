@@ -12,6 +12,7 @@ async function createMember(
   crawl,
   efternavn,
   email,
+  fødselsdatoSekunder,
   fødselsdato,
   kategori,
   køn,
@@ -38,6 +39,7 @@ async function createMember(
     crawl: crawl,
     email: email,
     efternavn: efternavn,
+    fødselsdatoSekunder: fødselsdatoSekunder,
     fødselsdato: fødselsdato,
     kategori: kategori,
     køn: køn,
@@ -48,32 +50,59 @@ async function createMember(
     age: age,
   };
   const json = JSON.stringify(newMember);
-  const response = await fetch(`${endpoint}/medlemmer.json`, {
-    method: "POST",
-    body: json,
-  });
-  if (response.ok) {
-    console.log("Nyt medlem er blevet oprettet i Firebase");
-    runUpdate();
-    // updateMemberGrid();
+  try {
+    const response = await fetch(`${endpoint}/medlemmer.json`, {
+      method: "POST",
+      body: json,
+    });
+
+    if (response.ok) {
+      console.log("Nyt medlem er blevet oprettet i Firebase");
+      document.querySelector("#successfull-createMember").showModal();
+      runUpdate();
+    } else {
+      console.error("Failed to create member:", response.status);
+    }
+  } catch (error) {
+    console.error("An error occurred during create:", error);
   }
+}
+
+//https:
+//stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd?fbclid=IwAR3SjJ2ozyxXnc_JnssjQeVzKMB_7j99TEz65Fno1cUo5GazZ0GBExjJlpk
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  const newFormate = [year, month, day].join("-");
+  const newBirthday = new Date(`${newFormate}`);
+  console.log(newFormate);
+  const birthdayInSeconds = newBirthday.valueOf();
+  return birthdayInSeconds;
 }
 
 function createMemberClicked(event) {
   console.log(event);
   event.preventDefault();
+  //const reset = document.getElementById("dialogMemberCreate");
 
   const form = event.target;
 
   const adresse = form.adresse.value;
-  const aktiv = form.aktiv.value;
-  const betalt = form.betalt.value;
+  const aktiv = form.aktiv.checked;
+  const betalt = form.betalt.checked;
   const bryst = form.bryst.checked;
   const butterfly = form.butterfly.checked;
   const crawl = form.crawl.checked;
   const efternavn = form.efternavn.value;
   const email = form.email.value;
   const fødselsdato = form.fødselsdato.value;
+  const fødselsdatoSekunder = formatDate(form.fødselsdato.value);
   const kategori = form.kategori.value;
   const køn = form.køn.value;
   const navn = form.navn.value;
@@ -105,6 +134,7 @@ function createMemberClicked(event) {
   console.log(rygcrawl);
   console.log(tlf);
   console.log(age);
+  console.log(fødselsdatoSekunder);
 
   createMember(
     adresse,
@@ -115,6 +145,7 @@ function createMemberClicked(event) {
     crawl,
     efternavn,
     email,
+    fødselsdatoSekunder,
     fødselsdato,
     kategori,
     køn,
@@ -124,8 +155,17 @@ function createMemberClicked(event) {
     tlf,
     age
   );
+
   form.reset();
-  document.querySelector("#dialogMemberCreate").close();
+  document
+    .getElementById("createButton")
+    .addEventListener("click", createMemberClicked);
+
+  document.getElementById("resetButton").addEventListener("click", resetForm);
+}
+
+function resetForm() {
+  document.getElementById("form-create-member").reset();
 }
 
 function showNewMember() {
@@ -133,4 +173,14 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { showNewMember, createMemberClicked };
+function closeMemberSuccessWindow() {
+  document.querySelector("#successfull-createMember").close();
+}
+
+export {
+  showNewMember,
+  createMemberClicked,
+  resetForm,
+  closeMemberSuccessWindow,
+  formatDate,
+};

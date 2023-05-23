@@ -6,6 +6,7 @@ let medlemmer;
 async function updateMemberGrid() {
   //console.log("update grid");
   medlemmer = await getMembers();
+  console.log(medlemmer);
   return medlemmer;
 }
 
