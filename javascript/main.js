@@ -14,5 +14,5 @@ function start() {
   singlePageRouter();
   showPerformanceForm();
   showMemberPerformances();
-  startIndmelding();
+  // startIndmelding();
 }

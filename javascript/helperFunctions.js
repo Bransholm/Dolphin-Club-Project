@@ -1,5 +1,6 @@
 import {
   bridgePerformanceList,
+  bridgeMembersList,
   createMemberPerfromanceTable,
 } from "./performance-overview.js";
 
@@ -45,8 +46,22 @@ function filterResultDeciplines(decipline) {
   }
 }
 
-// function filterResultTeamJunior(){};
-
+function filterResultTeamJunior() {
+  const currentDate = new Date();
+  const currentDateSeconds = currentDate.valueOf();
+  console.log(currentDateSeconds);
+  const members = bridgeMembersList();
+  const performances = bridgePerformanceList();
+  for (let performance of performances) {
+    for (let member of members) {
+      if (performance.svømmerID === member.id) {
+        // console.log(`${performance.svømmerID} ${member.navn}`);
+        console.log(member.fødselsdatoSekunder);
+        
+      }
+    }
+  }
+}
 
 // MINIMUM VIABLE PRODUCT...
 //Jeg vil ikke se folk der er motionister - skal jeg slet ikke kunne vælge deres ID-er?
@@ -58,6 +73,6 @@ function filterResultDeciplines(decipline) {
 /// Få dags dato og udregn om den pågælende alder er over 18? - filtrer til eller fra --> Hvis ny liste!
 //// Kommer refresh af DECIPLIN og ALDER til at støde sammen?
 // Lav en counter der viser hvad nummer en fyr er - avoid doubbles?
-// Når vi laver et fetch - hav en... 
+// Når vi laver et fetch - hav en...
 
-export { sortResultTable, filterResultDeciplines };
+export { sortResultTable, filterResultDeciplines, filterResultTeamJunior };
