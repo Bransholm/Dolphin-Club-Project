@@ -3,6 +3,7 @@ import {
   createMemberClicked,
   closeMemberSuccessWindow,
   resetForm,
+  createMember,
 } from "./createMember.js";
 import {
   updateMemberClicked,
@@ -44,6 +45,10 @@ async function startIndmelding() {
     .querySelector("#form-update-member")
     .addEventListener("submit", updateMemberClicked);
 
+  document
+    .querySelector("#sort-memberData")
+    .addEventListener("change", sortMember);
+
   //luk bekræftelses vinduer
   document
     .querySelector("#btn-closeMemberDialog")
@@ -57,10 +62,6 @@ async function startIndmelding() {
     .querySelector("#btn-closeDeleteDialog")
     .addEventListener("click", closeDeleteSuccessWindow);
 
-  document
-    .querySelector("#sort-memberData")
-    .addEventListener("change", sortMember);
-
   document.querySelector("#btn-closeErrorDialog", closeErrorWindow);
 }
 
@@ -71,17 +72,7 @@ async function runUpdate() {
   medlemmer = await updateMemberGrid();
   showMembers(medlemmer);
 }
-
-function showMembers(listOfMembers) {
-  //console.log(listOfMembers);
-  document.querySelector("#medlemmer").innerHTML = "";
-
-  for (const member of listOfMembers) {
-    displayMember(member);
-  }
-}
-
-function sortMembers(list) {
+function showMembers(list) {
   document.querySelector("#medlemmer").innerHTML = "";
   //document.querySelector("#forms-div").innerHTML = "";
   for (const memberObject of list) {
@@ -213,19 +204,17 @@ function closeErrorWindow() {
   document.querySelector("#response-error").close();
 }
 
-//----------SORTING//----------//
-
 function sortMember(event) {
   const sortCriteria = event.target.value;
   console.log(sortCriteria);
   if (sortCriteria === "memberDOB") {
-    memberObjects.sort(sortByDateOfBirth);
+    medlemmer.sort(sortByDateOfBirth);
   } else if (sortCriteria === "memberNavn") {
-    memberObjects.sort(sortByName);
+    medlemmer.sort(sortByName);
   } else if (sortCriteria === "memberAlder") {
-    memberObjects.sort(sortByAge);
+    medlemmer.sort(sortByAge);
   }
-  sortMembers(memberObjects);
+  showMembers(medlemmer);
 }
 
 function sortByName(a, b) {
