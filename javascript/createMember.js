@@ -48,14 +48,21 @@ async function createMember(
     age: age,
   };
   const json = JSON.stringify(newMember);
-  const response = await fetch(`${endpoint}/medlemmer.json`, {
-    method: "POST",
-    body: json,
-  });
-  if (response.ok) {
-    console.log("Nyt medlem er blevet oprettet i Firebase");
-    runUpdate();
-    // updateMemberGrid();
+  try {
+    const response = await fetch(`${endpoint}/medlemmer.json`, {
+      method: "POST",
+      body: json,
+    });
+
+    if (response.ok) {
+      console.log("Nyt medlem er blevet oprettet i Firebase");
+      document.querySelector("#successfull-createMember").showModal();
+      runUpdate();
+    } else {
+      console.error("Failed to create member:", response.status);
+    }
+  } catch (error) {
+    console.error("An error occurred during create:", error);
   }
 }
 
@@ -80,12 +87,13 @@ function formatDate(date) {
 function createMemberClicked(event) {
   console.log(event);
   event.preventDefault();
+  //const reset = document.getElementById("dialogMemberCreate");
 
   const form = event.target;
 
   const adresse = form.adresse.value;
-  const aktiv = form.aktiv.value;
-  const betalt = form.betalt.value;
+  const aktiv = form.aktiv.checked;
+  const betalt = form.betalt.checked;
   const bryst = form.bryst.checked;
   const butterfly = form.butterfly.checked;
   const crawl = form.crawl.checked;
@@ -142,8 +150,17 @@ function createMemberClicked(event) {
     tlf,
     age
   );
+
   form.reset();
-  document.querySelector("#dialogMemberCreate").close();
+  document
+    .getElementById("createButton")
+    .addEventListener("click", createMemberClicked);
+
+  document.getElementById("resetButton").addEventListener("click", resetForm);
+}
+
+function resetForm() {
+  document.getElementById("form-create-member").reset();
 }
 
 function showNewMember() {
@@ -151,4 +168,14 @@ function showNewMember() {
   document.querySelector("#dialogMemberCreate").showModal();
 }
 
-export { showNewMember, createMemberClicked };
+function closeMemberSuccessWindow() {
+  //document.querySelector("#order-form").reset();
+  document.querySelector("#successfull-createMember").close();
+}
+
+export {
+  showNewMember,
+  createMemberClicked,
+  resetForm,
+  closeMemberSuccessWindow,
+};
