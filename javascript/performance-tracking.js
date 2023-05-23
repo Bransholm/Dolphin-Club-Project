@@ -42,7 +42,7 @@ function visualizePreformanceDialog() {
   <form id="time-result-form">
     <legend>Svømmetid</legend>
  <div class="result-form-element">
-  <lable for="svomme_decilpin">Deciplin</lable>
+  <label for="svomme_decilpin">Deciplin</label>
   <select id="svomme_decilpin" name="svomme_decilpin">
   <option value="crawl" selected>Crawl</option>
   <option value="butterfly">Butterfly</option>
@@ -50,7 +50,7 @@ function visualizePreformanceDialog() {
   <option value="rygcrawl">Rygcrawl</option>
   </select>
 
-  <lable for="svomme_id">SvømmerID</lable>
+  <label for="svomme_id">SvømmerID</label>
   <input type="text" id="svomme_id" name="svomme_id" list="medlems-liste" required placeholder="angiv korrekt id"> 
  
  <datalist id=medlems-liste>
@@ -60,9 +60,9 @@ function visualizePreformanceDialog() {
  <legen>Resultat</legen>
   <div class="result-form-element">
 
-  <lable for="resultat_min">Minutter</lable>
+  <label for="resultat_min">Minutter</label>
   <input type="text" id="resultat_min" name="resultat_min" pattern="[0-9]{2}"  placeholder="MM" required>
-  <lable for ="resultat_sek">Sekunder</lable>
+  <label for ="resultat_sek">Sekunder</label>
 <input type="text" id="resultat_sek" name="resultat_sek" pattern="[0-9]{2}" placeholder="SS" required>
 <lable for="resultat_hsek">Hundredele Sekunder</lable>
 <input type="text" id="resultat_hsek" name="resultat_hsek" pattern="[0-9]{2}" placeholder="HH" require> 
@@ -71,10 +71,10 @@ function visualizePreformanceDialog() {
 
   <legend>Dato</legend>
  <div class="result-form-element">
-  <lable for="resultat_aar">År</lable>
+  <label for="resultat_aar">År</label>
   <input type="text" id="resultat_aar" name="resultat_aar" pattern="[0-9]{4}" placeholder="ÅÅÅÅ" required >
   
-  <lable for="resultat_maaned" >Måned</lable>
+  <label for="resultat_maaned" >Måned</label>
   <select id="resultat_maaned" name="resultat_maaned">
   <option value="01">Januar</option>
   <option value="02">Februar</option>
@@ -129,9 +129,9 @@ function visualizePreformanceDialog() {
 
   <legend>Stævne</legend>
     <div class="result-form-element">
-  <lable for="staevne_navn">Stævnets Navn</lable>
+  <label for="staevne_navn">Stævnets Navn</label>
   <input type="text" id="staevne_navn" name="staevne_navn" placeholder="stævnetsNavn-årstal">
-  <lable for="staevne_resultat">Pladsering</lable>
+  <label for="staevne_resultat">Pladsering</label>
   <input type="text" id="staevne_resultat" name="staevne_resultat" placeholder="No.">
 </div>
 
@@ -205,13 +205,14 @@ function submitNewPreformance(event) {
       seconds,
       centiseconds
     ),
-    dato: dateToSeconds(dateYear, dateMonth, dateDay),
+    dato: `${dateYear}-${dateMonth}-${dateDay}`,
+    datoSekunder: dateToSeconds(dateYear, dateMonth, dateDay),
     stævne: form.staevne_navn.value,
     pladsering: form.staevne_resultat.value,
   };
 
   function setResultPostDialogContent(result) {
-    const successDialog = document.querySelector("#nyt-resultat-dialog");
+    // const successDialog = document.querySelector("#nyt-resultat-dialog");
     document.querySelector(
       "#resultates-svommer"
     ).textContent = `Svømmer: ${result.svømmerID}`;

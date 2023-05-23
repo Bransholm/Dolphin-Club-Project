@@ -1,12 +1,19 @@
 import { getMemberPerformances } from "./getPerformances.js";
 import { updateMemberGrid } from "./getMembers.js";
-import { sortResultTable, filterResultDeciplines } from "./helperFunctions.js";
+import {
+  sortResultTable,
+  filterResultDeciplines,
+  filterResultTeamJunior,
+} from "./helperFunctions.js";
 
 let membersList;
 let performanceList;
 
 function bridgePerformanceList() {
   return performanceList;
+}
+function bridgeMembersList() {
+  return membersList;
 }
 
 //hvordan pokke får jeg ID?
@@ -49,7 +56,7 @@ async function runFilterResultDeciplines(event) {
 }
 
 function runFilterResultTeamJunior() {
-  filterResultTeamJunior
+  filterResultTeamJunior();
   console.log("sort junior");
 }
 
@@ -68,9 +75,9 @@ function createMemberPerfromanceTable(performanceList) {
       console.log(member);
       if (performance.svømmerID == member.id) {
         keyMember = member;
-        console.log("match!");
+        // console.log("match!");
       } else {
-        console.log(`idm ${performance.svømmerID} has no match`);
+        // console.log(`idm ${performance.svømmerID} has no match`);
       }
     }
     const individualPerformanceHTML =
@@ -78,7 +85,7 @@ function createMemberPerfromanceTable(performanceList) {
       `<tr>
     <td>${performance.tid}</td>
     <td>${keyMember.efternavn}, ${keyMember.navn}</td>
-    <td>${performance.svømmerID}</td>
+    <td>${keyMember.adresse}</td>
     <td>${performance.deciplin}</td>
     <td>${performance.stævne}</td>
     <td>${performance.dato}</td> 
@@ -96,6 +103,7 @@ function createMemberPerfromanceTable(performanceList) {
 //jeg vil have tider OG svømmere, jeg vil filtrere inden.
 export {
   bridgePerformanceList,
+  bridgeMembersList,
   showMemberPerformances,
   createMemberPerfromanceTable,
 };
