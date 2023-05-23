@@ -1,4 +1,5 @@
 import { runUpdate } from "./formand.js";
+import { formatDate } from "./createMember.js";
 
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
@@ -13,6 +14,7 @@ async function updateMember(
   crawl,
   email,
   efternavn,
+  fødselsdatoSekunder,
   fødselsdato,
   kategori,
   køn,
@@ -33,6 +35,7 @@ async function updateMember(
     crawl,
     email,
     efternavn,
+    fødselsdatoSekunder,
     fødselsdato,
     kategori,
     køn,
@@ -73,6 +76,7 @@ function updateMemberClicked(event) {
   const crawl = form.elements.crawl.checked;
   const email = form.elements.email.value;
   const efternavn = form.elements.efternavn.value;
+  const fødselsdatoSekunder = formatDate(form.fødselsdato.value);
   const fødselsdato = form.elements.fødselsdato.value;
   const kategori = form.elements.kategori.value;
   const køn = form.elements.køn.value;
@@ -103,6 +107,7 @@ function updateMemberClicked(event) {
     crawl,
     email,
     efternavn,
+    fødselsdatoSekunder,
     fødselsdato,
     kategori,
     køn,
