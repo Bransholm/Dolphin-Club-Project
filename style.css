@@ -29,7 +29,7 @@ body {
   border: 2px;
   border-color: rgba(0, 119, 140, 0.667);
   border-style: solid;
-  min-height: calc(100vh - 215px);
+  min-height: calc(100vh - 214px);
 }
 
 .main {
