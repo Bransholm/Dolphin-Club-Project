@@ -132,6 +132,7 @@ function createMemberClicked(event) {
     tlf,
     age
   );
+
   form.reset();
   document
     .getElementById("createButton")

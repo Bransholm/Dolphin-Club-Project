@@ -216,12 +216,7 @@
                 <label for="kvinde">Kvinde</label>
 
                 <p>Bekræft at du vil oprettes som et aktiv medlem</p>
-                 <input
-                  type="checkbox"
-                  id="aktiv"
-                  name="aktiv"
-                  value="true"
-                />
+                <input type="checkbox" id="aktiv" name="aktiv" value="true" />
                 <label for="aktiv">Aktiv</label>
                 <br />
 
@@ -272,12 +267,13 @@
                   name="butterfly"
                   value="true"
                 />
-                <label for="crawl">Butterfly</label><br />
+                <label for="butterfly">Butterfly</label><br />
 
-                <button type="submit" id="createButton">Opret Nyt Medlem</button>
+                <button type="submit" id="createButton">
+                  Opret Nyt Medlem
+                </button>
                 <button type="button" id="resetButton">Start Forfra</button>
               </form>
-              
             </article>
           </div>
 
@@ -431,7 +427,7 @@
             placeholder="Fornavn"
             required
           />
-          <br>
+          <br />
           <label for="efternavn">Efternavn</label>
           <input
             type="text"
@@ -440,7 +436,7 @@
             placeholder="Efternavn"
             required
           />
-          <br>
+          <br />
           <label for="adresse">Adresse</label>
           <input
             type="text"
@@ -449,7 +445,7 @@
             placeholder="Adresse"
             required
           />
-          <br>
+          <br />
           <label for="postnummer">Postnummer</label>
           <input
             type="text"
@@ -460,7 +456,7 @@
             pattern="[0-9]{4}"
             required
           />
-          <br>
+          <br />
           <label for="email">E-mail</label>
           <input
             type="email"
@@ -469,7 +465,7 @@
             placeholder="E-mail"
             required
           />
-          <br>
+          <br />
           <label for="tlf">Telefon Nr</label>
           <input
             type="tel"
@@ -479,7 +475,7 @@
             placeholder="12345678"
             required
           />
-          <br>
+          <br />
 
           <label for="fødselsdato">Fødselsdato</label>
           <input
@@ -509,15 +505,10 @@
           <label for="kvinde">Kvinde</label>
 
           <p>Bekræft at dette medlem er aktiv</p>
-          <input
-            type="checkbox"
-            
-            name="aktiv"
-            
-          />
+          <input type="checkbox" name="aktiv" />
           <label for="aktiv">Aktiv</label>
           <br />
-         
+
           <p>Bekræft at medlemmet har betalt kontingent</p>
           <input type="checkbox" id="betalt" name="betalt" />
           <label for="betalt">Jeg accepterer</label>
@@ -531,7 +522,7 @@
             required
           />
           <label for="motionist">Motionist</label>
-          
+
           <input
             type="radio"
             id="eliteUpdate"
@@ -540,19 +531,12 @@
             required
           />
           <label for="elite">Elite</label>
-          <p>
-            Opdater medlemmets aktive svømme dicipliner
-          </p>
+          <p>Opdater medlemmets aktive svømme dicipliner</p>
           <p>Vælg mindst en aktiv diciplin hvis medlemmet er elite</p>
 
           <input type="checkbox" id="crawlUpdate" name="crawl" value="true" />
           <label for="crawl">Crawl</label><br />
-          <input
-            type="checkbox"
-            
-            name="rygcrawl"
-            
-          />
+          <input type="checkbox" name="rygcrawl" />
           <label for="rygcrawl">Rygcrawl</label><br />
           <input type="checkbox" id="brystUpdate" name="bryst" value="true" />
           <label for="bryst">Bryst</label><br />
@@ -573,35 +557,34 @@
     </dialog>
 
     <dialog id="successfull-createMember" class="dialoge-window">
-        <h2>Du er nu oprettet som bruger!</h2>
-        <p>
-          Du kan nu bruge svømmeklubbens facalitet<br />
-          Husk at få tjekket vores åbningstider
-          <br /><br />
-          Vi glæder os til at se dig!
-        </p>
-        <button id="btn-closeMemberDialog" class="other-btn">
-          Luk vindue
-        </button>
-      </dialog>
+      <h2>Du er nu oprettet som bruger!</h2>
+      <p>
+        Du kan nu bruge svømmeklubbens facalitet<br />
+        Husk at få tjekket vores åbningstider
+        <br /><br />
+        Vi glæder os til at se dig!
+      </p>
+      <button id="btn-closeMemberDialog" class="other-btn">Luk vindue</button>
+    </dialog>
 
-      <dialog id="#response-error" class="dialoge-window">
-        <p>Hmmmm... Det ser ud til at der gik noget galt, og din medlems oprettelse gik ikke igennem</p>
-        <button id="btn-closeErrorDialog" class="other-btn">Luk vindue</button>
-      </dialog>
+    <dialog id="#response-error" class="dialoge-window">
+      <p>
+        Hmmmm... Det ser ud til at der gik noget galt, og din medlems oprettelse
+        gik ikke igennem
+      </p>
+      <button id="btn-closeErrorDialog" class="other-btn">Luk vindue</button>
+    </dialog>
 
-      <dialog id="successfull-updateMember" class="dialoge-window">
-        <h2>Et medlemskab er blevet opdateret</h2>
-        <button id="btn-closeUpdateDialog" class="other-btn">Luk vindue</button>
-      </dialog>
+    <dialog id="successfull-updateMember" class="dialoge-window">
+      <h2>Et medlemskab er blevet opdateret</h2>
+      <button id="btn-closeUpdateDialog" class="other-btn">Luk vindue</button>
+    </dialog>
 
-      <dialog id="successfull-deleteMember" class="dialoge-window">
-        <h2>Et medlem er blevet slettet fra databasen</h2>
-        <button id="btn-closeDeleteDialog" class="other-btn">Luk vindue</button>
-      </dialog>
+    <dialog id="successfull-deleteMember" class="dialoge-window">
+      <h2>Et medlem er blevet slettet fra databasen</h2>
+      <button id="btn-closeDeleteDialog" class="other-btn">Luk vindue</button>
+    </dialog>
 
     <script src="./javascript/main.js" type="module"></script>
-   
-    </script>
   </body>
 </html>
