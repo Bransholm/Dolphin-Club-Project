@@ -75,8 +75,8 @@ async function runUpdate() {
 function showMembers(list) {
   document.querySelector("#medlemmer").innerHTML = "";
   //document.querySelector("#forms-div").innerHTML = "";
-  for (const memberObject of list) {
-    displayMember(memberObject);
+  for (const medlemmer of list) {
+    displayMember(medlemmer);
   }
 }
 
@@ -227,9 +227,23 @@ function sortByAge(a, b) {
   return a.age - b.age;
 }
 
-function sortByDateOfBirth(a, b) {
-  console.log("Sorter efter fødselsdag");
-  return a.fødselsdato.localeCompare(b.fødselsdato);
+function sortByDateOfBirth(medlemmer) {
+  medlemmer.sort(function (a, b) {
+    // Extract the date strings from the objects
+    var dateA = a.fødselsdato;
+    var dateB = b.fødselsdato;
+
+    // Compare the date strings directly
+    if (dateA < dateB) {
+      return -1;
+    } else if (dateA > dateB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
+  return medlemmer;
 }
 
 export { startIndmelding, runUpdate };
