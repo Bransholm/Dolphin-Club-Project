@@ -12,7 +12,7 @@
     <div class="page-view-grid">
       <!-- Header -->
       <header class="header">
-        <img src="billeder/header.png" alt="">
+        <img src="billeder/header.png" alt="" />
       </header>
 
       <!-- Menu -->
@@ -346,46 +346,129 @@
             </div>
           </div>
           <h2 id="kontakt-vores-adresse">Vores adresse:</h2>
-          <p id="kontakt-p-adresse">Svømmeklubben Delfinen<br />
-          Meinungsgade 1<br />
-          2200 København N</p>
-          <p><img id="kontak-image-delfinen-map" src="billeder/delfinen-map.png" alt=""></p>
-
+          <p id="kontakt-p-adresse">
+            Svømmeklubben Delfinen<br />
+            Meinungsgade 1<br />
+            2200 København N
+          </p>
+          <p>
+            <img
+              id="kontak-image-delfinen-map"
+              src="billeder/delfinen-map.png"
+              alt=""
+            />
+          </p>
         </section>
 
         <!-- Login -->
         <section id="login-side" class="view-content">
           <h1>Admin login</h1>
           <div class="login-form-flexbox">
-          <form action="">
-            <div class="login-form-grid">
-            <label for="username" class="login-grab-form-element">Brugernavn:</label>
-            <input type="text" id="username" name="username" required value="admin-rop">
-            <label for="password"  class="login-grab-form-element">Kodeord:</label>
-            <input type="password" id="password" name="password" value="mypassword">
-            <label for="rememberlogin"  class="login-grab-form-element">Husk login:</label>
-            <div><input type="checkbox" id="rememberlogin" name="rememberlogin" checked  class="login-grab-form-element-checkbox"></div>
-            </div>
-          </form>
+            <form action="">
+              <div class="login-form-grid">
+                <label for="username" class="login-grab-form-element"
+                  >Brugernavn:</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  value="admin-rop"
+                />
+                <label for="password" class="login-grab-form-element"
+                  >Kodeord:</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value="mypassword"
+                />
+                <label for="rememberlogin" class="login-grab-form-element"
+                  >Husk login:</label
+                >
+                <div>
+                  <input
+                    type="checkbox"
+                    id="rememberlogin"
+                    name="rememberlogin"
+                    checked
+                    class="login-grab-form-element-checkbox"
+                  />
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="grab-button"><a class="view-link text-link" href="#logged-in"><div class="div-text-link-single">Login</div></a></div>
+          <div class="grab-button">
+            <a class="view-link text-link" href="#logged-in"
+              ><div class="div-text-link-single">Login</div></a
+            >
+          </div>
         </section>
 
         <!-- Logged in - Vælg rolle -->
         <section id="logged-in" class="view-content">
           <h1>Vælg din rolle</h1>
           <div class="logged-in-buttons">
-          <div class="grab-button"><a class="view-link text-link" href="#formand-side"><div class="div-text-link-single div-text-link-single-buttons">Formand</div></a></div>
-          <div class="grab-button"><a class="view-link text-link" href="#kasser-side"><div class="div-text-link-single div-text-link-single-buttons">Kassér</div></a></div>
-          <div class="grab-button"><a class="view-link text-link" href="#traener-side"><div class="div-text-link-single">Træner</div></a></div>
+            <div class="grab-button">
+              <a class="view-link text-link" href="#formand-side"
+                ><div class="div-text-link-single div-text-link-single-buttons">
+                  Formand
+                </div></a
+              >
+            </div>
+            <div class="grab-button">
+              <a class="view-link text-link" href="#kasser-side"
+                ><div class="div-text-link-single div-text-link-single-buttons">
+                  Kassér
+                </div></a
+              >
+            </div>
+            <div class="grab-button">
+              <a class="view-link text-link" href="#traener-side"
+                ><div class="div-text-link-single">Træner</div></a
+              >
+            </div>
           </div>
         </section>
 
         <!-- Formand -->
         <section id="formand-side" class="view-content">
           <h1>Formand</h1>
-          <article id="medlemmer"></article>
+           <!-- Sort funktioner -->
+          <lable for="sort-memberData">Sorter Efter:</lable>
+          <select id="sort-memberData" name="sort-memberData">
+            <option value="memberNavn">Navn</option>
+            <option value="meberDOB">Fødselsdato</option>¨
+            <option value="memberAlder">Alder</option>
+          </select>
+
+          <label for="sort-"></label>
+
+            <!-- Filter funktioner -->
+            <div id="member-filter-køn">
+              <lable for="filterMemberKøn">Filtrer efter Køn</lable>
+              <select id="filterMemberKøn" name="filterMemberKøn">
+                <option value="mand">Mand</option>
+                <option value="kvinde">Kvinde</option>
+              </select>
+              <input type="text" id="filters-bar1" />
+            </div>
+
+            <div id="member-filter-aktiv">
+              <lable for="filterMemberAktiv">Filtrer efter Aktiv/Passiv</lable>
+              <select id="filterMemberAktiv" name="filterMemberAktiv">
+                <option value="aktiv">Mand</option>
+                <option value="passiv">Kvinde</option>
+              </select>
+              <input type="text" id="filters-bar2" />
+            </div>
+
+          </article>
         </section>
+          
+        
 
         <!-- Kassér -->
         <section id="kasser-side" class="view-content">
@@ -584,7 +667,7 @@
           <br />
 
           <p>Bekræft at medlemmet har betalt kontingent</p>
-          <input type="checkbox" id="betalt" name="betalt" />
+          <input type="checkbox" id="betaltUpdate" name="betalt" />
           <label for="betalt">Jeg accepterer</label>
           <br />
           <p>Er du motionssvømmer eller elitesvømmer?</p>
