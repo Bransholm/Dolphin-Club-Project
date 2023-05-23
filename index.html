@@ -11,7 +11,9 @@
   <body>
     <div class="page-view-grid">
       <!-- Header -->
-      <header class="header"><h1>The Dolphin Club</h1></header>
+      <header class="header">
+        <img src="billeder/header.png" alt="">
+      </header>
 
       <!-- Menu -->
       <nav class="nav-bar">
@@ -343,16 +345,40 @@
               <img class="kontakt-billede" src="billeder/rasmus.jpg" alt="" />
             </div>
           </div>
+          <h2 id="kontakt-vores-adresse">Vores adresse:</h2>
+          <p id="kontakt-p-adresse">Svømmeklubben Delfinen<br />
+          Meinungsgade 1<br />
+          2200 København N</p>
+          <p><img id="kontak-image-delfinen-map" src="billeder/delfinen-map.png" alt=""></p>
+
         </section>
 
         <!-- Login -->
         <section id="login-side" class="view-content">
           <h1>Admin login</h1>
-          Brugernavn:<br />
-          Kodeord:<br />
-          <a class="view-link text-link" href="#formand-side">Formand</a>
-          <a class="view-link text-link" href="#kasser-side">Kassér</a>
-          <a class="view-link text-link" href="#traener-side">Træner</a>
+          <div class="login-form-flexbox">
+          <form action="">
+            <div class="login-form-grid">
+            <label for="username" class="login-grab-form-element">Brugernavn:</label>
+            <input type="text" id="username" name="username" required value="admin-rop">
+            <label for="password"  class="login-grab-form-element">Kodeord:</label>
+            <input type="password" id="password" name="password" value="mypassword">
+            <label for="rememberlogin"  class="login-grab-form-element">Husk login:</label>
+            <div><input type="checkbox" id="rememberlogin" name="rememberlogin" checked  class="login-grab-form-element-checkbox"></div>
+            </div>
+          </form>
+          </div>
+          <div class="grab-button"><a class="view-link text-link" href="#logged-in"><div class="div-text-link-single">Login</div></a></div>
+        </section>
+
+        <!-- Logged in - Vælg rolle -->
+        <section id="logged-in" class="view-content">
+          <h1>Vælg din rolle</h1>
+          <div class="logged-in-buttons">
+          <div class="grab-button"><a class="view-link text-link" href="#formand-side"><div class="div-text-link-single div-text-link-single-buttons">Formand</div></a></div>
+          <div class="grab-button"><a class="view-link text-link" href="#kasser-side"><div class="div-text-link-single div-text-link-single-buttons">Kassér</div></a></div>
+          <div class="grab-button"><a class="view-link text-link" href="#traener-side"><div class="div-text-link-single">Træner</div></a></div>
+          </div>
         </section>
 
         <!-- Formand -->
@@ -439,7 +465,7 @@
       </main>
 
       <footer class="footer">
-        <h2>Created by Thomas, Lukas & Kenneth</h2>
+        <h2 class="footer-text">Created by Thomas, Lukas & Kenneth</h2>
       </footer>
     </div>
 
