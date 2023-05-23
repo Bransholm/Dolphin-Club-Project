@@ -3,45 +3,39 @@ let medlemmer
 
 async function kasser() {
     medlemmer = await updateMemberGrid();
-    showMemberPaidStatus();
+    showMemberPaidStatus(medlemmer);
     document.querySelector("#filter-betaling").addEventListener("change", filterbetalt);
 }
 
 function filterbetalt(event) {
     const valgte = event.target.value;
+    let result;
     if (valgte === "betalt") {
-        medlemmer.filter(filterByPaid);
-    } else if (valgte === "ejbetalt") {
-        medlemmer.filter(filterByNotPaid);
+        result = medlemmer.filter(filterByPaid);
+    } else if (valgte === "ubetalt") {
+        result = medlemmer.filter(filterByNotPaid);
     } else if (valgte === "alle-betalinger") {
-        showMemberPaidStatus();
+        result = medlemmer;
     }
 
-    function filterByPaid() {
-        console.log("filterByPaid kørt");
-
+    function filterByPaid(valgteMedlem) {
+        const paid = valgteMedlem.betalt;
+        return paid === true;
     }
      
-    function filterByNotPaid() {
+    function filterByNotPaid(valgteMedlem) {
         console.log("filterByNotPaid kørt");
-
+        return valgteMedlem.betalt === false;
     }
 
-
-
-
-
-
-
-    
-        
-        
-
+    showMemberPaidStatus(result);
+    console.log(result);
 }
 
 
-function showMemberPaidStatus() {
-    for (let medlem of medlemmer) {
+function showMemberPaidStatus(medlemmerListe) {
+    document.querySelector(".show-kasser").textContent = "";
+    for (let medlem of medlemmerListe) {
         const medlemHTML =
           /*html*/
           `
