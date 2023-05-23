@@ -47,7 +47,9 @@ function filterResultDeciplines(decipline) {
 }
 
 function filterResultTeamJunior() {
-  console.log(`hul`);
+  const currentDate = new Date();
+  const currentDateSeconds = currentDate.valueOf();
+  console.log(currentDateSeconds);
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
   for (let performance of performances) {
@@ -55,6 +57,7 @@ function filterResultTeamJunior() {
       if (performance.svømmerID === member.id) {
         // console.log(`${performance.svømmerID} ${member.navn}`);
         console.log(member.fødselsdatoSekunder);
+        
       }
     }
   }

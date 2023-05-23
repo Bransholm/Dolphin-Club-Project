@@ -12,7 +12,7 @@ window.addEventListener("load", start);
 
 function start() {
   singlePageRouter();
-  // showPerformanceForm();
+  showPerformanceForm();
   showMemberPerformances();
   // startIndmelding();
 }
