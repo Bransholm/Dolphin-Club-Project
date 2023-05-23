@@ -4,6 +4,7 @@ console.log("Javascript is running");
 
 import { singlePageRouter } from "./spa-router.js";
 import { showPerformanceForm } from "./performance-tracking.js";
+import { kasser } from "./kasser.js";
 // import { showSection } from "./router.js";
 // import { updateMemberGrid } from "./getMembers.js";
 import { startIndmelding } from "./formand.js";
@@ -15,4 +16,5 @@ function start() {
   showPerformanceForm();
   showMemberPerformances();
   startIndmelding();
+  kasser();
 }
