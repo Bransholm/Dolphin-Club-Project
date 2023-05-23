@@ -82,7 +82,7 @@ function createMemberPerfromanceTable(performanceList) {
       `<tr>
     <td>${performance.tid}</td>
     <td>${keyMember.efternavn}, ${keyMember.navn}</td>
-    <td>${performance.svømmerID}</td>
+    <td>${keyMember.adresse}</td>
     <td>${performance.deciplin}</td>
     <td>${performance.stævne}</td>
     <td>${performance.dato}</td> 
