@@ -57,6 +57,10 @@ async function startIndmelding() {
     .querySelector("#btn-closeDeleteDialog")
     .addEventListener("click", closeDeleteSuccessWindow);
 
+  document
+    .querySelector("#sort-selected")
+    .addEventListener("change", sortMember);
+
   document.querySelector("#btn-closeErrorDialog", closeErrorWindow);
 }
 
@@ -74,6 +78,14 @@ function showMembers(listOfMembers) {
 
   for (const member of listOfMembers) {
     displayMember(member);
+  }
+}
+
+function sortMembers(list) {
+  document.querySelector("#medlemmer").innerHTML = "";
+  //document.querySelector("#forms-div").innerHTML = "";
+  for (const memberObject of list) {
+    displayMember(memberObject);
   }
 }
 
@@ -199,6 +211,36 @@ function closeUpdateDialog() {
 
 function closeErrorWindow() {
   document.querySelector("#response-error").close();
+}
+
+//----------SORTING//----------//
+
+function sortMember(event) {
+  const sortCriteria = event.target.value;
+  console.log(sortCriteria);
+  if (sortCriteria === "memberDOB") {
+    memberObjects.sort(sortByDateOfBirth);
+  } else if (sortCriteria === "memberNavn") {
+    memberObjects.sort(sortByName);
+  } else if (sortCriteria === "memberAlder") {
+    memberObjects.sort(sortByAge);
+  }
+  sortMembers(memberObjects);
+}
+
+function sortByName(a, b) {
+  console.log("Sorter efter navn");
+  return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
+}
+
+function sortByAge(a, b) {
+  console.log("Sorter efter alder");
+  return a.age - b.age;
+}
+
+function sortByDateOfBirth(a, b) {
+  console.log("Sorter efter fødselsdag");
+  return a.fødselsdato.localeCompare(b.fødselsdato);
 }
 
 export { startIndmelding, runUpdate };
