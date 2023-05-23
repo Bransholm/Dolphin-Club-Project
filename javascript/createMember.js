@@ -12,6 +12,7 @@ async function createMember(
   crawl,
   efternavn,
   email,
+  fødselsdatoSekunder,
   fødselsdato,
   kategori,
   køn,
@@ -38,6 +39,7 @@ async function createMember(
     crawl: crawl,
     email: email,
     efternavn: efternavn,
+    fødselsdatoSekunder: fødselsdatoSekunder,
     fødselsdato: fødselsdato,
     kategori: kategori,
     køn: køn,
@@ -100,7 +102,7 @@ function createMemberClicked(event) {
   const efternavn = form.efternavn.value;
   const email = form.email.value;
   const fødselsdato = form.fødselsdato.value;
-  // const fødselsdatoSekunder = formatDate(form.fødselsdato.value);
+  const fødselsdatoSekunder = formatDate(form.fødselsdato.value);
   const kategori = form.kategori.value;
   const køn = form.køn.value;
   const navn = form.navn.value;
@@ -132,6 +134,7 @@ function createMemberClicked(event) {
   console.log(rygcrawl);
   console.log(tlf);
   console.log(age);
+  console.log(fødselsdatoSekunder);
 
   createMember(
     adresse,
@@ -142,6 +145,7 @@ function createMemberClicked(event) {
     crawl,
     efternavn,
     email,
+    fødselsdatoSekunder,
     fødselsdato,
     kategori,
     køn,
@@ -170,7 +174,6 @@ function showNewMember() {
 }
 
 function closeMemberSuccessWindow() {
-  //document.querySelector("#order-form").reset();
   document.querySelector("#successfull-createMember").close();
 }
 
@@ -179,4 +182,5 @@ export {
   createMemberClicked,
   resetForm,
   closeMemberSuccessWindow,
+  formatDate,
 };
