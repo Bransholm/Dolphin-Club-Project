@@ -58,7 +58,7 @@ async function startIndmelding() {
     .addEventListener("click", closeDeleteSuccessWindow);
 
   document
-    .querySelector("#sort-selected")
+    .querySelector("#sort-memberData")
     .addEventListener("change", sortMember);
 
   document.querySelector("#btn-closeErrorDialog", closeErrorWindow);
