@@ -436,8 +436,39 @@
         <!-- Formand -->
         <section id="formand-side" class="view-content">
           <h1>Formand</h1>
-          <article id="medlemmer"></article>
+           <!-- Sort funktioner -->
+          <lable for="sort-memberData">Sorter Efter:</lable>
+          <select id="sort-memberData" name="sort-memberData">
+            <option value="memberNavn">Navn</option>
+            <option value="meberDOB">Fødselsdato</option>¨
+            <option value="memberAlder">Alder</option>
+          </select>
+
+          <label for="sort-"></label>
+
+            <!-- Filter funktioner -->
+            <div id="member-filter-køn">
+              <lable for="filterMemberKøn">Filtrer efter Køn</lable>
+              <select id="filterMemberKøn" name="filterMemberKøn">
+                <option value="mand">Mand</option>
+                <option value="kvinde">Kvinde</option>
+              </select>
+              <input type="text" id="filters-bar1" />
+            </div>
+
+            <div id="member-filter-aktiv">
+              <lable for="filterMemberAktiv">Filtrer efter Aktiv/Passiv</lable>
+              <select id="filterMemberAktiv" name="filterMemberAktiv">
+                <option value="aktiv">Mand</option>
+                <option value="passiv">Kvinde</option>
+              </select>
+              <input type="text" id="filters-bar2" />
+            </div>
+
+          </article>
         </section>
+          
+        
 
         <!-- Kassér -->
         <section id="kasser-side" class="view-content">
