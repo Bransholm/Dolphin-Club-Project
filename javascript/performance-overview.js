@@ -70,9 +70,9 @@ function createMemberPerfromanceTable(performanceList) {
   let keyMember;
   for (const performance of performanceList) {
     keyMember = "Unkown";
-    console.log(performance);
+    // console.log(performance);
     for (const member of membersList) {
-      console.log(member);
+      // console.log(member);
       if (performance.svømmerID == member.id) {
         keyMember = member;
         // console.log("match!");

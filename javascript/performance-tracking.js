@@ -241,7 +241,7 @@ async function postNewResult(data) {
   const resultPost = await fetch(url, { method: "POST", body: resultJson });
   if (resultPost.ok) {
     showResultPostDialog();
-    console.log("ny tid optrettet");
+    // console.log("ny tid optrettet");
   }
 }
 
@@ -266,7 +266,7 @@ function formDataList(medlemmer) {
     document
       .querySelector("#medlems-liste")
       .insertAdjacentHTML("beforeend", medlemDatalistHTML);
-    console.log(medlemDatalistHTML);
+    // console.log(medlemDatalistHTML);
   }
   // const y = `<option value=${medlem.navn}></option>`;
 }

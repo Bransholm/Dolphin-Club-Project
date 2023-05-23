@@ -56,7 +56,7 @@ function filterResultTeamJunior() {
     for (let member of members) {
       if (performance.svømmerID === member.id) {
         // console.log(`${performance.svømmerID} ${member.navn}`);
-        console.log(member.fødselsdatoSekunder);
+        const timeSinceBirth = currentDate - member.fødselsdatoSekunder;
         
       }
     }
