@@ -75,9 +75,9 @@ function createMemberPerfromanceTable(performanceList) {
       console.log(member);
       if (performance.svømmerID == member.id) {
         keyMember = member;
-        console.log("match!");
+        // console.log("match!");
       } else {
-        console.log(`idm ${performance.svømmerID} has no match`);
+        // console.log(`idm ${performance.svømmerID} has no match`);
       }
     }
     const individualPerformanceHTML =

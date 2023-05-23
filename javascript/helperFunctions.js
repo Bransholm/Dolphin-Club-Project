@@ -47,7 +47,17 @@ function filterResultDeciplines(decipline) {
 }
 
 function filterResultTeamJunior() {
-  const members = bridgePerformanceList();
+  console.log(`hul`);
+  const members = bridgeMembersList();
+  const performances = bridgePerformanceList();
+  for (let performance of performances) {
+    for (let member of members) {
+      if (performance.svømmerID === member.id) {
+        // console.log(`${performance.svømmerID} ${member.navn}`);
+        console.log(member.fødselsdatoSekunder);
+      }
+    }
+  }
 }
 
 // MINIMUM VIABLE PRODUCT...
