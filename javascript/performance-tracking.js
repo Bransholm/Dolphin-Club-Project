@@ -145,7 +145,6 @@ function visualizePreformanceDialog() {
     .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
-
 //------------ Validering af forms--------------
 function dateToSeconds(year, month, day) {
   // const correctDay = validateDay(month, day);
@@ -210,7 +209,6 @@ function submitNewPreformance(event) {
   };
 
   function setResultPostDialogContent(result) {
-    // const successDialog = document.querySelector("#nyt-resultat-dialog");
     document.querySelector(
       "#resultates-svommer"
     ).textContent = `Svømmer: ${result.svømmerID}`;
@@ -239,7 +237,6 @@ async function postNewResult(data) {
   const resultPost = await fetch(url, { method: "POST", body: resultJson });
   if (resultPost.ok) {
     showResultPostDialog();
-    // console.log("ny tid optrettet");
   }
 }
 
@@ -259,14 +256,13 @@ async function memberDatalistGetData() {
 
 function formDataList(medlemmer) {
   for (let medlem of medlemmer) {
-    // const id = medlem.target.getAttribute("data-id");
-    const medlemDatalistHTML = /*html*/ `<option value=${medlem.id}>${medlem.navn} ${medlem.efternavn}</option>`;
-    document
-      .querySelector("#medlems-liste")
-      .insertAdjacentHTML("beforeend", medlemDatalistHTML);
-    // console.log(medlemDatalistHTML);
+    if (medlem.kategori === "elite") {
+      const medlemDatalistHTML = /*html*/ `<option value=${medlem.id}>${medlem.navn} ${medlem.efternavn}</option>`;
+      document
+        .querySelector("#medlems-liste")
+        .insertAdjacentHTML("beforeend", medlemDatalistHTML);
+    }
   }
-  // const y = `<option value=${medlem.navn}></option>`;
 }
 
 export { showPerformanceForm as showPerformanceForm };
