@@ -1,7 +1,6 @@
 import {
   bridgePerformanceList,
   bridgeMembersList,
-  createMemberPerfromanceTable,
 } from "./performance-overview.js";
 
 // let performances = bridgePerformanceList();
@@ -27,67 +26,7 @@ function sortByMostRecent(a, b) {
   return b.datoSekunder - a.datoSekunder;
 }
 
-// //https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
-// function combinedFilterFunction() {
-//   const slectedTeam = document.querySelector(
-//     `input[name="filter-hold"]:checked`
-//   ).value;
-//   const selectedDecipline = document.querySelector("#filter-deciplin").value;
 
-// }
-
-//Jeg vil filter/loope - hvis decipline.value = true! skal de med.
-
-//jeg BLIVER NØD TIL AT REFRESHE HELE LISTE ON CHANGE!
-// ALLE - bliver også nød til at køre for sig selv.
-function filterResultDeciplines(decipline) {
-  const performances = bridgePerformanceList();
-
-  if (decipline == "alle") {
-    return performances;
-  } else {
-    const result = performances.filter(filterByDecipline);
-    return result;
-  }
-
-  function filterByDecipline(performance) {
-    return performance.deciplin === decipline;
-  }
-}
-
-function filterResultTeamSenior() {
-  const members = bridgeMembersList();
-  const performances = bridgePerformanceList();
-  const seniorPerformances = performances.filter(filtering02);
-
-  function filtering02(performance) {
-    for (let member of members) {
-      if (performance.svømmerID === member.id) {
-        const age = calculateAgeTimestamp(member);
-        return age >= 18;
-      }
-    }
-  }
-
-  console.log(seniorPerformances);
-  return seniorPerformances;
-}
-
-function filterResultTeamJunior() {
-  const members = bridgeMembersList();
-  const performances = bridgePerformanceList();
-  const juniorPerformances = performances.filter(filtering);
-  function filtering(performance) {
-    for (let member of members) {
-      if (performance.svømmerID === member.id) {
-        const age = calculateAgeDate(member);
-        return age < 18;
-      }
-    }
-  }
-  console.log(juniorPerformances);
-  return juniorPerformances;
-}
 
 // // https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
 function combinedResultsFilter() {
@@ -135,7 +74,6 @@ function calculateAgeDate(member) {
   const dob = new Date(member.fødselsdato);
   const today = new Date();
   let age = today.getFullYear() - dob.getFullYear();
-  console.log(age);
 
   const monthDiff = today.getMonth() - dob.getMonth();
   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
@@ -164,7 +102,6 @@ function changeFormat(member) {
   const seconds = birthdate.getSeconds();
 
   const result = `${year}-${month}-${day}-${hours}-${minuttes}-${seconds}`;
-  console.log(result);
 }
 
 // MINIMUM VIABLE PRODUCT...
@@ -181,8 +118,5 @@ function changeFormat(member) {
 
 export {
   sortResultTable,
-  filterResultDeciplines,
-  filterResultTeamSenior,
-  filterResultTeamJunior,
   combinedResultsFilter,
 };

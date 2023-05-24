@@ -2,9 +2,6 @@ import { getMemberPerformances } from "./getPerformances.js";
 import { updateMemberGrid } from "./getMembers.js";
 import {
   sortResultTable,
-  filterResultDeciplines,
-  filterResultTeamSenior,
-  filterResultTeamJunior,
   combinedResultsFilter,
 } from "./helperFunctions.js";
 
@@ -61,28 +58,6 @@ function runSortResultTable(event) {
   createMemberPerfromanceTable(performanceList);
 }
 
-// async function runFilterResultDeciplines(event) {
-//   //Refresh
-//   await showMemberPerformances();
-//   performanceList = filterResultDeciplines(event.target.value);
-//   createMemberPerfromanceTable(performanceList);
-// }
-
-// async function runFilterResultTeamJunior() {
-//   //Refresh
-//   await showMemberPerformances();
-//   performanceList = filterResultTeamJunior();
-//   createMemberPerfromanceTable(performanceList);
-//   console.log("sort junior");
-// }
-
-// async function runFilterResultTeamSenior() {
-//   //Refresh
-//   await showMemberPerformances();
-//   performanceList = filterResultTeamSenior();
-//   createMemberPerfromanceTable(performanceList);
-//   console.log("sort senior");
-// }
 
 function createMemberPerfromanceTable(performanceList) {
   document.querySelector("#resultater").textContent = "";
