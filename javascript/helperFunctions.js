@@ -49,32 +49,23 @@ function filterResultDeciplines(decipline) {
 function filterResultTeamJunior() {
   const currentDate = new Date();
   const currentDateSeconds = currentDate.valueOf();
-  console.log(currentDateSeconds);
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
-  performances.filter(filtering)
-
+  const juniorPerformances = performances.filter(filtering);
 
   // for (let performance of performances) {
-  function filtering(performance) {  
+  function filtering(performance) {
     for (let member of members) {
-      
       if (performance.svømmerID === member.id) {
         // console.log(`${performance.svømmerID} ${member.navn}`);
-        const timeSinceBirth = currentDate - member.fødselsdatoSekunder;
-        console.log(timeSinceBirth);
+        const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
         // const age = Math.floor(timeSinceBirth / 1000);
         const age = getAge(member);
-        if (age > 18 ){
-          //
-        }
-        
-
+        return age > 18;
       }
-    
     }
   }
-
+  return juniorPerformances;
 }
 
 function getAge(member) {
