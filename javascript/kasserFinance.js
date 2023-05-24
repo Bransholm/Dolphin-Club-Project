@@ -70,10 +70,27 @@ function financeCalculation() {
     let indtaegtsPotentialle = (passivJuniorSeniorPaid * 500) + (passivJuniorSeniorUnpaid * 500) + (passivPensionistPaid * 375) + (passivPensionistUnpaid * 375) + (aktivJuniorPaid * 1000) + (aktivJuniorUnpaid * 1000) + (aktivSeniorPaid * 1600) + (aktivSeniorUnpaid * 1600) + (aktivPensionistPaid * 1200) + (aktivPensionistUnpaid * 1200);
     let indtaegtPaid = (passivJuniorSeniorPaid * 500) + (passivPensionistPaid * 375) + (aktivJuniorPaid * 1000) + (aktivSeniorPaid * 1600) + (aktivPensionistPaid * 1200);
     let indtaegtUnpaid = (passivJuniorSeniorUnpaid * 500) + (passivPensionistUnpaid * 375) + (aktivJuniorUnpaid * 1000) + (aktivSeniorUnpaid * 1600) + (aktivPensionistUnpaid * 1200);
+    const indtaegtsPotentialleformatted = indtaegtsPotentialle.toLocaleString("da-DK");
+    const indtaegtPaidformatted = indtaegtPaid.toLocaleString("da-DK");
+    const indtaegtUnpaidformatted = indtaegtUnpaid.toLocaleString("da-DK");
 
     console.log(`Indtægtspoetentialle: ${indtaegtsPotentialle}`);
     console.log(`Indtægter betalt: ${indtaegtPaid}`);
     console.log(`Indtægter restance: ${indtaegtUnpaid}`);
+    const financeHtml =
+      //HTML
+
+      `
+        
+        Finansoversigt<br>
+        Indtægtspotentialle: ${indtaegtsPotentialleformatted},- kr. | Indbetalt: ${indtaegtPaidformatted},- kr. | Restance: ${indtaegtUnpaidformatted},- kr.
+        
+        `;
+    document.querySelector(".show-finance").insertAdjacentHTML("beforeend", financeHtml)
+        
+
+
+
 }
 
 
