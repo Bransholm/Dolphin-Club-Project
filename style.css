@@ -243,6 +243,19 @@ body {
   color: #5d0067a1;
 }
 
+.show-kasser {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.show-kasser-user {
+  background-color: #b08802;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 .view-content {
   display: none;
 }
