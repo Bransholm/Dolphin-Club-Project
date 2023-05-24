@@ -275,7 +275,7 @@ function filterMemberGender(event) {
 function filterMemberAktive(event) {
   const selected = event.target.value;
   let aktiveOrPassive;
-  if (selected === "aktive") {
+  if (selected === "aktiv") {
     aktiveOrPassive = medlemmer.filter(checkAktiveTrue);
   } else if (selected === "passiv") {
     aktiveOrPassive = medlemmer.filter(checkAktiveFalse);
@@ -293,6 +293,8 @@ function filterMemberAktive(event) {
     return passiv === false;
   }
   showMembers(aktiveOrPassive);
+  // runUpdate(aktiveOrPassive);
+
   console.log(aktiveOrPassive);
 }
 
