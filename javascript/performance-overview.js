@@ -1,12 +1,10 @@
 import { getMemberPerformances } from "./getPerformances.js";
 import { updateMemberGrid } from "./getMembers.js";
-import {
-  sortResultTable,
-  combinedResultsFilter,
-} from "./helperFunctions.js";
+import { sortResultTable, combinedResultsFilter } from "./helperFunctions.js";
 
 let membersList;
 let performanceList;
+let performanceCounter;
 
 function bridgePerformanceList() {
   return performanceList;
@@ -58,9 +56,9 @@ function runSortResultTable(event) {
   createMemberPerfromanceTable(performanceList);
 }
 
-
 function createMemberPerfromanceTable(performanceList) {
   document.querySelector("#resultater").textContent = "";
+  performanceCounter = 0;
 
   let keyMember;
   for (const performance of performanceList) {
@@ -75,9 +73,11 @@ function createMemberPerfromanceTable(performanceList) {
         // console.log(`idm ${performance.svømmerID} has no match`);
       }
     }
+    performanceCounter++;
     const individualPerformanceHTML =
       /*html*/
       `<tr>
+    <td>${performanceCounter}</td>
     <td>${performance.tid}</td>
     <td>${keyMember.efternavn}, ${keyMember.navn}</td>
     <td>${keyMember.adresse}</td>
