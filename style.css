@@ -255,6 +255,7 @@ body {
 .kasser-finansoversigt-overskrift {
   margin: 0px;
   margin-bottom: 10px;
+  text-decoration: underline;
 }
 
 .kasser-filter {
