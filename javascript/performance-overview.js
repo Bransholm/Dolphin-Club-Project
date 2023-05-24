@@ -41,17 +41,29 @@ function addSortRelatedEvents() {
     .addEventListener("change", combinedFilterFunction);
 
   //Radio Buttons - filter by team
+  // document
+  //   .querySelector("#junior-hold-radio")
+  //   .addEventListener("change", runFilterResultTeamJunior);
+
+  // document
+  //   .querySelector("#senior-hold-radio")
+  //   .addEventListener("change", runFilterResultTeamSenior);
+
+  // document
+  //   .querySelector("#begge-hold-radio")
+  //   .addEventListener("change", refreshMembersList);
+
   document
     .querySelector("#junior-hold-radio")
-    .addEventListener("change", runFilterResultTeamJunior);
+    .addEventListener("change", combinedFilterFunction);
 
   document
     .querySelector("#senior-hold-radio")
-    .addEventListener("change", runFilterResultTeamSenior);
+    .addEventListener("change", combinedFilterFunction);
 
   document
     .querySelector("#begge-hold-radio")
-    .addEventListener("change", refreshMembersList);
+    .addEventListener("change", combinedFilterFunction);
 }
 
 function runSortResultTable(event) {
@@ -98,15 +110,31 @@ async function combinedFilterFunction() {
     for (let member of members) {
       const memberAge = calculateAgeTimestamp(member);
       if (performance.svømmerID === member.id) {
-        if (selectedTeam === "junior") {
-          return performance.deciplin === selectedDecipline && memberAge > 18;
-        } else if (selectedTeam === "senior") {
-          return performance.deciplin === selectedDecipline && memberAge <= 18;
+        if (selectedDecipline === "alle") {
+          if (selectedTeam === "junior") {
+            return memberAge > 18;
+          } else if (selectedTeam === "senior") {
+            return memberAge <= 18;
+          } else if (selectedTeam === "begge") {
+            return performances;
+          }
+        } else {
+          if (selectedTeam === "junior") {
+            return performance.deciplin === selectedDecipline && memberAge > 18;
+          } else if (selectedTeam === "senior") {
+            return (
+              performance.deciplin === selectedDecipline && memberAge <= 18
+            );
+          } else if (selectedTeam === "begge") {
+            return performance.deciplin === selectedDecipline;
+          }
         }
       }
     }
   }
-  performanceList = resultList;
+  console.log(resultList);
+  // performanceList = resultList;
+  createMemberPerfromanceTable(resultList);
 }
 
 function calculateAgeTimestamp(member) {
