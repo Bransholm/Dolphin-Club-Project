@@ -227,23 +227,11 @@ function sortByAge(a, b) {
   return a.age - b.age;
 }
 
-function sortByDateOfBirth(medlemmer) {
-  medlemmer.sort(function (a, b) {
-    // Extract the date strings from the objects
-    var dateA = a.fødselsdato;
-    var dateB = b.fødselsdato;
-
-    // Compare the date strings directly
-    if (dateA < dateB) {
-      return -1;
-    } else if (dateA > dateB) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-
-  return medlemmer;
+function sortByDateOfBirth(a, b) {
+  //https://stackoverflow.com/questions/41673669/how-to-sort-object-array-by-time-in-javascript
+  const timeA = a.fødselsdato + " " + a.fødselsdatoSekunder;
+  const timeB = b.fødselsdato + " " + b.fødselsdatoSekunder;
+  return timeA.localeCompare(timeB);
 }
 
 export { startIndmelding, runUpdate };
