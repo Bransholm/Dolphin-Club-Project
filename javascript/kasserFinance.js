@@ -36,7 +36,7 @@ function kasserMemberStatus() {
         const age = calculateAgeDate(medlem);
   
         if (medlem.aktiv === false && age < 61 && medlem.betalt === true) { passivJuniorSeniorPaid++; }
-        if (medlem.aktiv === false && age < 61 && medlem.betalt === false) { passivJuniorSeniorUnpaid++; }
+        else if (medlem.aktiv === false && age < 61 && medlem.betalt === false) { passivJuniorSeniorUnpaid++; }
         
         else if (medlem.aktiv === false && age > 60 && medlem.betalt === true) { passivPensionistPaid++; }
         else if (medlem.aktiv === false && age > 60 && medlem.betalt === false) { passivPensionistUnpaid++; }
@@ -54,20 +54,20 @@ function kasserMemberStatus() {
     financeCalculation();
 
 
-    console.log(`passivJuniorSeniorPaid`);
-    console.log(`passivJuniorSeniorUnpaid`);
-    console.log(`passivPensionistPaid`);
-    console.log(`passivPensionistUnpaid`);
-    console.log(`aktivJuniorPaid`);
-    console.log(`aktivJuniorUnpaid`);
-    console.log(`aktivSeniorPaid`);
-    console.log(`aktivSeniorUnpaid`);
-    console.log(`aktivPensionistPaid`);
-    console.log(`aktivPensionistUnpaid`);
+    console.log(`passivJuniorSeniorPaid: ${passivJuniorSeniorPaid}`);
+    console.log(`passivJuniorSeniorUnpaid: ${passivJuniorSeniorUnpaid}`);
+    console.log(`passivPensionistPaid: ${passivPensionistPaid}`);
+    console.log(`passivPensionistUnpaid: ${passivPensionistUnpaid}`);
+    console.log(`aktivJuniorPaid: ${aktivJuniorPaid}`);
+    console.log(`aktivJuniorUnpaid: ${aktivJuniorUnpaid}`);
+    console.log(`aktivSeniorPaid: ${aktivSeniorPaid}`);
+    console.log(`aktivSeniorUnpaid: ${aktivSeniorUnpaid}`);
+    console.log(`aktivPensionistPaid: ${aktivPensionistPaid}`);
+    console.log(`aktivPensionistUnpaid: ${aktivPensionistUnpaid}`);
 }
 
 function financeCalculation() {
-    let indtaegtsPotentialle = aktivPensionist * 5;
+    let indtaegtsPotentialle = aktivPensionistPaid * 5;
     console.log(`Indtægtspoetentialle: ${indtaegtsPotentialle}`);
 }
 
