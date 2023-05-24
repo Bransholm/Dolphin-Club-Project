@@ -45,18 +45,6 @@ async function startIndmelding() {
     .querySelector("#form-update-member")
     .addEventListener("submit", updateMemberClicked);
 
-  document
-    .querySelector("#sort-memberData")
-    .addEventListener("change", sortMember);
-
-  document
-    .querySelector("#filterMemberGender")
-    .addEventListener("change", filterMemberGender);
-
-  document
-    .querySelector("#filter-memberAktiv")
-    .addEventListener("change", filterMemberAktive);
-
   //luk bekræftelses vinduer
   document
     .querySelector("#btn-closeMemberDialog")
@@ -86,6 +74,17 @@ function showMembers(list) {
   for (const medlem of list) {
     displayMember(medlem);
   }
+  document
+    .querySelector("#sort-memberData")
+    .addEventListener("change", sortMember);
+
+  //   document
+  //     .querySelector("#filterMemberGender")
+  //     .addEventListener("change", filterMemberGender);
+
+  //   document
+  //     .querySelector("#filter-memberAktiv")
+  //     .addEventListener("change", filterMemberAktive);
 }
 
 //
@@ -249,53 +248,83 @@ function sortByDateOfBirth(a, b) {
   return timeA.localeCompare(timeB);
 }
 
-function filterMemberGender(event) {
-  const selected = event.target.value;
-  let gender;
-  if (selected === "kvinde") {
-    gender = medlemmer.filter(checkGenderWoman);
-  } else if (selected === "mand") {
-    gender = medlemmer.filter(checkGenderMan);
-  } else if (selected === "begge") {
-    gender = medlemmer;
+// function filterMemberGender(event) {
+//   const selected = event.target.value;
+//   let gender;
+//   if (selected === "kvinde") {
+//     gender = medlemmer.filter(checkGenderWoman);
+//   } else if (selected === "mand") {
+//     gender = medlemmer.filter(checkGenderMan);
+//   } else if (selected === "begge") {
+//     gender = medlemmer;
+//   }
+
+//   function checkGenderWoman(selectedMember) {
+//     const woman = selectedMember.køn;
+//     return woman === "kvinde";
+//   }
+//   function checkGenderMan(selectedMember) {
+//     return selectedMember.køn === "mand";
+//   }
+
+//   showMembers(gender);
+//   console.log(gender);
+// }
+
+// function filterMemberAktive(event) {
+//   const selected = event.target.value;
+//   let aktiveOrPassive;
+//   if (selected === "aktiv") {
+//     aktiveOrPassive = medlemmer.filter(checkAktiveTrue);
+//   } else if (selected === "passiv") {
+//     aktiveOrPassive = medlemmer.filter(checkAktiveFalse);
+//   } else if (selected === "begge") {
+//     aktiveOrPassive = medlemmer;
+//   }
+
+//   function checkAktiveTrue(selectedMember) {
+//     const aktiv = selectedMember.aktiv;
+//     return aktiv === true;
+//   }
+
+//   function checkAktiveFalse(selectedMember) {
+//     const passiv = selectedMember.aktiv;
+//     return passiv === false;
+//   }
+//   showMembers(aktiveOrPassive);
+//   event.preventDefault();
+//   // runUpdate(aktiveOrPassive);
+
+//   console.log(aktiveOrPassive);
+// }
+
+function filterMembers() {
+  const selectedGender = document.querySelector("#filterMemberGender").value;
+  const selectedAktive = document.querySelector("#filterMemberAktiv").value;
+  let filteredMembers = medlemmer;
+
+  if (selectedGender === "kvinde") {
+    filteredMembers = filteredMembers.filter(
+      (member) => member.køn === "kvinde"
+    );
+  } else if (selectedGender === "mand") {
+    filteredMembers = filteredMembers.filter((member) => member.køn === "mand");
   }
 
-  function checkGenderWoman(selectedMember) {
-    const woman = selectedMember.køn;
-    return woman === "kvinde";
-  }
-  function checkGenderMan(selectedMember) {
-    return selectedMember.køn === "mand";
+  if (selectedAktive === "aktiv") {
+    filteredMembers = filteredMembers.filter((member) => member.aktiv);
+  } else if (selectedAktive === "passiv") {
+    filteredMembers = filteredMembers.filter((member) => !member.aktiv);
   }
 
-  showMembers(gender);
-  console.log(gender);
+  showMembers(filteredMembers);
+  console.log(filteredMembers);
 }
 
-function filterMemberAktive(event) {
-  const selected = event.target.value;
-  let aktiveOrPassive;
-  if (selected === "aktiv") {
-    aktiveOrPassive = medlemmer.filter(checkAktiveTrue);
-  } else if (selected === "passiv") {
-    aktiveOrPassive = medlemmer.filter(checkAktiveFalse);
-  } else if (selected === "begge") {
-    aktiveOrPassive = medlemmer;
-  }
+const genderFilterElement = document.querySelector("#filterMemberGender");
+const aktiveFilterElement = document.querySelector("#filterMemberAktiv");
 
-  function checkAktiveTrue(selectedMember) {
-    const aktiv = selectedMember.aktiv;
-    return aktiv === true;
-  }
-
-  function checkAktiveFalse(selectedMember) {
-    const passiv = selectedMember.aktiv;
-    return passiv === false;
-  }
-  showMembers(aktiveOrPassive);
-  // runUpdate(aktiveOrPassive);
-
-  console.log(aktiveOrPassive);
-}
+genderFilterElement.addEventListener("change", filterMembers);
+aktiveFilterElement.addEventListener("change", filterMembers);
 
 export { startIndmelding, runUpdate };
