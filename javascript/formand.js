@@ -3,6 +3,7 @@ import {
   createMemberClicked,
   closeMemberSuccessWindow,
   resetForm,
+  createMember,
 } from "./createMember.js";
 import {
   updateMemberClicked,
@@ -44,6 +45,10 @@ async function startIndmelding() {
     .querySelector("#form-update-member")
     .addEventListener("submit", updateMemberClicked);
 
+  document
+    .querySelector("#sort-memberData")
+    .addEventListener("change", sortMember);
+
   //luk bekræftelses vinduer
   document
     .querySelector("#btn-closeMemberDialog")
@@ -67,13 +72,11 @@ async function runUpdate() {
   medlemmer = await updateMemberGrid();
   showMembers(medlemmer);
 }
-
-function showMembers(listOfMembers) {
-  //console.log(listOfMembers);
+function showMembers(list) {
   document.querySelector("#medlemmer").innerHTML = "";
-
-  for (const member of listOfMembers) {
-    displayMember(member);
+  //document.querySelector("#forms-div").innerHTML = "";
+  for (const medlemmer of list) {
+    displayMember(medlemmer);
   }
 }
 
@@ -199,6 +202,36 @@ function closeUpdateDialog() {
 
 function closeErrorWindow() {
   document.querySelector("#response-error").close();
+}
+
+function sortMember(event) {
+  const sortCriteria = event.target.value;
+  console.log(sortCriteria);
+  if (sortCriteria === "memberDOB") {
+    medlemmer.sort(sortByDateOfBirth);
+  } else if (sortCriteria === "memberNavn") {
+    medlemmer.sort(sortByName);
+  } else if (sortCriteria === "memberAlder") {
+    medlemmer.sort(sortByAge);
+  }
+  showMembers(medlemmer);
+}
+
+function sortByName(a, b) {
+  console.log("Sorter efter navn");
+  return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
+}
+
+function sortByAge(a, b) {
+  console.log("Sorter efter alder");
+  return a.age - b.age;
+}
+
+function sortByDateOfBirth(a, b) {
+  //https://stackoverflow.com/questions/41673669/how-to-sort-object-array-by-time-in-javascript
+  const timeA = a.fødselsdato + " " + a.fødselsdatoSekunder;
+  const timeB = b.fødselsdato + " " + b.fødselsdatoSekunder;
+  return timeA.localeCompare(timeB);
 }
 
 export { startIndmelding, runUpdate };
