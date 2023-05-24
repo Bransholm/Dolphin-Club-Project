@@ -34,9 +34,6 @@ function sortByMostRecent(a, b) {
 //   ).value;
 //   const selectedDecipline = document.querySelector("#filter-deciplin").value;
 
-
-
-  
 // }
 
 //Jeg vil filter/loope - hvis decipline.value = true! skal de med.
@@ -92,6 +89,48 @@ function filterResultTeamJunior() {
   return juniorPerformances;
 }
 
+// // https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+function combinedResultsFilter() {
+  const selectedTeam = document.querySelector(
+    `input[name="filter-hold"]:checked`
+  ).value;
+  const selectedDecipline = document.querySelector("#filter-deciplin").value;
+
+  const performances = bridgePerformanceList();
+  const members = bridgeMembersList();
+
+  const resultList = performances.filter(filterResults);
+
+  function filterResults(performance) {
+    for (let member of members) {
+      const memberAge = calculateAgeTimestamp(member);
+      if (performance.svømmerID === member.id) {
+        if (selectedDecipline === "alle") {
+          if (selectedTeam === "junior") {
+            return memberAge < 18;
+          } else if (selectedTeam === "senior") {
+            return memberAge >= 18;
+          } else if (selectedTeam === "begge") {
+            return performances;
+          }
+        } else {
+          if (selectedTeam === "junior") {
+            return performance.deciplin === selectedDecipline && memberAge < 18;
+          } else if (selectedTeam === "senior") {
+            return (
+              performance.deciplin === selectedDecipline && memberAge >= 18
+            );
+          } else if (selectedTeam === "begge") {
+            return performance.deciplin === selectedDecipline;
+          }
+        }
+      }
+    }
+  }
+  // console.log(resultList);
+  return resultList;
+}
+
 function calculateAgeDate(member) {
   const dob = new Date(member.fødselsdato);
   const today = new Date();
@@ -145,4 +184,5 @@ export {
   filterResultDeciplines,
   filterResultTeamSenior,
   filterResultTeamJunior,
+  combinedResultsFilter,
 };

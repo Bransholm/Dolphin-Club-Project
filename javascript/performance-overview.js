@@ -5,6 +5,7 @@ import {
   filterResultDeciplines,
   filterResultTeamSenior,
   filterResultTeamJunior,
+  combinedResultsFilter,
 } from "./helperFunctions.js";
 
 let membersList;
@@ -31,124 +32,57 @@ function addSortRelatedEvents() {
     .querySelector("#resultat-sortering")
     .addEventListener("change", runSortResultTable);
 
-  // Deciplin filter selector
-  // document
-  //   .querySelector("#filter-deciplin")
-  //   .addEventListener("change", runFilterResultDeciplines);
-
   document
     .querySelector("#filter-deciplin")
-    .addEventListener("change", combinedFilterFunction);
-
-  //Radio Buttons - filter by team
-  // document
-  //   .querySelector("#junior-hold-radio")
-  //   .addEventListener("change", runFilterResultTeamJunior);
-
-  // document
-  //   .querySelector("#senior-hold-radio")
-  //   .addEventListener("change", runFilterResultTeamSenior);
-
-  // document
-  //   .querySelector("#begge-hold-radio")
-  //   .addEventListener("change", refreshMembersList);
+    .addEventListener("change", runCombinedResultsFilter);
 
   document
     .querySelector("#junior-hold-radio")
-    .addEventListener("change", combinedFilterFunction);
+    .addEventListener("change", runCombinedResultsFilter);
 
   document
     .querySelector("#senior-hold-radio")
-    .addEventListener("change", combinedFilterFunction);
+    .addEventListener("change", runCombinedResultsFilter);
 
   document
     .querySelector("#begge-hold-radio")
-    .addEventListener("change", combinedFilterFunction);
+    .addEventListener("change", runCombinedResultsFilter);
+}
+
+async function runCombinedResultsFilter(event) {
+  await showMemberPerformances();
+  performanceList = combinedResultsFilter();
+  console.log(performanceList);
+  createMemberPerfromanceTable(performanceList);
 }
 
 function runSortResultTable(event) {
   performanceList = sortResultTable(event.target.value);
   createMemberPerfromanceTable(performanceList);
 }
-async function runFilterResultDeciplines(event) {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultDeciplines(event.target.value);
-  createMemberPerfromanceTable(performanceList);
-}
 
-async function runFilterResultTeamJunior() {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultTeamJunior();
-  createMemberPerfromanceTable(performanceList);
-  console.log("sort junior");
-}
+// async function runFilterResultDeciplines(event) {
+//   //Refresh
+//   await showMemberPerformances();
+//   performanceList = filterResultDeciplines(event.target.value);
+//   createMemberPerfromanceTable(performanceList);
+// }
 
-async function runFilterResultTeamSenior() {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultTeamSenior();
-  createMemberPerfromanceTable(performanceList);
-  console.log("sort senior");
-}
+// async function runFilterResultTeamJunior() {
+//   //Refresh
+//   await showMemberPerformances();
+//   performanceList = filterResultTeamJunior();
+//   createMemberPerfromanceTable(performanceList);
+//   console.log("sort junior");
+// }
 
-// // https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
-async function combinedFilterFunction() {
-  await showMemberPerformances();
-  const selectedTeam = document.querySelector(
-    `input[name="filter-hold"]:checked`
-  ).value;
-  const selectedDecipline = document.querySelector("#filter-deciplin").value;
-
-  const performances = performanceList;
-  const members = membersList;
-
-  const resultList = performances.filter(filterResults);
-
-  function filterResults(performance) {
-    for (let member of members) {
-      const memberAge = calculateAgeTimestamp(member);
-      if (performance.svømmerID === member.id) {
-        if (selectedDecipline === "alle") {
-          if (selectedTeam === "junior") {
-            return memberAge > 18;
-          } else if (selectedTeam === "senior") {
-            return memberAge <= 18;
-          } else if (selectedTeam === "begge") {
-            return performances;
-          }
-        } else {
-          if (selectedTeam === "junior") {
-            return performance.deciplin === selectedDecipline && memberAge > 18;
-          } else if (selectedTeam === "senior") {
-            return (
-              performance.deciplin === selectedDecipline && memberAge <= 18
-            );
-          } else if (selectedTeam === "begge") {
-            return performance.deciplin === selectedDecipline;
-          }
-        }
-      }
-    }
-  }
-  console.log(resultList);
-  // performanceList = resultList;
-  createMemberPerfromanceTable(resultList);
-}
-
-function calculateAgeTimestamp(member) {
-  const currentDate = new Date();
-  const currentDateSeconds = currentDate.valueOf();
-  const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
-  const millieSecondsPerYear = 1000 * 60 * 60 * 24 * 365.25;
-  const age = timeSinceBirth / millieSecondsPerYear;
-  return age;
-}
-
-function refreshMembersList() {
-  createMemberPerfromanceTable(performanceList);
-}
+// async function runFilterResultTeamSenior() {
+//   //Refresh
+//   await showMemberPerformances();
+//   performanceList = filterResultTeamSenior();
+//   createMemberPerfromanceTable(performanceList);
+//   console.log("sort senior");
+// }
 
 function createMemberPerfromanceTable(performanceList) {
   document.querySelector("#resultater").textContent = "";
