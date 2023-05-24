@@ -7,6 +7,8 @@ let medlemmer;
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
+let viewResultForm = false;
+
 function showPerformanceForm() {
   console.log("preformance form is active");
 
@@ -31,6 +33,30 @@ function addInputFunctionalities() {
   document
     .querySelector("#btn-close-dialog")
     .addEventListener("click", closeDialog);
+
+  document
+    .querySelector("#btn-toggle-result-form")
+    .addEventListener("click", toggleShowResultForm);
+}
+
+//show ResultForms
+function toggleShowResultForm() {
+  if (viewResultForm === true) {
+    document.querySelector("#time-result-form").classList.add("view-content");
+    document.querySelector("#btn-toggle-result-form").textContent =
+      "Tilføj Nytid";
+    ("Luk formel");
+    1;
+    viewResultForm = false;
+  } else {
+    document
+      .querySelector("#time-result-form")
+      .classList.remove("view-content");
+    document.querySelector("#btn-toggle-result-form").textContent =
+      "Luk formel";
+
+    viewResultForm = true;
+  }
 }
 
 // Jeg vil gerne have en data-list så man kan vælge stævner eller tilføje et...
@@ -39,9 +65,11 @@ function visualizePreformanceDialog() {
   const dialogHTML =
     /*html*/
     `
-  <form id="time-result-form">
-    <legend>Svømmetid</legend>
- <div class="result-form-element">
+  <form id="time-result-form" class="result-form view-content">
+
+  <legend>Svømmetid</legend>
+     <div class="result-form-element">
+
   <label for="svomme_decilpin">Deciplin</label>
   <select id="svomme_decilpin" name="svomme_decilpin">
   <option value="crawl" selected>Crawl</option>
