@@ -119,4 +119,5 @@ function changeFormat(member) {
 export {
   sortResultTable,
   combinedResultsFilter,
+  calculateAgeDate,
 };

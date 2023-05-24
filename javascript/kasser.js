@@ -39,21 +39,19 @@ function showMemberPaidStatus(medlemmerListe) {
         const medlemHTML =
           /*html*/
           `
-            <div>${medlem.navn}</div>
-            <div>${medlem.betalt}</div>
+
+            <div class="show-kasser-user">
+            Navn: ${medlem.navn} <br />
+            Køn: ${medlem.køn} <br />
+            Fødselsdag: ${medlem.fødselsdato} <br />
+            Kategori: ${medlem.kategori} <br />
+            Betalt: ${medlem.betalt}
+            Betalt: ${medlem.betalt}
+            </div>
+
             `;
         document.querySelector(".show-kasser").insertAdjacentHTML("beforeend", medlemHTML);
     }
 }
 
 export { kasser }
-
-
-
-
-// li>Adresse: ${memberObject.adresse} ${memberObject.postnummer}</li>
-
-
-
-// 1. Udregning aktive 18-60 1600
-// 2. Vis paid/unpaid
