@@ -17,7 +17,7 @@ import {
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
-let medlemmer;
+let medlemmer = [];
 
 //window.addEventListener("load", start);
 
@@ -316,9 +316,11 @@ function filterMembers() {
   } else if (selectedAktive === "passiv") {
     filteredMembers = filteredMembers.filter((member) => !member.aktiv);
   }
-
   showMembers(filteredMembers);
   console.log(filteredMembers);
+
+  // medlemmer = filterMembers;
+  // showMembers(medlemmer);
 }
 
 const memberSortElement = document.querySelector("#sortMemberData");
