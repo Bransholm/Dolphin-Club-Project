@@ -52,15 +52,43 @@ function filterResultTeamJunior() {
   console.log(currentDateSeconds);
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
-  for (let performance of performances) {
+  performances.filter(filtering)
+
+
+  // for (let performance of performances) {
+  function filtering(performance) {  
     for (let member of members) {
+      
       if (performance.svømmerID === member.id) {
         // console.log(`${performance.svømmerID} ${member.navn}`);
         const timeSinceBirth = currentDate - member.fødselsdatoSekunder;
+        console.log(timeSinceBirth);
+        // const age = Math.floor(timeSinceBirth / 1000);
+        const age = getAge(member);
+        if (age > 18 ){
+          //
+        }
         
+
       }
+    
     }
   }
+
+}
+
+function getAge(member) {
+  const dob = new Date(member.fødselsdato);
+  // const dob2 = member.fødselsdatoSekunder;
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  console.log(age);
+
+  const monthDiff = today.getMonth() - dob.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+  return age;
 }
 
 // MINIMUM VIABLE PRODUCT...
