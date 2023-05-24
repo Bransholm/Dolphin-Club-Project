@@ -74,9 +74,9 @@ function showMembers(list) {
   for (const medlem of list) {
     displayMember(medlem);
   }
-  document
-    .querySelector("#sort-memberData")
-    .addEventListener("change", sortMember);
+  // document
+  //   .querySelector("#sort-memberData")
+  //   .addEventListener("change", sortMember);
 
   //   document
   //     .querySelector("#filterMemberGender")
@@ -211,19 +211,19 @@ function closeErrorWindow() {
   document.querySelector("#response-error").close();
 }
 
-function sortMember(event) {
-  const sortCriteria = event.target.value;
-  console.log(sortCriteria);
+function sortMember() {
+  const sortCriteria = document.querySelector("#sortMemberData").value;
+  let sortedMembers = medlemmer;
   if (sortCriteria === "memberDOB") {
-    medlemmer.sort(sortByDateOfBirth);
+    sortedMembers = sortedMembers.sort(sortByDateOfBirth);
   } else if (sortCriteria === "memberNavnA") {
-    medlemmer.sort(sortByName);
+    sortedMembers = sortedMembers.sort(sortByName);
   } else if (sortCriteria === "memberAlder") {
-    medlemmer.sort(sortByAge);
+    sortedMembers = sortedMembers.sort(sortByAge);
   } else if (sortCriteria === "memberNavnÅ") {
-    medlemmer.sort(sortByName2);
+    sortedMembers = sortedMembers.sort(sortByName2);
   }
-  showMembers(medlemmer);
+  showMembers(sortedMembers);
 }
 
 function sortByName(a, b) {
@@ -321,9 +321,11 @@ function filterMembers() {
   console.log(filteredMembers);
 }
 
+const memberSortElement = document.querySelector("#sortMemberData");
 const genderFilterElement = document.querySelector("#filterMemberGender");
 const aktiveFilterElement = document.querySelector("#filterMemberAktiv");
 
+memberSortElement.addEventListener("change", sortMember);
 genderFilterElement.addEventListener("change", filterMembers);
 aktiveFilterElement.addEventListener("change", filterMembers);
 
