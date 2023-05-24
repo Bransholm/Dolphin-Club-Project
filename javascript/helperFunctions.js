@@ -132,4 +132,5 @@ export {
   filterResultDeciplines,
   filterResultTeamSenior,
   filterResultTeamJunior,
+  calculateAgeDate,
 };
