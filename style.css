@@ -243,11 +243,30 @@ body {
   color: #5d0067a1;
 }
 
+.show-finance {
+  background-color: #5d0067a1;
+  width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.kasser-finansoversigt-overskrift {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.kasser-filter {
+  padding-top: 15px;
+}
+
 .show-kasser {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
   padding: 20px;
+  margin-bottom: 100px;
 }
 
 .show-kasser-user {
@@ -274,13 +293,3 @@ input:invalid:required {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-
-
-/* .nav-bar {
-  background-color: rgba(0, 118, 139, 0.397); } */
-
-  /* button color     background-color: rgb(0, 118, 139); */
-
-
-  /* main bgcolor rgba(0, 119, 140, 0.667) */

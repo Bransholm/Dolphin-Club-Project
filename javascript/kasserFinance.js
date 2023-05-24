@@ -82,8 +82,10 @@ function financeCalculation() {
 
       `
         
-        Finansoversigt<br>
-        Indtægtspotentialle: ${indtaegtsPotentialleformatted},- kr. | Indbetalt: ${indtaegtPaidformatted},- kr. | Restance: ${indtaegtUnpaidformatted},- kr.
+        <h3 class="kasser-finansoversigt-overskrift">Finansoversigt</h3>
+        Indtægtspotentiale: ${indtaegtsPotentialleformatted},- kr.<br />
+        Indbetalt: ${indtaegtPaidformatted},- kr.<br />
+        Restance: ${indtaegtUnpaidformatted},- kr.
         
         `;
     document.querySelector(".show-finance").insertAdjacentHTML("beforeend", financeHtml)
