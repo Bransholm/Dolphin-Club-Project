@@ -109,6 +109,7 @@ function createMemberClicked(event) {
   const postnummer = form.postnummer.value;
   const rygcrawl = form.rygcrawl.checked;
   const tlf = form.tlf.value;
+  // funktionen...
   const dob = new Date(fødselsdato);
   const today = new Date();
   let age = today.getFullYear() - dob.getFullYear();

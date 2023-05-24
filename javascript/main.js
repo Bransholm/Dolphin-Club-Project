@@ -17,4 +17,5 @@ function start() {
   showMemberPerformances();
   startIndmelding();
   kasser();
+  
 }
