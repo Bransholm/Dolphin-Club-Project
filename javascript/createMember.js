@@ -184,4 +184,5 @@ export {
   resetForm,
   closeMemberSuccessWindow,
   formatDate,
+  createMember,
 };
