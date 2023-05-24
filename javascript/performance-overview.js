@@ -32,9 +32,13 @@ function addSortRelatedEvents() {
     .addEventListener("change", runSortResultTable);
 
   // Deciplin filter selector
+  // document
+  //   .querySelector("#filter-deciplin")
+  //   .addEventListener("change", runFilterResultDeciplines);
+
   document
     .querySelector("#filter-deciplin")
-    .addEventListener("change", runFilterResultDeciplines);
+    .addEventListener("change", combinedFilterFunction);
 
   //Radio Buttons - filter by team
   document
@@ -75,6 +79,43 @@ async function runFilterResultTeamSenior() {
   performanceList = filterResultTeamSenior();
   createMemberPerfromanceTable(performanceList);
   console.log("sort senior");
+}
+
+// // https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+async function combinedFilterFunction() {
+  await showMemberPerformances();
+  const selectedTeam = document.querySelector(
+    `input[name="filter-hold"]:checked`
+  ).value;
+  const selectedDecipline = document.querySelector("#filter-deciplin").value;
+
+  const performances = performanceList;
+  const members = membersList;
+
+  const resultList = performances.filter(filterResults);
+
+  function filterResults(performance) {
+    for (let member of members) {
+      const memberAge = calculateAgeTimestamp(member);
+      if (performance.svømmerID === member.id) {
+        if (selectedTeam === "junior") {
+          return performance.deciplin === selectedDecipline && memberAge > 18;
+        } else if (selectedTeam === "senior") {
+          return performance.deciplin === selectedDecipline && memberAge <= 18;
+        }
+      }
+    }
+  }
+  performanceList = resultList;
+}
+
+function calculateAgeTimestamp(member) {
+  const currentDate = new Date();
+  const currentDateSeconds = currentDate.valueOf();
+  const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
+  const millieSecondsPerYear = 1000 * 60 * 60 * 24 * 365.25;
+  const age = timeSinceBirth / millieSecondsPerYear;
+  return age;
 }
 
 function refreshMembersList() {

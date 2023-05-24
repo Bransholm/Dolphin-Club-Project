@@ -27,6 +27,18 @@ function sortByMostRecent(a, b) {
   return b.datoSekunder - a.datoSekunder;
 }
 
+// //https: stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+// function combinedFilterFunction() {
+//   const slectedTeam = document.querySelector(
+//     `input[name="filter-hold"]:checked`
+//   ).value;
+//   const selectedDecipline = document.querySelector("#filter-deciplin").value;
+
+
+
+  
+// }
+
 //Jeg vil filter/loope - hvis decipline.value = true! skal de med.
 
 //jeg BLIVER NØD TIL AT REFRESHE HELE LISTE ON CHANGE!
@@ -50,7 +62,7 @@ function filterResultTeamSenior() {
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
   const seniorPerformances = performances.filter(filtering02);
- 
+
   function filtering02(performance) {
     for (let member of members) {
       if (performance.svømmerID === member.id) {
