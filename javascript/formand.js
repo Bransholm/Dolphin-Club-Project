@@ -49,6 +49,14 @@ async function startIndmelding() {
     .querySelector("#sort-memberData")
     .addEventListener("change", sortMember);
 
+  document
+    .querySelector("#filterMemberGender")
+    .addEventListener("change", filterMemberGender);
+
+  document
+    .querySelector("#filter-memberAktiv")
+    .addEventListener("change", filterMemberAktive);
+
   //luk bekræftelses vinduer
   document
     .querySelector("#btn-closeMemberDialog")
@@ -75,8 +83,8 @@ async function runUpdate() {
 function showMembers(list) {
   document.querySelector("#medlemmer").innerHTML = "";
   //document.querySelector("#forms-div").innerHTML = "";
-  for (const medlemmer of list) {
-    displayMember(medlemmer);
+  for (const medlem of list) {
+    displayMember(medlem);
   }
 }
 
@@ -209,17 +217,24 @@ function sortMember(event) {
   console.log(sortCriteria);
   if (sortCriteria === "memberDOB") {
     medlemmer.sort(sortByDateOfBirth);
-  } else if (sortCriteria === "memberNavn") {
+  } else if (sortCriteria === "memberNavnA") {
     medlemmer.sort(sortByName);
   } else if (sortCriteria === "memberAlder") {
     medlemmer.sort(sortByAge);
+  } else if (sortCriteria === "memberNavnÅ") {
+    medlemmer.sort(sortByName2);
   }
   showMembers(medlemmer);
 }
 
 function sortByName(a, b) {
-  console.log("Sorter efter navn");
+  console.log("Sorter efter navn A-Å");
   return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
+}
+
+function sortByName2(a, b) {
+  console.log("Sorter efter navn Å-A");
+  return b.navn.toLowerCase().localeCompare(a.navn.toLowerCase());
 }
 
 function sortByAge(a, b) {
@@ -232,6 +247,53 @@ function sortByDateOfBirth(a, b) {
   const timeA = a.fødselsdato + " " + a.fødselsdatoSekunder;
   const timeB = b.fødselsdato + " " + b.fødselsdatoSekunder;
   return timeA.localeCompare(timeB);
+}
+
+function filterMemberGender(event) {
+  const selected = event.target.value;
+  let gender;
+  if (selected === "kvinde") {
+    gender = medlemmer.filter(checkGenderWoman);
+  } else if (selected === "mand") {
+    gender = medlemmer.filter(checkGenderMan);
+  } else if (selected === "begge") {
+    gender = medlemmer;
+  }
+
+  function checkGenderWoman(selectedMember) {
+    const woman = selectedMember.køn;
+    return woman === "kvinde";
+  }
+  function checkGenderMan(selectedMember) {
+    return selectedMember.køn === "mand";
+  }
+
+  showMembers(gender);
+  console.log(gender);
+}
+
+function filterMemberAktive(event) {
+  const selected = event.target.value;
+  let aktiveOrPassive;
+  if (selected === "aktive") {
+    aktiveOrPassive = medlemmer.filter(checkAktiveTrue);
+  } else if (selected === "passiv") {
+    aktiveOrPassive = medlemmer.filter(checkAktiveFalse);
+  } else if (selected === "begge") {
+    aktiveOrPassive = medlemmer;
+  }
+
+  function checkAktiveTrue(selectedMember) {
+    const aktiv = selectedMember.aktiv;
+    return aktiv === true;
+  }
+
+  function checkAktiveFalse(selectedMember) {
+    const passiv = selectedMember.aktiv;
+    return passiv === false;
+  }
+  showMembers(aktiveOrPassive);
+  console.log(aktiveOrPassive);
 }
 
 export { startIndmelding, runUpdate };

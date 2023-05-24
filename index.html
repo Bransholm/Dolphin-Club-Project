@@ -437,42 +437,41 @@
         <section id="formand-side" class="view-content">
           <h1>Formand</h1>
           <!-- Sort funktioner -->
+          <div>
           <lable for="sort-memberData">Sorter Efter:</lable>
           <select id="sort-memberData" name="sort-memberData">
             <option value="0" selected>Vælg sorterings kriterie</option>
-            <option value="memberDOB">Fødselsdato</option>
-            <option value="memberNavn">Navn</option>
-            <option value="memberAlder">Alder</option>
+            <option value="memberDOB">Ældre til yngre</option>
+            <option value="memberAlder">Yngre til ældre</option>
+            <option value="memberNavnA">Navn A-Å</option>
+            <option value="memberNavnÅ">Navn Å-A</option>
           </select>
-          <!-- Medlemsliste -->
-          <article id="medlemmer"></article>
-           
-          
 
-            <!-- Filter funktioner -->
-            <div id="member-filter-køn">
-              <lable for="filterMemberKøn">Filtrer efter Køn</lable>
-              <select id="filterMemberKøn" name="filterMemberKøn">
+          <lable for="filterMemberGender">Filtrer efter Køn</lable>
+              <select id="filterMemberGender" name="filterMemberGender">
+                <option value="0" selected>Vælg køn</option>
+                <option value="begge">Begge</option>
                 <option value="mand">Mand</option>
                 <option value="kvinde">Kvinde</option>
               </select>
-              <input type="text" id="filters-bar1" />
-            </div>
 
-            <div id="member-filter-aktiv">
-              <lable for="filterMemberAktiv">Filtrer efter Aktiv/Passiv</lable>
-              <select id="filterMemberAktiv" name="filterMemberAktiv">
+          <lable for="filter-memberAktiv">Filtrer efter Aktiv/Passiv</lable>
+              <select id="filter-memberAktiv" name="filter-memberAktiv">
+                <option value="begge">Begge</option>
                 <option value="aktiv">Aktiv</option>
                 <option value="passiv">Passiv</option>
               </select>
-              <input type="text" id="filters-bar2" />
-            </div>
+          </div>
+          <!-- Medlemsliste -->
+
+            <!-- Filter funktioner -->
+
+            <article id="medlemmer"></article>
+
 
           </article>
         </section>
           
-        
-
         <!-- Kassér -->
         <section id="kasser-side" class="view-content">
           <h1>Kassér</h1>
