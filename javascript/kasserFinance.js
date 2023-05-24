@@ -22,29 +22,33 @@ function kasserMemberStatus() {
     for (let medlem of medlemmer) {
   
         const age = calculateAgeDate(medlem);
-        console.log(age);
   
-        if (medlem.aktiv === false && age >= 60) {
+        if (medlem.aktiv === false && age <= 60) {
             passivJuniorSenior++;
-        } else if (medlem.aktiv === false && age < 60) {
+        } else if (medlem.aktiv === false && age > 60) {
             passivPensionist++;
-        } else if (medlem.aktiv === true && age < 60) {
+        } else if (medlem.aktiv === true && age > 60) {
             aktivPensionist++;
-        } else if (medlem.aktiv === true && age > 18) {
+        } else if (medlem.aktiv === true && age < 18) {
             aktivJunior++;
         } else {
             aktivSenior++;
         }
     }
 
+    financeCalculation();
+
     console.log(`passivJuniorSenior ${passivJuniorSenior}`);
     console.log(`passivPensionist ${passivPensionist}`);
     console.log(`aktivJunior ${aktivJunior}`);
     console.log(`aktivSenior ${aktivSenior}`);
     console.log(`aktivPensionist ${aktivPensionist}`);
-    
 }
 
+function financeCalculation() {
+    let indtaegtsPotentialle = aktivPensionist * 5;
+    console.log(`Indtægtspoetentialle: ${indtaegtsPotentialle}`);
+}
 
 
 export { kasserFinance };
