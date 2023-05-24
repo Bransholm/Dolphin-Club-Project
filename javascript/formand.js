@@ -227,17 +227,17 @@ function sortMember() {
 }
 
 function sortByName(a, b) {
-  console.log("Sorter efter navn A-Å");
+  //console.log(sortByName);
   return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
 }
 
 function sortByName2(a, b) {
-  console.log("Sorter efter navn Å-A");
+  //console.log("Sorter efter navn Å-A");
   return b.navn.toLowerCase().localeCompare(a.navn.toLowerCase());
 }
 
 function sortByAge(a, b) {
-  console.log("Sorter efter alder");
+  //console.log("Sorter efter alder");
   return a.age - b.age;
 }
 
