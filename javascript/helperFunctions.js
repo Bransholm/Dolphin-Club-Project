@@ -46,31 +46,41 @@ function filterResultDeciplines(decipline) {
   }
 }
 
+function filterResultTeamSenior() {
+  const members = bridgeMembersList();
+  const performances = bridgePerformanceList();
+  const seniorPerformances = performances.filter(filtering02);
+  function filtering02(performance) {
+    for (let member of members) {
+      if (performance.svømmerID === member.id) {
+        const age = calcutlateAgeTimestamp(member);
+        return age < 18;
+      }
+    }
+  }
+
+  console.log(seniorPerformances);
+  return seniorPerformances;
+}
+
 function filterResultTeamJunior() {
-  const currentDate = new Date();
-  const currentDateSeconds = currentDate.valueOf();
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
   const juniorPerformances = performances.filter(filtering);
-
-  // for (let performance of performances) {
   function filtering(performance) {
     for (let member of members) {
       if (performance.svømmerID === member.id) {
-        // console.log(`${performance.svømmerID} ${member.navn}`);
-        const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
-        // const age = Math.floor(timeSinceBirth / 1000);
-        const age = getAge(member);
+        const age = calculateAgeDate(member);
         return age > 18;
       }
     }
   }
+  console.log(juniorPerformances);
   return juniorPerformances;
 }
 
-function getAge(member) {
+function calculateAgeDate(member) {
   const dob = new Date(member.fødselsdato);
-  // const dob2 = member.fødselsdatoSekunder;
   const today = new Date();
   let age = today.getFullYear() - dob.getFullYear();
   console.log(age);
@@ -80,6 +90,29 @@ function getAge(member) {
     age--;
   }
   return age;
+}
+
+function calcutlateAgeTimestamp(member) {
+  const currentDate = new Date();
+  const currentDateSeconds = currentDate.valueOf();
+  const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
+  const millieSecondsPerYear = 1000 * 60 * 60 * 24 * 365.25;
+  const age = timeSinceBirth / millieSecondsPerYear;
+  return age;
+}
+
+function changeFormat(member) {
+  const x = member.fødselsdatoSekunder;
+  const birthdate = new Date(x);
+  const year = birthdate.getFullYear();
+  const month = birthdate.getMonth() + 1;
+  const day = birthdate.getDate();
+  const hours = birthdate.getHours();
+  const minuttes = birthdate.getMinutes();
+  const seconds = birthdate.getSeconds();
+
+  const result = `${year}-${month}-${day}-${hours}-${minuttes}-${seconds}`;
+  console.log(result);
 }
 
 // MINIMUM VIABLE PRODUCT...
@@ -94,4 +127,9 @@ function getAge(member) {
 // Lav en counter der viser hvad nummer en fyr er - avoid doubbles?
 // Når vi laver et fetch - hav en...
 
-export { sortResultTable, filterResultDeciplines, filterResultTeamJunior };
+export {
+  sortResultTable,
+  filterResultDeciplines,
+  filterResultTeamSenior,
+  filterResultTeamJunior,
+};

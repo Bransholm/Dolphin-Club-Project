@@ -3,6 +3,7 @@ import { updateMemberGrid } from "./getMembers.js";
 import {
   sortResultTable,
   filterResultDeciplines,
+  filterResultTeamSenior,
   filterResultTeamJunior,
 } from "./helperFunctions.js";
 
@@ -56,11 +57,14 @@ async function runFilterResultDeciplines(event) {
 }
 
 function runFilterResultTeamJunior() {
-  filterResultTeamJunior();
+  performanceList = filterResultTeamJunior();
+  createMemberPerfromanceTable(performanceList);
   console.log("sort junior");
 }
 
 function runFilterResultTeamSenior() {
+  performanceList = filterResultTeamSenior();
+  createMemberPerfromanceTable(performanceList);
   console.log("sort senior");
 }
 
