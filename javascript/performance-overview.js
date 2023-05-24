@@ -62,21 +62,18 @@ function createMemberPerfromanceTable(performanceList) {
 
   let keyMember;
   for (const performance of performanceList) {
-    keyMember = "Unkown";
-    // console.log(performance);
     for (const member of membersList) {
-      // console.log(member);
-      if (performance.svømmerID == member.id) {
-        keyMember = member;
-        // console.log("match!");
-      } else {
-        // console.log(`idm ${performance.svømmerID} has no match`);
-      }
-    }
-    performanceCounter++;
-    const individualPerformanceHTML =
-      /*html*/
-      `<tr>
+      if (member.kategori === "elite") {
+        if (performance.svømmerID == member.id) {
+          keyMember = member;
+        } else {
+          continue;
+        }
+
+        performanceCounter++;
+        const individualPerformanceHTML =
+          /*html*/
+          `<tr>
     <td>${performanceCounter}</td>
     <td>${performance.tid}</td>
     <td>${keyMember.efternavn}, ${keyMember.navn}</td>
@@ -86,12 +83,15 @@ function createMemberPerfromanceTable(performanceList) {
     <td>${performance.dato}</td> 
     </tr>`;
 
-    document
-      .querySelector("#resultater")
-      .insertAdjacentHTML("beforeend", individualPerformanceHTML);
+        document
+          .querySelector("#resultater")
+          .insertAdjacentHTML("beforeend", individualPerformanceHTML);
+      } else {
+        continue;
+      }
+    }
   }
 }
-
 //----------- show times ---------------------------------------
 //---- Jeg skal have sort og filter...
 
