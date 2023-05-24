@@ -24,7 +24,7 @@ function sortByFastest(a, b) {
 
 //Dato måler ældre datoer som lavere tal.
 function sortByMostRecent(a, b) {
-  return b.dato - a.dato;
+  return b.datoSekunder - a.datoSekunder;
 }
 
 //Jeg vil filter/loope - hvis decipline.value = true! skal de med.
@@ -50,11 +50,12 @@ function filterResultTeamSenior() {
   const members = bridgeMembersList();
   const performances = bridgePerformanceList();
   const seniorPerformances = performances.filter(filtering02);
+ 
   function filtering02(performance) {
     for (let member of members) {
       if (performance.svømmerID === member.id) {
-        const age = calcutlateAgeTimestamp(member);
-        return age < 18;
+        const age = calculateAgeTimestamp(member);
+        return age >= 18;
       }
     }
   }
@@ -71,7 +72,7 @@ function filterResultTeamJunior() {
     for (let member of members) {
       if (performance.svømmerID === member.id) {
         const age = calculateAgeDate(member);
-        return age > 18;
+        return age < 18;
       }
     }
   }
@@ -92,7 +93,7 @@ function calculateAgeDate(member) {
   return age;
 }
 
-function calcutlateAgeTimestamp(member) {
+function calculateAgeTimestamp(member) {
   const currentDate = new Date();
   const currentDateSeconds = currentDate.valueOf();
   const timeSinceBirth = currentDateSeconds - member.fødselsdatoSekunder;
