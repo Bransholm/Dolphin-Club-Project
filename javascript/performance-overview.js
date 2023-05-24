@@ -2,9 +2,7 @@ import { getMemberPerformances } from "./getPerformances.js";
 import { updateMemberGrid } from "./getMembers.js";
 import {
   sortResultTable,
-  filterResultDeciplines,
-  filterResultTeamSenior,
-  filterResultTeamJunior,
+  combinedResultsFilter,
 } from "./helperFunctions.js";
 
 let membersList;
@@ -31,55 +29,35 @@ function addSortRelatedEvents() {
     .querySelector("#resultat-sortering")
     .addEventListener("change", runSortResultTable);
 
-  // Deciplin filter selector
   document
     .querySelector("#filter-deciplin")
-    .addEventListener("change", runFilterResultDeciplines);
+    .addEventListener("change", runCombinedResultsFilter);
 
-  //Radio Buttons - filter by team
   document
     .querySelector("#junior-hold-radio")
-    .addEventListener("change", runFilterResultTeamJunior);
+    .addEventListener("change", runCombinedResultsFilter);
 
   document
     .querySelector("#senior-hold-radio")
-    .addEventListener("change", runFilterResultTeamSenior);
+    .addEventListener("change", runCombinedResultsFilter);
 
   document
     .querySelector("#begge-hold-radio")
-    .addEventListener("change", refreshMembersList);
+    .addEventListener("change", runCombinedResultsFilter);
+}
+
+async function runCombinedResultsFilter(event) {
+  await showMemberPerformances();
+  performanceList = combinedResultsFilter();
+  console.log(performanceList);
+  createMemberPerfromanceTable(performanceList);
 }
 
 function runSortResultTable(event) {
   performanceList = sortResultTable(event.target.value);
   createMemberPerfromanceTable(performanceList);
 }
-async function runFilterResultDeciplines(event) {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultDeciplines(event.target.value);
-  createMemberPerfromanceTable(performanceList);
-}
 
-async function runFilterResultTeamJunior() {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultTeamJunior();
-  createMemberPerfromanceTable(performanceList);
-  console.log("sort junior");
-}
-
-async function runFilterResultTeamSenior() {
-  //Refresh
-  await showMemberPerformances();
-  performanceList = filterResultTeamSenior();
-  createMemberPerfromanceTable(performanceList);
-  console.log("sort senior");
-}
-
-function refreshMembersList() {
-  createMemberPerfromanceTable(performanceList);
-}
 
 function createMemberPerfromanceTable(performanceList) {
   document.querySelector("#resultater").textContent = "";
