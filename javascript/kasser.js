@@ -45,12 +45,20 @@ function showMemberPaidStatus(medlemmerListe) {
             Køn: ${medlem.køn} <br />
             Fødselsdag: ${medlem.fødselsdato} <br />
             Kategori: ${medlem.kategori} <br />
-            Betalt: ${medlem.betalt}
+            Betalt: ${checkTrue(medlem.betalt)}
             </div>
 
             `;
         document.querySelector(".show-kasser").insertAdjacentHTML("beforeend", medlemHTML);
     }
 }
+
+    function checkTrue(paid) {
+      if (paid === true) {
+        return "Ja";
+      } else {
+        return "Nej";
+      }
+    }
 
 export { kasser }
