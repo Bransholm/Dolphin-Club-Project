@@ -87,42 +87,33 @@ function showMembers(list) {
   //     .addEventListener("change", filterMemberAktive);
 }
 
-//
+//HEJ KENNETH
 function displayMember(memberObject) {
   const html =
     /*html*/
     `
-    <section class="grid-item">
-        <h2>Stamdata</h2>
-        <h3>${memberObject.navn} ${memberObject.efternavn}</h3>
-        <p>${memberObject.id}</p>
-        <article class = "list-item">
-            <ul>
-                <li>Adresse: ${memberObject.adresse} ${memberObject.postnummer}</li>
-                <li>Fødselsdato: ${memberObject.fødselsdato}</li>
-                <li>Tlf-Nr: ${memberObject.tlf}</li>
-                <li>Email: ${memberObject.email}</li>
-                <li>Køn: ${memberObject.køn}</li>
-                <li>Aktiv medlem: ${memberObject.aktiv}</li>
-                <li>Kategori: ${memberObject.kategori}</li>
-                <li>Betalt: ${memberObject.betalt}</li>
-            </ul>
-            <p>Din alder:</p>
-            <p>${memberObject.age}</p>
-            <h3>Svømmerens discipliner:</h3>
-             <ul>
-                <li>Crawl: ${memberObject.crawl}</li>
-                <li>Rygcrawl: ${memberObject.rygcrawl}</li>
-                <li>Bryst: ${memberObject.bryst}</li>
-                <li>Butterfly: ${memberObject.butterfly}</li>
-            </ul>
-        <div class="btns">
+      <section class = "formand-grid-user">
+        <h4>${memberObject.navn} ${memberObject.efternavn}</h4>
+          Adresse: ${memberObject.adresse}<br />
+          Postnummer${memberObject.postnummer}<br />
+          Fødselsdato: ${memberObject.fødselsdato}<br />
+          Tlf-Nr: ${memberObject.tlf}<br />
+          Email: ${memberObject.email}<br />
+          Køn: ${memberObject.køn}<br />
+          Aktiv medlem: ${memberObject.aktiv}<br />
+          Kategori: ${memberObject.kategori}<br />
+          Betalt: ${memberObject.betalt}<br />
+          Alder: ${memberObject.age}<br />
+          Svømmerens discipliner<br />
+          Crawl: ${memberObject.crawl}<br />
+          Rygcrawl: ${memberObject.rygcrawl}<br />
+          Bryst: ${memberObject.bryst}<br />
+          Butterfly: ${memberObject.butterfly}<br />
+          <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
             <button class="btn-update other-btn">Rediger</button>
         </div>
-
-        </article>
-    </section>
+      </section>
     `;
 
   document.querySelector("#medlemmer").insertAdjacentHTML("beforeend", html);

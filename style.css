@@ -300,6 +300,20 @@ button:hover {
   border-radius: 10px;
 }
 
+.formand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-gap: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.formand-grid-user {
+  background-color: #5bd1ab;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 .dialog-window {
   color: white;
   background-image: radial-gradient(circle, #5d0067 0%, #00d5ff 100%);
@@ -343,6 +357,17 @@ input:invalid:required {
   align-content: center;
 }
 
+/* .formand-grid-form {*/
+/* .formand-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.formand-grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+} */
 
 /* .nav-bar {
   background-color: rgba(0, 118, 139, 0.397); } */

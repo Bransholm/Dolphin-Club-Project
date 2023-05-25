@@ -176,6 +176,8 @@ function showNewMember() {
 
 function closeMemberSuccessWindow() {
   document.querySelector("#successfull-createMember").close();
+  document.querySelector("#indmeling-side").classList.remove("active");
+  document.querySelector("#velkommen-side").classList.add("active");
 }
 
 export {
