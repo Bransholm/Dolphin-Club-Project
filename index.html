@@ -272,9 +272,9 @@
                 <label for="butterfly">Butterfly</label><br />
 
                 <button type="submit" id="createButton">
-                  Opret Nyt Medlem
+                  Indmeld
                 </button>
-                <button type="button" id="resetButton">Start Forfra</button>
+                <button type="button" id="resetButton">Reset</button>
               </form>
             </article>
           </div>
@@ -320,7 +320,7 @@
             Som passivt medlem kan du bruge svømmebadet hele året rundt i
             svømmebadets åbningstid. Du er en del af klubben og har adgang til
             alle vores faciliteter samt klubarrangementer imens du ikke er en
-            aktiv del af vores træningshold.
+            aktiv del af vores træningshold.<br />Er du over 60 år, så koster dette medlemsskab kun 375 kr.
           </p>
         </section>
 
@@ -475,12 +475,16 @@
         <!-- Kassér -->
         <section id="kasser-side" class="view-content">
           <h1>Kassér</h1>
-          <label for="filter-betaling">Filter:</label>
+          <div class="show-finance"></div>
+          <h3 class="kasser-medlemsoversigt-overskrift">Medlemsoversigt</h3>
+          <div class="kasser-filter">
+          <label for="filter-betaling">Vis kun:</label>
           <select name="filter-betaling" id="filter-betaling">
             <option value="alle-betalinger">Alle</option>
-            <option value="betalt">Betalt</option>
-            <option value="ubetalt">EJbetalt</option>
+            <option value="betalt">Indbetalt</option>
+            <option value="ubetalt">Restance</option>
           </select>
+          </div>
           <div class="show-kasser"></div>
         </section>
 
@@ -548,7 +552,7 @@
             />
           </div>
 
-          <dialog id="nyt-resultat-dialog">
+          <dialog id="nyt-resultat-dialog" class="dialog-window">
             <h2>Nyt resultat er oprettet</h2>
             <h3 id="resultates-svommer"></h3>
             <p id="resultates-tid"></p>
@@ -566,7 +570,7 @@
     </div>
 
     <dialog id="dialog-delete-member" class="dialog-window">
-      <h2>Vil du gerne slette dette medlem?</h2>
+      <h2>Vil du slette dette medlem?</h2>
       <p id="member-id">Medlemmets ID:</p>
       <p id="member-name">Medlemmets navn:</p>
       <p id="member-lastname">Medlemmets efternavn:</p>
@@ -579,7 +583,7 @@
       </form>
     </dialog>
 
-    <dialog id="dialog-update-member">
+    <dialog id="dialog-update-member" class="dialog-window">
       <article>
         <form method="dialog" id="form-update-member">
           <label for="name">Fornavn</label>
@@ -719,18 +723,18 @@
       </article>
     </dialog>
 
-    <dialog id="successfull-createMember" class="dialoge-window">
+    <dialog id="successfull-createMember" class="dialoge-window dialog-window">
       <h2>Du er nu oprettet som bruger!</h2>
       <p>
-        Du kan nu bruge svømmeklubbens facalitet<br />
+        Du kan nu bruge svømmeklubbens faciliteter<br />
         Husk at få tjekket vores åbningstider
         <br /><br />
-        Vi glæder os til at se dig!
+        Vi glæder os til at se dig i klubben!
       </p>
       <button id="btn-closeMemberDialog" class="other-btn">Luk vindue</button>
     </dialog>
 
-    <dialog id="#response-error" class="dialoge-window">
+    <dialog id="#response-error" class="dialoge-window dialog-window">
       <p>
         Hmmmm... Det ser ud til at der gik noget galt, og din medlems oprettelse
         gik ikke igennem
@@ -738,13 +742,13 @@
       <button id="btn-closeErrorDialog" class="other-btn">Luk vindue</button>
     </dialog>
 
-    <dialog id="successfull-updateMember" class="dialoge-window">
+    <dialog id="successfull-updateMember" class="dialoge-window dialog-window">
       <h2>Et medlemskab er blevet opdateret</h2>
       <button id="btn-closeUpdateDialog" class="other-btn">Luk vindue</button>
     </dialog>
 
-    <dialog id="successfull-deleteMember" class="dialoge-window">
-      <h2>Et medlem er blevet slettet fra databasen</h2>
+    <dialog id="successfull-deleteMember" class="dialoge-window dialog-window">
+      <h2>Medlemet er nu slettet</h2>
       <button id="btn-closeDeleteDialog" class="other-btn">Luk vindue</button>
     </dialog>
 

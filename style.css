@@ -5,6 +5,26 @@ body {
   height: 100%;
 }
 
+button {
+  color: white;
+  background-color: #b08802;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+button:hover {
+  background: #b08802;
+  transition: background 1.5s;
+  font-weight: bold;
+}
+
 .page-view-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -243,17 +263,51 @@ body {
   color: #5d0067a1;
 }
 
+.show-finance {
+  background-color: #5d0067a1;
+  width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.kasser-finansoversigt-overskrift {
+  margin: 0px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.kasser-medlemsoversigt-overskrift {
+  padding-top: 15px;
+}
+
+.kasser-filter {
+  padding-top: 0px;
+}
+
 .show-kasser {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
   padding: 20px;
+  margin-bottom: 10px;
 }
 
 .show-kasser-user {
   background-color: #b08802;
   padding: 15px;
   border-radius: 10px;
+}
+
+.dialog-window {
+  color: white;
+  background-image: radial-gradient(circle, #5d0067 0%, #00d5ff 100%);
+  border-radius: 10px;
+  border: 2px;
+  border-color: #b08802;
+  border-style: solid;
+  font-weight: bold;
 }
 
 .view-content {
@@ -274,13 +328,3 @@ input:invalid:required {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-
-
-/* .nav-bar {
-  background-color: rgba(0, 118, 139, 0.397); } */
-
-  /* button color     background-color: rgb(0, 118, 139); */
-
-
-  /* main bgcolor rgba(0, 119, 140, 0.667) */
