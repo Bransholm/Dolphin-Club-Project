@@ -87,39 +87,33 @@ function showMembers(list) {
   //     .addEventListener("change", filterMemberAktive);
 }
 
-//
+//HEJ KENNETH
 function displayMember(memberObject) {
   const html =
     /*html*/
     `
-    <div class = "formand-grid-container"></div>
-      <section>
+      <section class = "formand-grid-user">
         <h4>${memberObject.navn} ${memberObject.efternavn}</h4>
-        <article class = "formand-grid-item">
-          <div>Adresse: ${memberObject.adresse}</div>
-          <div>Postnummer${memberObject.postnummer}</div>
-          <div>Fødselsdato: ${memberObject.fødselsdato}</div>
-          <div>Tlf-Nr: ${memberObject.tlf}</div>
-          <div>Email: ${memberObject.email}</div>
-          <div>Køn: ${memberObject.køn}</div>
-          <div>Aktiv medlem: ${memberObject.aktiv}</div>
-          <div>Kategori: ${memberObject.kategori}</div>
-          <div>Betalt: ${memberObject.betalt}</div>
-          <div>Alder: ${memberObject.age}</p></div>
-        <article class = "formand-grid-item">
-        <div>Svømmerens discipliner</div>
-        <div>Crawl: ${memberObject.crawl}</div>
-        <div>Rygcrawl: ${memberObject.rygcrawl}</div>
-        <div>Bryst: ${memberObject.bryst}</div>
-        <div>Butterfly: ${memberObject.butterfly}</div>
-        <div class="btns">
+          Adresse: ${memberObject.adresse}<br />
+          Postnummer${memberObject.postnummer}<br />
+          Fødselsdato: ${memberObject.fødselsdato}<br />
+          Tlf-Nr: ${memberObject.tlf}<br />
+          Email: ${memberObject.email}<br />
+          Køn: ${memberObject.køn}<br />
+          Aktiv medlem: ${memberObject.aktiv}<br />
+          Kategori: ${memberObject.kategori}<br />
+          Betalt: ${memberObject.betalt}<br />
+          Alder: ${memberObject.age}<br />
+          Svømmerens discipliner<br />
+          Crawl: ${memberObject.crawl}<br />
+          Rygcrawl: ${memberObject.rygcrawl}<br />
+          Bryst: ${memberObject.bryst}<br />
+          Butterfly: ${memberObject.butterfly}<br />
+          <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
             <button class="btn-update other-btn">Rediger</button>
         </div>
-        </article>
-        </article>
-    </section>
-    </div>
+      </section>
     `;
 
   document.querySelector("#medlemmer").insertAdjacentHTML("beforeend", html);
