@@ -92,11 +92,10 @@ function displayMember(memberObject) {
   const html =
     /*html*/
     `
-    <section class="grid-item">
-        <h3>${memberObject.navn} ${memberObject.efternavn}</h3>
-        <p>${memberObject.id}</p>
-        <article class = "list-item">
-          
+    <div class = "formand-grid-container"></div>
+      <section>
+        <h4>${memberObject.navn} ${memberObject.efternavn}</h4>
+        <article class = "formand-grid-item">
           <div>Adresse: ${memberObject.adresse}</div>
           <div>Postnummer${memberObject.postnummer}</div>
           <div>Fødselsdato: ${memberObject.fødselsdato}</div>
@@ -107,21 +106,20 @@ function displayMember(memberObject) {
           <div>Kategori: ${memberObject.kategori}</div>
           <div>Betalt: ${memberObject.betalt}</div>
           <div>Alder: ${memberObject.age}</p></div>
-
-        </article>
-        <article>
-        <h3>Svømmerens discipliner:</h3>   
-          Crawl: ${memberObject.crawl}
-          Rygcrawl: ${memberObject.rygcrawl}
-          Bryst: ${memberObject.bryst}
-          Butterfly: ${memberObject.butterfly}
-            </ul>
+        <article class = "formand-grid-item">
+        <div>Svømmerens discipliner</div>
+        <div>Crawl: ${memberObject.crawl}</div>
+        <div>Rygcrawl: ${memberObject.rygcrawl}</div>
+        <div>Bryst: ${memberObject.bryst}</div>
+        <div>Butterfly: ${memberObject.butterfly}</div>
         <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
             <button class="btn-update other-btn">Rediger</button>
         </div>
         </article>
+        </article>
     </section>
+    </div>
     `;
 
   document.querySelector("#medlemmer").insertAdjacentHTML("beforeend", html);

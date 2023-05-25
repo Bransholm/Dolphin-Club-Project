@@ -343,6 +343,17 @@ input:invalid:required {
   align-content: center;
 }
 
+/* .formand-grid-form {*/
+/* .formand-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.formand-grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+} */
 
 /* .nav-bar {
   background-color: rgba(0, 118, 139, 0.397); } */
