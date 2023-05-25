@@ -67,25 +67,33 @@ function kasserMemberStatus() {
 }
 
 function financeCalculation() {
-    let indtaegtsPotentialle = aktivPensionistPaid * 5;
+    let indtaegtsPotentialle = (passivJuniorSeniorPaid * 500) + (passivJuniorSeniorUnpaid * 500) + (passivPensionistPaid * 375) + (passivPensionistUnpaid * 375) + (aktivJuniorPaid * 1000) + (aktivJuniorUnpaid * 1000) + (aktivSeniorPaid * 1600) + (aktivSeniorUnpaid * 1600) + (aktivPensionistPaid * 1200) + (aktivPensionistUnpaid * 1200);
+    let indtaegtPaid = (passivJuniorSeniorPaid * 500) + (passivPensionistPaid * 375) + (aktivJuniorPaid * 1000) + (aktivSeniorPaid * 1600) + (aktivPensionistPaid * 1200);
+    let indtaegtUnpaid = (passivJuniorSeniorUnpaid * 500) + (passivPensionistUnpaid * 375) + (aktivJuniorUnpaid * 1000) + (aktivSeniorUnpaid * 1600) + (aktivPensionistUnpaid * 1200);
+    const indtaegtsPotentialleformatted = indtaegtsPotentialle.toLocaleString("da-DK");
+    const indtaegtPaidformatted = indtaegtPaid.toLocaleString("da-DK");
+    const indtaegtUnpaidformatted = indtaegtUnpaid.toLocaleString("da-DK");
+
     console.log(`Indtægtspoetentialle: ${indtaegtsPotentialle}`);
+    console.log(`Indtægter betalt: ${indtaegtPaid}`);
+    console.log(`Indtægter restance: ${indtaegtUnpaid}`);
+    const financeHtml =
+      //HTML
+
+      `
+        
+        <h3 class="kasser-finansoversigt-overskrift">Finansoversigt</h3>
+        Indtægtspotentiale: ${indtaegtsPotentialleformatted},- kr.<br />
+        Indbetalt: ${indtaegtPaidformatted},- kr.<br />
+        Restance: ${indtaegtUnpaidformatted},- kr.
+        
+        `;
+    document.querySelector(".show-finance").insertAdjacentHTML("beforeend", financeHtml)
+        
+
+
+
 }
 
 
 export { kasserFinance };
-
-// Passiv
-// - &0 eller yngre
-// - Over 60
-
-// Aktiv
-// - Under 18
-// - Over 18
-// - Over 60
-
-// Indtjeningspotentiale
-// Imdbetalt
-// Udestående
-
-// Alder
-// Counte brugertyper

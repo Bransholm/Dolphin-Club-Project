@@ -46,7 +46,6 @@ function showMemberPaidStatus(medlemmerListe) {
             Fødselsdag: ${medlem.fødselsdato} <br />
             Kategori: ${medlem.kategori} <br />
             Betalt: ${medlem.betalt}
-            Betalt: ${medlem.betalt}
             </div>
 
             `;
