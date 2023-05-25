@@ -93,34 +93,33 @@ function displayMember(memberObject) {
     /*html*/
     `
     <section class="grid-item">
-        <h2>Stamdata</h2>
         <h3>${memberObject.navn} ${memberObject.efternavn}</h3>
         <p>${memberObject.id}</p>
         <article class = "list-item">
-            <ul>
-                <li>Adresse: ${memberObject.adresse} ${memberObject.postnummer}</li>
-                <li>Fødselsdato: ${memberObject.fødselsdato}</li>
-                <li>Tlf-Nr: ${memberObject.tlf}</li>
-                <li>Email: ${memberObject.email}</li>
-                <li>Køn: ${memberObject.køn}</li>
-                <li>Aktiv medlem: ${memberObject.aktiv}</li>
-                <li>Kategori: ${memberObject.kategori}</li>
-                <li>Betalt: ${memberObject.betalt}</li>
-            </ul>
-            <p>Din alder:</p>
-            <p>${memberObject.age}</p>
-            <h3>Svømmerens discipliner:</h3>
-             <ul>
-                <li>Crawl: ${memberObject.crawl}</li>
-                <li>Rygcrawl: ${memberObject.rygcrawl}</li>
-                <li>Bryst: ${memberObject.bryst}</li>
-                <li>Butterfly: ${memberObject.butterfly}</li>
+          
+          <div>Adresse: ${memberObject.adresse}</div>
+          <div>Postnummer${memberObject.postnummer}</div>
+          <div>Fødselsdato: ${memberObject.fødselsdato}</div>
+          <div>Tlf-Nr: ${memberObject.tlf}</div>
+          <div>Email: ${memberObject.email}</div>
+          <div>Køn: ${memberObject.køn}</div>
+          <div>Aktiv medlem: ${memberObject.aktiv}</div>
+          <div>Kategori: ${memberObject.kategori}</div>
+          <div>Betalt: ${memberObject.betalt}</div>
+          <div>Alder: ${memberObject.age}</p></div>
+
+        </article>
+        <article>
+        <h3>Svømmerens discipliner:</h3>   
+          Crawl: ${memberObject.crawl}
+          Rygcrawl: ${memberObject.rygcrawl}
+          Bryst: ${memberObject.bryst}
+          Butterfly: ${memberObject.butterfly}
             </ul>
         <div class="btns">
             <button class="btn-delete other-btn">Slet</button>
             <button class="btn-update other-btn">Rediger</button>
         </div>
-
         </article>
     </section>
     `;
