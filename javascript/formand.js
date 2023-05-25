@@ -17,7 +17,7 @@ import {
 const endpoint =
   "https://delfin-semesterproj-default-rtdb.europe-west1.firebasedatabase.app";
 
-let medlemmer;
+let medlemmer = [];
 
 //window.addEventListener("load", start);
 
@@ -74,9 +74,9 @@ function showMembers(list) {
   for (const medlem of list) {
     displayMember(medlem);
   }
-  document
-    .querySelector("#sort-memberData")
-    .addEventListener("change", sortMember);
+  // document
+  //   .querySelector("#sort-memberData")
+  //   .addEventListener("change", sortMember);
 
   //   document
   //     .querySelector("#filterMemberGender")
@@ -211,33 +211,33 @@ function closeErrorWindow() {
   document.querySelector("#response-error").close();
 }
 
-function sortMember(event) {
-  const sortCriteria = event.target.value;
-  console.log(sortCriteria);
+function sortMember() {
+  const sortCriteria = document.querySelector("#sortMemberData").value;
+  let sortedMembers = medlemmer;
   if (sortCriteria === "memberDOB") {
-    medlemmer.sort(sortByDateOfBirth);
+    sortedMembers = sortedMembers.sort(sortByDateOfBirth);
   } else if (sortCriteria === "memberNavnA") {
-    medlemmer.sort(sortByName);
+    sortedMembers = sortedMembers.sort(sortByName);
   } else if (sortCriteria === "memberAlder") {
-    medlemmer.sort(sortByAge);
+    sortedMembers = sortedMembers.sort(sortByAge);
   } else if (sortCriteria === "memberNavnÅ") {
-    medlemmer.sort(sortByName2);
+    sortedMembers = sortedMembers.sort(sortByName2);
   }
-  showMembers(medlemmer);
+  showMembers(sortedMembers);
 }
 
 function sortByName(a, b) {
-  console.log("Sorter efter navn A-Å");
+  //console.log(sortByName);
   return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
 }
 
 function sortByName2(a, b) {
-  console.log("Sorter efter navn Å-A");
+  //console.log("Sorter efter navn Å-A");
   return b.navn.toLowerCase().localeCompare(a.navn.toLowerCase());
 }
 
 function sortByAge(a, b) {
-  console.log("Sorter efter alder");
+  //console.log("Sorter efter alder");
   return a.age - b.age;
 }
 
@@ -316,14 +316,18 @@ function filterMembers() {
   } else if (selectedAktive === "passiv") {
     filteredMembers = filteredMembers.filter((member) => !member.aktiv);
   }
-
   showMembers(filteredMembers);
   console.log(filteredMembers);
+
+  // medlemmer = filterMembers;
+  // showMembers(medlemmer);
 }
 
+const memberSortElement = document.querySelector("#sortMemberData");
 const genderFilterElement = document.querySelector("#filterMemberGender");
 const aktiveFilterElement = document.querySelector("#filterMemberAktiv");
 
+memberSortElement.addEventListener("change", sortMember);
 genderFilterElement.addEventListener("change", filterMembers);
 aktiveFilterElement.addEventListener("change", filterMembers);
 
