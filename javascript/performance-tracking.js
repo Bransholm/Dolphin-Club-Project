@@ -12,8 +12,6 @@ let viewResultForm = false;
 function showPerformanceForm() {
   console.log("preformance form is active");
 
-  //Funktion som skaber forms via DOM.
-  visualizePreformanceDialog();
   addInputFunctionalities();
   // Datalisten skal kunne give ID som value. Det ved jeg ikke hvordan jeg får på stående fod.
   memberDatalistGetData();
@@ -57,120 +55,6 @@ function toggleShowResultForm() {
 
     viewResultForm = true;
   }
-}
-
-// Jeg vil gerne have en data-list så man kan vælge stævner eller tilføje et...
-//spørg maskinen...
-function visualizePreformanceDialog() {
-  const dialogHTML =
-    /*html*/
-    `
-  <form id="time-result-form" class="result-form view-content">
-
-  <legend>Svømmetid</legend>
-     <div class="result-form-element">
-
-  <label for="svomme_decilpin">Deciplin</label>
-  <select id="svomme_decilpin" name="svomme_decilpin">
-  <option value="crawl" selected>Crawl</option>
-  <option value="butterfly">Butterfly</option>
-  <option value="bryst">Brystsvømning</option>
-  <option value="rygcrawl">Rygcrawl</option>
-  </select>
-
-  <label for="svomme_id">SvømmerID</label>
-  <input type="text" id="svomme_id" name="svomme_id" list="medlems-liste" required placeholder="angiv korrekt id"> 
- 
- <datalist id=medlems-liste>
- </datalist>
- 
- </div> 
- <legen>Resultat</legen>
-  <div class="result-form-element">
-
-  <label for="resultat_min">Minutter</label>
-  <input type="text" id="resultat_min" name="resultat_min" pattern="[0-9]{2}"  placeholder="MM" required>
-  <label for ="resultat_sek">Sekunder</label>
-<input type="text" id="resultat_sek" name="resultat_sek" pattern="[0-9]{2}" placeholder="SS" required>
-<lable for="resultat_hsek">Hundredele Sekunder</lable>
-<input type="text" id="resultat_hsek" name="resultat_hsek" pattern="[0-9]{2}" placeholder="HH" require> 
-</div>
-
-
-  <legend>Dato</legend>
- <div class="result-form-element">
-  <label for="resultat_aar">År</label>
-  <input type="text" id="resultat_aar" name="resultat_aar" pattern="[0-9]{4}" placeholder="ÅÅÅÅ" required >
-  
-  <label for="resultat_maaned" >Måned</label>
-  <select id="resultat_maaned" name="resultat_maaned">
-  <option value="01">Januar</option>
-  <option value="02">Februar</option>
-  <option value="03">Marts</option>
-  <option value="04">April</option>
-  <option value="05">Maj</option>
-  <option value="06">Juni</option>
-  <option value="07">Juli</option>
-  <option value="08">August</option>
-  <option value="09">Oktober</option>
-  <option value="10">September</option>
-  <option value="11">November</option>
-  <option value="12">December</option>
-</select>
-
- <lable for="resultat_dag">dag</lable>
- <select id="resultat_dag" name="resultat_dag">
- <option value="01">01</option>
- <option value="02">02</option>
- <option value="03">03</option>
- <option value="04">04</option>
- <option value="05">05</option>
- <option value="06">06</option>
- <option value="07">07</option>
- <option value="08">08</option>
- <option value="09">09</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
- <option value="12">12</option>
- <option value="13">13</option>
- <option value="14">14</option>
- <option value="15">15</option>
- <option value="16">16</option>
- <option value="17">17</option>
- <option value="18">18</option>
- <option value="19">19</option>
- <option value="20">20</option>
-  <option value="21">21</option>
- <option value="22">22</option>
- <option value="23">23</option>
- <option value="24">24</option>
- <option value="25">25</option>
- <option value="26">26</option>
- <option value="27">27</option>
- <option value="28">28</option>
- <option id="skudaar" value="29">29</option>
- <option id="kortMaaned" value="30">30</option>
- <option id="langMaaned" value="31">31</option>
- </select>
-</div>
-
-
-  <legend>Stævne</legend>
-    <div class="result-form-element">
-  <label for="staevne_navn">Stævnets Navn</label>
-  <input type="text" id="staevne_navn" name="staevne_navn" placeholder="stævnetsNavn-årstal">
-  <label for="staevne_resultat">Pladsering</label>
-  <input type="text" id="staevne_resultat" name="staevne_resultat" placeholder="No.">
-</div>
-
-  <button type="submit" id="btn-submit-result-time">opret</button>
-  </form>
-  `;
-
-  //Hvor prestation formen vises
-  document
-    .querySelector("#nyt-resultat")
-    .insertAdjacentHTML("beforeend", dialogHTML);
 }
 
 //------------ Validering af forms--------------
